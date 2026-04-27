@@ -4,7 +4,7 @@ import { createBaseConfig } from "@config/vite";
 import { defineConfig, mergeConfig } from "vite";
 
 const require = createRequire(import.meta.url);
-const webAppSrc = path.resolve(path.dirname(require.resolve("@app/web/package.json")), "src");
+const webAppSrc = path.resolve(path.dirname(require.resolve("@app/editor/package.json")), "src");
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {

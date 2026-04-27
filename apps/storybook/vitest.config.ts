@@ -7,7 +7,7 @@ import { playwright } from "@vitest/browser-playwright";
 import { defineConfig } from "vitest/config";
 
 const require = createRequire(import.meta.url);
-const webAppSrc = path.resolve(path.dirname(require.resolve("@app/web/package.json")), "src");
+const webAppSrc = path.resolve(path.dirname(require.resolve("@app/editor/package.json")), "src");
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({

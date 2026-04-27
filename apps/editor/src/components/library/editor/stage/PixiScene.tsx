@@ -45,6 +45,7 @@ export function PixiScene(): null {
     const container = new Container();
     viewport.addChild(container);
 
+    viewport.filterContainer = container;
     app.stage.addChild(viewport);
     viewportRef.current = viewport;
     filterContainerRef.current = container;
@@ -65,6 +66,7 @@ export function PixiScene(): null {
     });
 
     return () => {
+      viewport.filterContainer = null;
       viewport.removeAllListeners();
       viewport.patchEvents();
       viewport.destroy({ children: true });
@@ -75,19 +77,26 @@ export function PixiScene(): null {
     };
   }, [isInitialised, imageUrl, imageWidth, imageHeight]);
 
-  // Update Pixi filters whenever filter values change
+  // Update Pixi filters whenever filter values or zoom changes.
+  // Blur and pixelate are scaled by zoom so they appear zoom-independent
+  // (i.e. a pixelate value of 10 always means 10 image pixels, not 10 screen pixels).
   useEffect(() => {
     const container = filterContainerRef.current;
-    if (!container) return;
+    const viewport = viewportRef.current;
+    if (!container || !viewport) return;
 
-    const blurFilter = new BlurFilter({ strength: blur });
+    const filterScale = zoom / ZOOM_BASE;
+
+    viewport.rawFilterParams = { blur, brightness, contrast, saturation, pixelate, red, green, blue };
+
+    const blurFilter = new BlurFilter({ strength: blur * filterScale });
     const adjustFilter = new AdjustmentFilter({ brightness, contrast, saturation, red, green, blue });
     const activeFilters: Filter[] = [blurFilter, adjustFilter];
     if (pixelate > 0) {
-      activeFilters.push(new PixelateFilter(pixelate));
+      activeFilters.push(new PixelateFilter(pixelate * filterScale));
     }
     container.filters = activeFilters;
-  }, [blur, brightness, contrast, saturation, pixelate, red, green, blue]);
+  }, [blur, brightness, contrast, saturation, pixelate, red, green, blue, zoom]);
 
   // Update sprite scale and rotation
   useEffect(() => {
