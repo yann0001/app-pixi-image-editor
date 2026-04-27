@@ -7,7 +7,7 @@ import { VitePWA } from "vite-plugin-pwa";
 export default defineConfig(({ command }) => {
   const config = mergeConfigs([
     createBaseConfig(),
-    createReactConfig({ enableReactCompiler: false }),
+    createReactConfig({ enableReactCompiler: command === "build" }),
     {
       plugins: [
         VitePWA({

@@ -1,12 +1,12 @@
 import { atom } from "jotai";
-import type { IPointData } from "pixi.js";
+import type { PointData } from "pixi.js";
 
-export const scaleAtom = atom<IPointData>({ x: 1, y: 1 });
+export const scaleAtom = atom<PointData>({ x: 1, y: 1 });
 
 // Derived atoms
 export const scaleControlAtom = atom(
   null,
-  (_get, set, scale: "flip-horizontal" | "flip-vertical" | "reset" | IPointData) => {
+  (_get, set, scale: "flip-horizontal" | "flip-vertical" | "reset" | PointData) => {
     switch (scale) {
       case "flip-horizontal":
         set(scaleAtom, (prev) => {

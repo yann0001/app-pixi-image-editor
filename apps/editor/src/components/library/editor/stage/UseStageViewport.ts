@@ -1,5 +1,5 @@
 import { useAtomValue, useSetAtom } from "jotai";
-import type { IApplicationOptions, IPointData } from "pixi.js";
+import type { ApplicationOptions, PointData } from "pixi.js";
 import { stageOptionsAtom } from "../atoms/StageOptionsAtoms";
 import { isRotatedAtom, rotationAtom } from "../atoms/transform/RotationAtoms";
 import { scaleAtom } from "../atoms/transform/ScaleAtoms";
@@ -7,9 +7,9 @@ import { lockAtom } from "../atoms/viewport/LockAtoms";
 import { maxZoomAtom, minZoomAtom, zoomAtom, zoomControlAtom } from "../atoms/viewport/ZoomAtoms";
 
 export function useStageViewport(): {
-  stageOptions: Partial<IApplicationOptions>;
+  stageOptions: Partial<ApplicationOptions>;
   lock: boolean;
-  scale: IPointData;
+  scale: PointData;
   rotation: number;
   isRotated: boolean;
   zoom: number;

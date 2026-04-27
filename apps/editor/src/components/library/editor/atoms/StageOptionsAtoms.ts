@@ -1,7 +1,7 @@
 import { atom } from "jotai";
-import type { IApplicationOptions } from "pixi.js";
+import type { ApplicationOptions } from "pixi.js";
 
-export const stageOptionsAtom = atom<Partial<IApplicationOptions>>({
+export const stageOptionsAtom = atom<Partial<ApplicationOptions>>({
   background: 0xffffff,
   backgroundAlpha: 0,
 });
