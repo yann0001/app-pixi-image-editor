@@ -1,0 +1,35 @@
+/* Font */
+@import "@fontsource/rubik";
+@import "@fontsource/rubik/300.css";
+@import "@fontsource/rubik/400.css";
+@import "@fontsource/rubik/500.css";
+@import "@fontsource/rubik/600.css";
+@import "@fontsource/rubik/700.css";
+@import "@fontsource/rubik/800.css";
+@import "@fontsource/rubik/900.css";
+
+/* Tailwind base */
+@import "tailwindcss";
+
+/* Class-based dark mode — matches when an ancestor has class="dark" */
+@variant dark (&:where(.dark, .dark *));
+
+/* DaisyUI plugin — only light + dark themes */
+@plugin "daisyui" {
+  themes: light, dark;
+}
+
+/* Typography plugin */
+@plugin "@tailwindcss/typography";
+
+/* Tailwind sources */
+@source "./**/**.{js,ts,jsx,tsx}";
+
+/* Rubik as default sans font */
+@theme {
+  --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
