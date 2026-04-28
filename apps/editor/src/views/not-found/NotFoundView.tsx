@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { BasicLayout } from "~/components/layout/BasicLayout";
+import { FullscreenLayout } from "@package/ui";
 
 export interface NotFoundViewProps {
   onBack(): void;
@@ -7,7 +7,7 @@ export interface NotFoundViewProps {
 
 export function NotFoundView({ onBack }: NotFoundViewProps): ReactElement {
   return (
-    <BasicLayout container>
+    <FullscreenLayout container>
       <div className="flex flex-col items-center gap-4">
         <article className="prose lg:prose-xl max-w-64 p-4 text-pretty lg:max-w-full">
           <strong>{"Could not find the page you were looking for! 🕵️"}</strong>
@@ -16,6 +16,6 @@ export function NotFoundView({ onBack }: NotFoundViewProps): ReactElement {
           Start over 🦖
         </button>
       </div>
-    </BasicLayout>
+    </FullscreenLayout>
   );
 }

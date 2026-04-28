@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { BasicLayout } from "~/components/layout/BasicLayout";
+import { FullscreenLayout } from "@package/ui";
 
 export interface ErrorViewProps {
   message?: string;
@@ -8,7 +8,7 @@ export interface ErrorViewProps {
 
 export function ErrorView({ message, onBack }: ErrorViewProps): ReactElement {
   return (
-    <BasicLayout>
+    <FullscreenLayout>
       <div className="flex flex-col gap-4">
         <article className="prose lg:prose-xl">
           <h3 className="text-center">Ops! 😅 </h3>
@@ -18,6 +18,6 @@ export function ErrorView({ message, onBack }: ErrorViewProps): ReactElement {
           Start over 🦖
         </button>
       </div>
-    </BasicLayout>
+    </FullscreenLayout>
   );
 }

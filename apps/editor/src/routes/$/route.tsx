@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { BasicLayout } from "~/components/layout/BasicLayout";
+import { FullscreenLayout } from "@package/ui";
 
 export const Route = createFileRoute("/$")({
   component: NotFoundRoute,
@@ -14,7 +14,7 @@ function NotFoundRoute(): ReactElement {
   }
 
   return (
-    <BasicLayout container>
+    <FullscreenLayout container>
       <div className="flex flex-col items-center gap-4">
         <article className="prose lg:prose-xl max-w-64 p-4 text-pretty lg:max-w-full">
           <strong>{"Could not find the page you were looking for! 🕵️"}</strong>
@@ -23,6 +23,6 @@ function NotFoundRoute(): ReactElement {
           Start over 🦖
         </button>
       </div>
-    </BasicLayout>
+    </FullscreenLayout>
   );
 }

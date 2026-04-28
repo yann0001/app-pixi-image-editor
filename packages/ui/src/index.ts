@@ -5,6 +5,7 @@ export * from "./Icons/Social/LinkedInIcon";
 export * from "./Layout/Background/BlueFadeBackground";
 export * from "./Layout/Background/GridBackground";
 export * from "./Layout/BasicLayout/BasicLayout";
+export * from "./Layout/FullscreenLayout/FullscreenLayout";
 export * from "./Layout/NavbarLayout/NavbarLayout";
 export * from "./Navigation/Navbar/Navbar";
 export * from "./Storybook/Components/StorybookNavbarComponent";

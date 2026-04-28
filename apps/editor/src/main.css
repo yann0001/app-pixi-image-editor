@@ -24,6 +24,7 @@
 
 /* Tailwind sources */
 @source "./**/**.{js,ts,jsx,tsx}";
+@source "../../../packages/ui/src/**/*.{ts,tsx}";
 
 /* Rubik as default sans font */
 @theme {

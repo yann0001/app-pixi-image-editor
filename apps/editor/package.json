@@ -23,6 +23,7 @@
     "@fontsource/rubik": "catalog:design",
     "@heroicons/react": "catalog:design",
     "@package/react": "workspace:*",
+    "@package/ui": "workspace:*",
     "@pixi/react": "catalog:pixi",
     "pixi-filters": "catalog:pixi",
     "@tanstack/react-router": "catalog:tanstack",

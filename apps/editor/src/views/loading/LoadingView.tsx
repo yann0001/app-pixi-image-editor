@@ -1,12 +1,12 @@
 import type { ReactElement } from "react";
-import { BasicLayout } from "~/components/layout/BasicLayout";
+import { FullscreenLayout } from "@package/ui";
 
 export function LoadingView(): ReactElement {
   return (
-    <BasicLayout container>
+    <FullscreenLayout container>
       <div className="flex h-full w-full items-center justify-center">
         <span className="loading loading-ring loading-lg" />
       </div>
-    </BasicLayout>
+    </FullscreenLayout>
   );
 }

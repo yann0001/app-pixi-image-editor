@@ -2,8 +2,8 @@ import type { ReactElement } from "react";
 import LogoImageSrc from "~/assets/images/logo/Logo320.png";
 import { GithubIcon } from "~/components/icons/social/GithubIcon";
 import { LinkedInIcon } from "~/components/icons/social/LinkedInIcon";
-import type { SocialLinkProps } from "~/components/layout/BasicLayout";
-import { BasicLayout } from "~/components/layout/BasicLayout";
+import type { SocialLinkProps } from "@package/ui";
+import { FullscreenLayout } from "@package/ui";
 import { Dropzone } from "~/components/library/dropzone/Dropzone";
 import type { ThemeSwitchProps } from "~/components/library/theme/ThemeSwitch";
 import { ThemeSwitch } from "~/components/library/theme/ThemeSwitch";
@@ -18,7 +18,7 @@ export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: Hom
   const { onGithubClick, onLinkedInClick } = socialLinkProps;
 
   return (
-    <BasicLayout container footer {...socialLinkProps}>
+    <FullscreenLayout container footer {...socialLinkProps}>
       <div className="mt-2 flex h-20 w-full items-center justify-center px-4 lg:mt-8 lg:px-0">
         <div className="flex flex-1">
           <img className="h-10 w-10 lg:h-16 lg:w-16" src={LogoImageSrc} alt="Pixi Image Editor Logo" />
@@ -62,6 +62,6 @@ export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: Hom
           </div>
         </div>
       </div>
-    </BasicLayout>
+    </FullscreenLayout>
   );
 }

@@ -324,6 +324,9 @@ importers:
       '@package/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@package/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@pixi/react':
         specifier: catalog:pixi
         version: 8.0.5(@types/react@19.2.14)(pixi.js@8.18.1)(react@19.2.5)
