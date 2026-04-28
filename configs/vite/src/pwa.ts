@@ -6,7 +6,7 @@ export interface PWAViteConfigOptions extends ReactViteConfigOptions {
   /**
    * PWA configuration options
    */
-  pwaOptions?: VitePWAOptions;
+  pwaOptions?: Partial<VitePWAOptions>;
 
   /**
    * App manifest configuration
