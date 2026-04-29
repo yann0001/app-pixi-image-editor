@@ -13,7 +13,11 @@ export interface EditorViewProps extends Omit<
 
 export function EditorView({ onBack, ...props }: EditorViewProps): ReactElement {
   function handleBack(): void {
-    onBack ? onBack() : window.history.back();
+    if (onBack) {
+      onBack();
+    } else {
+      window.history.back();
+    }
   }
 
   return (
