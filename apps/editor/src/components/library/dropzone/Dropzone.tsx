@@ -22,7 +22,7 @@ export function Dropzone({ onDrop }: DropzoneProps): ReactElement {
             getBackgroundClass()
           )}
         >
-          <input {...getInputProps()} />
+          <input {...getInputProps()} data-testid="home__dropzone-input" />
           <div className="flex flex-col items-center justify-center">
             <DocumentArrowUpIcon className="fill-primary mb-4 h-8 w-8" />
             <p className="mb-2">

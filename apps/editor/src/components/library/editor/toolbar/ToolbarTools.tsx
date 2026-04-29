@@ -35,37 +35,83 @@ export function ToolbarTools({
     <div className="absolute z-10 mr-2 flex w-full justify-center p-4 max-md:bottom-0 max-md:left-0 md:top-0 md:mr-0">
       <div className="glass navbar rounded-box border-neutral bg-base-300 bg-opacity-80 dark:bg-opacity-80 h-10 min-h-0 w-auto gap-1 border shadow-xl md:h-12 md:gap-2 dark:bg-none">
         <div className="md:tooltip md:tooltip-bottom" data-tip={lock ? undefined : "Lock image to center"}>
-          <button className={clsx("btn btn-square btn-ghost swap btn-sm", lock && "btn-active")} onClick={onSwapLock}>
-            <input type="checkbox" checked={lock} onChange={onSwapLock} />
-            <LockClosedIcon className="swap-on h-6 w-6" />
-            <LockOpenIcon className="swap-off h-6 w-6" />
+          <button
+            className={clsx("btn btn-square btn-ghost btn-sm", lock && "btn-active")}
+            onClick={onSwapLock}
+            aria-label={intl.formatMessage({
+              description: "ToolbarTools - lock/unlock button label",
+              defaultMessage: lock ? "Unlock image" : "Lock image to center",
+              id: lock ? "toolbar.unlockImage" : "toolbar.lockImage",
+            })}
+          >
+            {lock ? <LockClosedIcon className="h-6 w-6" /> : <LockOpenIcon className="h-6 w-6" />}
           </button>
         </div>
         <div className="divider divider-horizontal mx-0 w-0" />
         <div className="md:tooltip md:tooltip-bottom mt-1" data-tip={showFitScreen ? "Actual size" : "Fit to window"}>
-          <button className="btn btn-square btn-ghost swap btn-sm" onClick={onAdjustZoom}>
+          <button
+            className="btn btn-square btn-ghost swap btn-sm"
+            onClick={onAdjustZoom}
+            aria-label={intl.formatMessage({
+              description: "ToolbarTools - fit/fullscreen button label",
+              defaultMessage: showFitScreen ? "Actual size" : "Fit to window",
+              id: showFitScreen ? "toolbar.actualSize" : "toolbar.fitToWindow",
+            })}
+          >
             {showFitScreen ? <FullscreenIcon /> : <FitViewIcon />}
           </button>
         </div>
         <div className="divider divider-horizontal mx-0 w-0" />
         <div className="flex gap-1">
           <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Rotate 90° left">
-            <button className="btn btn-square btn-ghost swap btn-sm" onClick={() => onRotate("rotate-left")}>
+            <button
+              className="btn btn-square btn-ghost swap btn-sm"
+              onClick={() => onRotate("rotate-left")}
+              aria-label={intl.formatMessage({
+                description: "ToolbarTools - rotate left button label",
+                defaultMessage: "Rotate 90° left",
+                id: "toolbar.rotateLeft",
+              })}
+            >
               <RotateCcwIcon />
             </button>
           </div>
           <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Rotate 90° right">
-            <button className="btn btn-square btn-ghost swap btn-sm" onClick={() => onRotate("rotate-right")}>
+            <button
+              className="btn btn-square btn-ghost swap btn-sm"
+              onClick={() => onRotate("rotate-right")}
+              aria-label={intl.formatMessage({
+                description: "ToolbarTools - rotate right button label",
+                defaultMessage: "Rotate 90° right",
+                id: "toolbar.rotateRight",
+              })}
+            >
               <RotateCwIcon />
             </button>
           </div>
           <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Flip vertical">
-            <button className="btn btn-square btn-ghost swap btn-sm" onClick={() => onFlip("flip-vertical")}>
+            <button
+              className="btn btn-square btn-ghost swap btn-sm"
+              onClick={() => onFlip("flip-vertical")}
+              aria-label={intl.formatMessage({
+                description: "ToolbarTools - flip vertical button label",
+                defaultMessage: "Flip vertical",
+                id: "toolbar.flipVertical",
+              })}
+            >
               <FlipVerticalIcon />
             </button>
           </div>
           <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Flip horizontal">
-            <button className="btn btn-square btn-ghost swap btn-sm" onClick={() => onFlip("flip-horizontal")}>
+            <button
+              className="btn btn-square btn-ghost swap btn-sm"
+              onClick={() => onFlip("flip-horizontal")}
+              aria-label={intl.formatMessage({
+                description: "ToolbarTools - flip horizontal button label",
+                defaultMessage: "Flip horizontal",
+                id: "toolbar.flipHorizontal",
+              })}
+            >
               <FlipHorizontalIcon />
             </button>
           </div>

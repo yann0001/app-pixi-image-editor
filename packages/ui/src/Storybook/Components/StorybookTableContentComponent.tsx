@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 
 export function StorybookTableContentComponent(): ReactElement {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto" tabIndex={0}>
       <table className="table">
         <thead>
           <tr>

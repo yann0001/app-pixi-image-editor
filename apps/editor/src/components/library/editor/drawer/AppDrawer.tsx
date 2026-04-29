@@ -21,14 +21,25 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
 
   return (
     <div className="drawer z-30">
-      <input id="app-drawer" readOnly type="checkbox" checked={open} className="drawer-toggle" />
+      <input
+        id="app-drawer"
+        readOnly
+        type="checkbox"
+        checked={open}
+        className="drawer-toggle"
+        aria-label={intl.formatMessage({
+          description: "AppDrawer - drawer toggle label",
+          defaultMessage: "Application menu",
+          id: "appDrawer.drawerToggle",
+        })}
+      />
       <div className="drawer-side">
         <label htmlFor="app-drawer" aria-label="close sidebar" className="drawer-overlay" />
         <ul
           ref={menuRef}
           className="menu bg-base-100 text-base-content min-h-full w-60 p-4 text-base shadow-xl md:w-80"
         >
-          <div className="flex items-center">
+          <li className="flex items-center p-0">
             <img className="h-10 w-10" src={LogoImageSrc} alt="Pixi Image Editor Logo" />
             <span className="flex flex-1 p-4 text-xl font-bold">
               {intl.formatMessage({
@@ -37,8 +48,8 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
                 id: "appDrawer.appName",
               })}
             </span>
-          </div>
-          <li className="mt-4" onClick={onNewImage}>
+          </li>
+          <li className="mt-4" data-testid="editor__drawer-new-image" onClick={onNewImage}>
             <a>
               <FolderPlusIcon className="h-6 w-6" />
               {intl.formatMessage({
@@ -58,10 +69,10 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
               })}
             </a>
           </li>
-          <div className="flex flex-1" />
-          <div className="flex flex-row items-center justify-end">
+          <li className="flex flex-1 p-0 m-0" />
+          <li className="flex flex-row items-center justify-end p-0">
             <ThemeSwitch {...themeSwitchProps} />
-          </div>
+          </li>
         </ul>
       </div>
     </div>

@@ -33,16 +33,24 @@ export function FullscreenLayout({
       </main>
       {footer && (
         <footer className="footer footer-center bg-base-300 text-base-content gap-y-2 py-2 lg:p-4">
-          <aside className="lg:mt-2">
+          <div className="lg:mt-2">
             <p className="text-base font-bold">Made with ☕ by Petter Hancock</p>
             <p>Copyright © 2024 - All right reserved</p>
-          </aside>
+          </div>
           <nav>
             <div className="grid grid-flow-col gap-2">
-              <button className="btn btn-square btn-ghost fill-primary p-2" onClick={onGithubClick}>
+              <button
+                className="btn btn-square btn-ghost fill-primary p-2"
+                onClick={onGithubClick}
+                aria-label="GitHub"
+              >
                 <GithubIcon />
               </button>
-              <button className="btn btn-square btn-ghost fill-primary p-2" onClick={onLinkedInClick}>
+              <button
+                className="btn btn-square btn-ghost fill-primary p-2"
+                onClick={onLinkedInClick}
+                aria-label="LinkedIn"
+              >
                 <LinkedInIcon />
               </button>
             </div>

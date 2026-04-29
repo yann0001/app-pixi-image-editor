@@ -14,7 +14,6 @@
   "devDependencies": {
     "@config/eslint": "workspace:*",
     "@config/typescript": "workspace:*",
-    "@package/mocks": "workspace:*",
     "@playwright/test": "catalog:playwright",
     "cross-env": "catalog:common",
     "playwright": "catalog:playwright"

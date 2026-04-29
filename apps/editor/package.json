@@ -17,7 +17,8 @@
     "deploy:build": "pnpm build",
     "deploy:demo": "pnpm deploy:demo:build && pnpm deploy:move",
     "deploy:demo:build": "pnpm build:demo",
-    "deploy:move": "move-cli dist \"../../output/deployment/app\" --mkdirp"
+    "deploy:move": "move-cli dist \"../../output/deployment/app\" --mkdirp",
+    "test:e2e:env": "pnpm dev"
   },
   "dependencies": {
     "@fontsource/rubik": "catalog:design",
