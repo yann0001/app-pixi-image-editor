@@ -51,7 +51,7 @@ export function FilterDrawer({
         aria-label={intl.formatMessage({
           description: "FilterDrawer - drawer toggle label",
           defaultMessage: "Filters panel",
-          id: "filterDrawer.drawerToggle",
+          id: "4kBXHm",
         })}
       />
       <div className="drawer-side overflow-hidden">
@@ -63,7 +63,7 @@ export function FilterDrawer({
                 {intl.formatMessage({
                   description: "FilterDrawer - heading",
                   defaultMessage: "Filters",
-                  id: "filterDrawer.heading",
+                  id: "/KooDq",
                 })}
               </span>
               <div className="flex flex-row items-center">
@@ -73,7 +73,7 @@ export function FilterDrawer({
                   aria-label={intl.formatMessage({
                     description: "FilterDrawer - close button label",
                     defaultMessage: "Close filters",
-                    id: "filterDrawer.close",
+                    id: "fmaprX",
                   })}
                 >
                   <XMarkIcon />
@@ -88,7 +88,7 @@ export function FilterDrawer({
               {intl.formatMessage({
                 description: "FilterDrawer - brightness label",
                 defaultMessage: "Brightness",
-                id: "filterDrawer.brightness",
+                id: "vLbpzr",
               })}
             </button>
             <input
@@ -102,7 +102,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - brightness range label",
                 defaultMessage: "Brightness",
-                id: "filterDrawer.brightnessRange",
+                id: "kBJYNO",
               })}
             />
             <button className="text-base font-bold" onClick={() => onFilterChange({ contrast: 1 })}>
@@ -110,7 +110,7 @@ export function FilterDrawer({
               {intl.formatMessage({
                 description: "FilterDrawer - contrast label",
                 defaultMessage: "Contrast",
-                id: "filterDrawer.contrast",
+                id: "ezGDmB",
               })}
             </button>
             <input
@@ -124,7 +124,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - contrast range label",
                 defaultMessage: "Contrast",
-                id: "filterDrawer.contrastRange",
+                id: "b+o2v+",
               })}
             />
             <button className="text-base font-bold" onClick={() => onFilterChange({ saturation: 1 })}>
@@ -132,7 +132,7 @@ export function FilterDrawer({
               {intl.formatMessage({
                 description: "FilterDrawer - saturation label",
                 defaultMessage: "Saturation",
-                id: "filterDrawer.saturation",
+                id: "ePAnyC",
               })}
             </button>
             <input
@@ -146,7 +146,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - saturation range label",
                 defaultMessage: "Saturation",
-                id: "filterDrawer.saturationRange",
+                id: "P0xQ0y",
               })}
             />
           </li>
@@ -156,7 +156,7 @@ export function FilterDrawer({
               {intl.formatMessage({
                 description: "FilterDrawer - RGB label",
                 defaultMessage: "RGB",
-                id: "filterDrawer.rgb",
+                id: "Z5FJ/V",
               })}
             </button>
             <input
@@ -170,7 +170,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - red channel range label",
                 defaultMessage: "Red",
-                id: "filterDrawer.redRange",
+                id: "kdXJKf",
               })}
             />
             <input
@@ -184,7 +184,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - green channel range label",
                 defaultMessage: "Green",
-                id: "filterDrawer.greenRange",
+                id: "Olg+FI",
               })}
             />
             <input
@@ -198,7 +198,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - blue channel range label",
                 defaultMessage: "Blue",
-                id: "filterDrawer.blueRange",
+                id: "XW3FAa",
               })}
             />
           </li>
@@ -209,7 +209,7 @@ export function FilterDrawer({
               {intl.formatMessage({
                 description: "FilterDrawer - blur label",
                 defaultMessage: "Blur",
-                id: "filterDrawer.blur",
+                id: "74q6H9",
               })}
             </button>
             <input
@@ -223,7 +223,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - blur range label",
                 defaultMessage: "Blur",
-                id: "filterDrawer.blurRange",
+                id: "B53Gl7",
               })}
             />
             <button className="text-base font-bold" onClick={() => onFilterChange({ pixelate: 0 })}>
@@ -231,7 +231,7 @@ export function FilterDrawer({
               {intl.formatMessage({
                 description: "FilterDrawer - pixelate label",
                 defaultMessage: "Pixelate",
-                id: "filterDrawer.pixelate",
+                id: "/gpQ2N",
               })}
             </button>
             <input
@@ -245,7 +245,7 @@ export function FilterDrawer({
               aria-label={intl.formatMessage({
                 description: "FilterDrawer - pixelate range label",
                 defaultMessage: "Pixelate",
-                id: "filterDrawer.pixelateRange",
+                id: "axtUEA",
               })}
             />
           </li>

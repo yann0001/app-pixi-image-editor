@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import { useToolbarMenu } from "./UseToolbarMenu";
 import { ToolbarMenu } from "./ToolbarMenu";
+import { useToolbarMenu } from "./UseToolbarMenu";
 
 export function ToolbarMenuController(): ReactElement {
   const { toggleDrawer } = useToolbarMenu();

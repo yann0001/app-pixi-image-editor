@@ -21,7 +21,7 @@ export function ToolbarZoom({ zoom, onZoomIn, onZoomOut, onResetZoom }: ToolbarZ
           aria-label={intl.formatMessage({
             description: "ToolbarZoom - zoom in button label",
             defaultMessage: "Zoom in",
-            id: "toolbarZoom.zoomIn",
+            id: "T7uZ6T",
           })}
         >
           <PlusIcon />
@@ -37,7 +37,7 @@ export function ToolbarZoom({ zoom, onZoomIn, onZoomOut, onResetZoom }: ToolbarZ
           aria-label={intl.formatMessage({
             description: "ToolbarZoom - zoom out button label",
             defaultMessage: "Zoom out",
-            id: "toolbarZoom.zoomOut",
+            id: "XwtBZp",
           })}
         >
           <MinusIcon />

@@ -30,7 +30,7 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
         aria-label={intl.formatMessage({
           description: "AppDrawer - drawer toggle label",
           defaultMessage: "Application menu",
-          id: "appDrawer.drawerToggle",
+          id: "9myrmB",
         })}
       />
       <div className="drawer-side">
@@ -45,7 +45,7 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
               {intl.formatMessage({
                 description: "AppDrawer - app name",
                 defaultMessage: "Pixi Image Editor",
-                id: "appDrawer.appName",
+                id: "DrZMkW",
               })}
             </span>
           </li>
@@ -55,7 +55,7 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
               {intl.formatMessage({
                 description: "AppDrawer - new image menu item",
                 defaultMessage: "New Image",
-                id: "appDrawer.newImage",
+                id: "UNiGdv",
               })}
             </a>
           </li>
@@ -65,11 +65,11 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
               {intl.formatMessage({
                 description: "AppDrawer - save image menu item",
                 defaultMessage: "Save Image",
-                id: "appDrawer.saveImage",
+                id: "joP9M/",
               })}
             </a>
           </li>
-          <li className="flex flex-1 p-0 m-0" />
+          <li className="m-0 flex flex-1 p-0" />
           <li className="flex flex-row items-center justify-end p-0">
             <ThemeSwitch {...themeSwitchProps} />
           </li>

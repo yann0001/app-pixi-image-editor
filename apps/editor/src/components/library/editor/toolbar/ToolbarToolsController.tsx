@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
+import { ToolbarTools } from "./ToolbarTools";
 import { useToolbarAdjustZoom } from "./UseToolbarAdjustZoom";
 import { useToolbarTools } from "./UseToolbarTools";
-import { ToolbarTools } from "./ToolbarTools";
 
 export function ToolbarToolsController(): ReactElement {
   const { lock, swapLock, rotate, flip, toggleFilterMenu } = useToolbarTools();

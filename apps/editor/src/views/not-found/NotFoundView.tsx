@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import { useIntl } from "react-intl";
 import { FullscreenLayout } from "@package/ui";
+import { useIntl } from "react-intl";
 
 export interface NotFoundViewProps {
   onBack(): void;
@@ -17,7 +17,7 @@ export function NotFoundView({ onBack }: NotFoundViewProps): ReactElement {
             {intl.formatMessage({
               description: "NotFoundView - not found message",
               defaultMessage: "Could not find the page you were looking for! 🕵️",
-              id: "notFound.message",
+              id: "13DDXA",
             })}
           </strong>
         </article>
@@ -25,7 +25,7 @@ export function NotFoundView({ onBack }: NotFoundViewProps): ReactElement {
           {intl.formatMessage({
             description: "NotFoundView - start over button",
             defaultMessage: "Start over 🦖",
-            id: "notFound.action.startOver",
+            id: "QINl5/",
           })}
         </button>
       </div>

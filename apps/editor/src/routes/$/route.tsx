@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { FullscreenLayout } from "@package/ui";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/$")({
   component: NotFoundRoute,

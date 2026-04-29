@@ -1,10 +1,10 @@
 import type { ReactElement } from "react";
-import { useIntl } from "react-intl";
 import type { SocialLinkProps } from "@package/ui";
 import { FullscreenLayout } from "@package/ui";
+import { useIntl } from "react-intl";
+import { HomePageHeader } from "./HomePageHeader";
 import { Dropzone } from "~/components/library/dropzone/Dropzone";
 import type { ThemeSwitchProps } from "~/components/library/theme/ThemeSwitch";
-import { HomePageHeader } from "./HomePageHeader";
 
 export interface HomeViewProps {
   themeSwitchProps: ThemeSwitchProps;
@@ -31,7 +31,7 @@ export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: Hom
                 {intl.formatMessage({
                   description: "HomeView - main heading",
                   defaultMessage: "Pixi Image Editor",
-                  id: "home.title",
+                  id: "Dastjz",
                 })}
               </h1>
             </div>
@@ -41,7 +41,7 @@ export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: Hom
                   description: "HomeView - subtitle description",
                   defaultMessage:
                     "This is a image editor built using <b>PixiJS</b> and React. You can upload an image to get started.",
-                  id: "home.subtitle",
+                  id: "4NvSlM",
                 },
                 {
                   b: (chunks) => <b className="text-secondary">{chunks}</b>,

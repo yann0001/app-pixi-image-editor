@@ -38,11 +38,19 @@ export function ToolbarTools({
           <button
             className={clsx("btn btn-square btn-ghost btn-sm", lock && "btn-active")}
             onClick={onSwapLock}
-            aria-label={intl.formatMessage({
-              description: "ToolbarTools - lock/unlock button label",
-              defaultMessage: lock ? "Unlock image" : "Lock image to center",
-              id: lock ? "toolbar.unlockImage" : "toolbar.lockImage",
-            })}
+            aria-label={
+              lock
+                ? intl.formatMessage({
+                    description: "ToolbarTools - unlock image button label",
+                    defaultMessage: "Unlock image",
+                    id: "ZBHkeJ",
+                  })
+                : intl.formatMessage({
+                    description: "ToolbarTools - lock image button label",
+                    defaultMessage: "Lock image to center",
+                    id: "5CXJJa",
+                  })
+            }
           >
             {lock ? <LockClosedIcon className="h-6 w-6" /> : <LockOpenIcon className="h-6 w-6" />}
           </button>
@@ -52,11 +60,19 @@ export function ToolbarTools({
           <button
             className="btn btn-square btn-ghost swap btn-sm"
             onClick={onAdjustZoom}
-            aria-label={intl.formatMessage({
-              description: "ToolbarTools - fit/fullscreen button label",
-              defaultMessage: showFitScreen ? "Actual size" : "Fit to window",
-              id: showFitScreen ? "toolbar.actualSize" : "toolbar.fitToWindow",
-            })}
+            aria-label={
+              showFitScreen
+                ? intl.formatMessage({
+                    description: "ToolbarTools - actual size button label",
+                    defaultMessage: "Actual size",
+                    id: "Lbyofm",
+                  })
+                : intl.formatMessage({
+                    description: "ToolbarTools - fit to window button label",
+                    defaultMessage: "Fit to window",
+                    id: "xuXEwx",
+                  })
+            }
           >
             {showFitScreen ? <FullscreenIcon /> : <FitViewIcon />}
           </button>
@@ -70,7 +86,7 @@ export function ToolbarTools({
               aria-label={intl.formatMessage({
                 description: "ToolbarTools - rotate left button label",
                 defaultMessage: "Rotate 90° left",
-                id: "toolbar.rotateLeft",
+                id: "uMrrHq",
               })}
             >
               <RotateCcwIcon />
@@ -83,7 +99,7 @@ export function ToolbarTools({
               aria-label={intl.formatMessage({
                 description: "ToolbarTools - rotate right button label",
                 defaultMessage: "Rotate 90° right",
-                id: "toolbar.rotateRight",
+                id: "lQ2eUm",
               })}
             >
               <RotateCwIcon />
@@ -96,7 +112,7 @@ export function ToolbarTools({
               aria-label={intl.formatMessage({
                 description: "ToolbarTools - flip vertical button label",
                 defaultMessage: "Flip vertical",
-                id: "toolbar.flipVertical",
+                id: "fSieyL",
               })}
             >
               <FlipVerticalIcon />
@@ -109,7 +125,7 @@ export function ToolbarTools({
               aria-label={intl.formatMessage({
                 description: "ToolbarTools - flip horizontal button label",
                 defaultMessage: "Flip horizontal",
-                id: "toolbar.flipHorizontal",
+                id: "QKjF9u",
               })}
             >
               <FlipHorizontalIcon />
@@ -123,7 +139,7 @@ export function ToolbarTools({
             {intl.formatMessage({
               description: "ToolbarTools - filters button label",
               defaultMessage: "Filters",
-              id: "toolbar.filters",
+              id: "qehRhU",
             })}
           </span>
         </button>

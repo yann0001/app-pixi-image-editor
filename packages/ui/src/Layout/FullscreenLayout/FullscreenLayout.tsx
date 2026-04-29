@@ -39,11 +39,7 @@ export function FullscreenLayout({
           </div>
           <nav>
             <div className="grid grid-flow-col gap-2">
-              <button
-                className="btn btn-square btn-ghost fill-primary p-2"
-                onClick={onGithubClick}
-                aria-label="GitHub"
-              >
+              <button className="btn btn-square btn-ghost fill-primary p-2" onClick={onGithubClick} aria-label="GitHub">
                 <GithubIcon />
               </button>
               <button

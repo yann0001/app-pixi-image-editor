@@ -27,7 +27,7 @@ export function Navbar({ title, centerElement, endElement, startElement }: Navba
   return (
     <header
       className={clsx(
-        "bg-base-100/80 sticky top-0 z-40 w-full border-b border-base-200 backdrop-blur-lg transition-transform duration-300",
+        "bg-base-100/80 border-base-200 sticky top-0 z-40 w-full border-b backdrop-blur-lg transition-transform duration-300",
         !visible && "-translate-y-full"
       )}
     >

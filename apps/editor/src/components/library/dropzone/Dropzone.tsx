@@ -30,13 +30,13 @@ export function Dropzone({ onDrop }: DropzoneProps): ReactElement {
                 {intl.formatMessage({
                   description: "Dropzone - click to upload label",
                   defaultMessage: "Click to upload",
-                  id: "dropzone.clickToUpload",
+                  id: "m0lYYY",
                 })}
               </span>{" "}
               {intl.formatMessage({
                 description: "Dropzone - or drag and drop label",
                 defaultMessage: "or drag and drop",
-                id: "dropzone.dragAndDrop",
+                id: "h1L9No",
               })}
             </p>
           </div>

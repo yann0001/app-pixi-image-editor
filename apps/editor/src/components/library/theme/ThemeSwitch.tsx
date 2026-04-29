@@ -22,7 +22,7 @@ export function ThemeSwitch({ mode, onSwitch }: ThemeSwitchProps): ReactElement 
         aria-label={intl.formatMessage({
           description: "ThemeSwitch - toggle label",
           defaultMessage: "Toggle dark mode",
-          id: "themeSwitch.toggle",
+          id: "ruypRl",
         })}
       />
       <MoonIcon className="text-base-content h-4 w-4" />

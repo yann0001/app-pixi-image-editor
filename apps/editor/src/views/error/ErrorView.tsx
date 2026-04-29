@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
-import { useIntl } from "react-intl";
 import { FullscreenLayout } from "@package/ui";
+import { useIntl } from "react-intl";
 
 export interface ErrorViewProps {
   message?: string;
@@ -18,7 +18,7 @@ export function ErrorView({ message, onBack }: ErrorViewProps): ReactElement {
             {intl.formatMessage({
               description: "ErrorView - heading",
               defaultMessage: "Ops! 😅",
-              id: "error.heading",
+              id: "fag/z4",
             })}
           </h3>
           <strong>
@@ -26,7 +26,7 @@ export function ErrorView({ message, onBack }: ErrorViewProps): ReactElement {
               intl.formatMessage({
                 description: "ErrorView - default error message",
                 defaultMessage: "Something went wrong! 😱",
-                id: "error.message.default",
+                id: "XGeAqB",
               })}
           </strong>
         </article>
@@ -34,7 +34,7 @@ export function ErrorView({ message, onBack }: ErrorViewProps): ReactElement {
           {intl.formatMessage({
             description: "ErrorView - start over button",
             defaultMessage: "Start over 🦖",
-            id: "error.action.startOver",
+            id: "m3d5ze",
           })}
         </button>
       </div>

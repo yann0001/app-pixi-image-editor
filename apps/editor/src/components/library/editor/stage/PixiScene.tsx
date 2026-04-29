@@ -75,7 +75,20 @@ export function PixiScene(): null {
       filterContainerRef.current = null;
       spriteRef.current = null;
     };
-  }, [isInitialised, imageUrl, imageWidth, imageHeight]);
+  }, [
+    isInitialised,
+    imageUrl,
+    imageWidth,
+    imageHeight,
+    app,
+    maxZoom,
+    minZoom,
+    registerViewport,
+    setZoom,
+    scale.x,
+    scale.y,
+    rotation,
+  ]);
 
   // Update Pixi filters whenever filter values or zoom changes.
   // Blur and pixelate are scaled by zoom so they appear zoom-independent
@@ -130,7 +143,7 @@ export function PixiScene(): null {
     if (!viewport) return;
     viewport.moveCenter(imageWidth / 2, imageHeight / 2);
     viewport.fit();
-  }, [isRotated]);
+  }, [imageHeight, imageWidth, isRotated]);
 
   return null;
 }
