@@ -9,6 +9,7 @@
     "clean": "rimraf dist",
     "clean:all": "pnpm clean node_modules",
     "dev": "vite --open",
+    "dev:e2e": "vite",
     "lint": "eslint ./src",
     "lint:fix": "pnpm lint --fix",
     "build": "tsc && vite build",
@@ -18,7 +19,7 @@
     "deploy:demo": "pnpm deploy:demo:build && pnpm deploy:move",
     "deploy:demo:build": "pnpm build:demo",
     "deploy:move": "move-cli dist \"../../output/deployment/app\" --mkdirp",
-    "test:e2e:env": "pnpm dev"
+    "test:e2e:env": "pnpm dev:e2e"
   },
   "dependencies": {
     "@fontsource/rubik": "catalog:design",
