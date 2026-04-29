@@ -1,6 +1,7 @@
 import { useRef, type ReactElement } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useClickOutside } from "@package/react";
+import { useIntl } from "react-intl";
 import type { StagedFilter } from "../stage/StagedFilters";
 import { BlurIcon } from "~/components/icons/filters/BlurIcon";
 import { ContrastIcon } from "~/components/icons/filters/ContrastIcon";
@@ -35,6 +36,7 @@ export function FilterDrawer({
   blue,
   onFilterChange,
 }: FilterDrawerProps): ReactElement {
+  const intl = useIntl();
   const menuRef = useRef<HTMLElement>(null);
   useClickOutside(menuRef, onClose);
 
@@ -45,7 +47,13 @@ export function FilterDrawer({
         <label htmlFor="filter-drawer" aria-label="close sidebar" />
         <ul className="menu bg-neutral-content text-base-content dark:bg-neutral flex min-h-full w-60 flex-col flex-wrap p-4 text-base shadow-xl md:w-96">
           <div className="flex flex-row">
-            <span className="flex flex-1 p-4 text-2xl font-bold">Filters</span>
+            <span className="flex flex-1 p-4 text-2xl font-bold">
+              {intl.formatMessage({
+                description: "FilterDrawer - heading",
+                defaultMessage: "Filters",
+                id: "filterDrawer.heading",
+              })}
+            </span>
             <div className="flex flex-row items-center">
               <button className="btn btn-circle btn-ghost btn-sm" onClick={onClose}>
                 <XMarkIcon />
@@ -56,7 +64,11 @@ export function FilterDrawer({
           <li className="flex gap-2">
             <button className="my-2 text-base font-bold" onClick={() => onFilterChange({ brightness: 1 })}>
               <SunHighIcon />
-              Brightness
+              {intl.formatMessage({
+                description: "FilterDrawer - brightness label",
+                defaultMessage: "Brightness",
+                id: "filterDrawer.brightness",
+              })}
             </button>
             <input
               type="range"
@@ -69,7 +81,11 @@ export function FilterDrawer({
             />
             <button className="text-base font-bold" onClick={() => onFilterChange({ contrast: 1 })}>
               <ContrastIcon />
-              Contrast
+              {intl.formatMessage({
+                description: "FilterDrawer - contrast label",
+                defaultMessage: "Contrast",
+                id: "filterDrawer.contrast",
+              })}
             </button>
             <input
               type="range"
@@ -82,7 +98,11 @@ export function FilterDrawer({
             />
             <button className="text-base font-bold" onClick={() => onFilterChange({ saturation: 1 })}>
               <DropletIcon />
-              Saturation
+              {intl.formatMessage({
+                description: "FilterDrawer - saturation label",
+                defaultMessage: "Saturation",
+                id: "filterDrawer.saturation",
+              })}
             </button>
             <input
               type="range"
@@ -97,7 +117,11 @@ export function FilterDrawer({
           <li className="divider divider-vertical mt-8 h-1/2" />
           <li className="flex gap-4">
             <button className="text-base font-bold" onClick={() => onFilterChange({ red: 1, green: 1, blue: 1 })}>
-              RGB
+              {intl.formatMessage({
+                description: "FilterDrawer - RGB label",
+                defaultMessage: "RGB",
+                id: "filterDrawer.rgb",
+              })}
             </button>
             <input
               type="range"
@@ -131,7 +155,11 @@ export function FilterDrawer({
           <li className="flex gap-2">
             <button className="text-base font-bold" onClick={() => onFilterChange({ blur: 0 })}>
               <BlurIcon />
-              Blur
+              {intl.formatMessage({
+                description: "FilterDrawer - blur label",
+                defaultMessage: "Blur",
+                id: "filterDrawer.blur",
+              })}
             </button>
             <input
               type="range"
@@ -144,7 +172,11 @@ export function FilterDrawer({
             />
             <button className="text-base font-bold" onClick={() => onFilterChange({ pixelate: 0 })}>
               <PixelateIcon />
-              Pixelate
+              {intl.formatMessage({
+                description: "FilterDrawer - pixelate label",
+                defaultMessage: "Pixelate",
+                id: "filterDrawer.pixelate",
+              })}
             </button>
             <input
               type="range"

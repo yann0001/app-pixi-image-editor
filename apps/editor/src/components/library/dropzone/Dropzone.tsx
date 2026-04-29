@@ -1,6 +1,7 @@
 import type { ReactElement } from "react";
 import { DocumentArrowUpIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
+import { useIntl } from "react-intl";
 import { useDropzone } from "./UseDropzone";
 
 export interface DropzoneProps {
@@ -8,6 +9,7 @@ export interface DropzoneProps {
 }
 
 export function Dropzone({ onDrop }: DropzoneProps): ReactElement {
+  const intl = useIntl();
   const { getRootProps, getInputProps, getBackgroundClass } = useDropzone(onDrop);
 
   return (
@@ -24,7 +26,18 @@ export function Dropzone({ onDrop }: DropzoneProps): ReactElement {
           <div className="flex flex-col items-center justify-center">
             <DocumentArrowUpIcon className="fill-primary mb-4 h-8 w-8" />
             <p className="mb-2">
-              <span className="font-semibold">Click to upload</span> or drag and drop
+              <span className="font-semibold">
+                {intl.formatMessage({
+                  description: "Dropzone - click to upload label",
+                  defaultMessage: "Click to upload",
+                  id: "dropzone.clickToUpload",
+                })}
+              </span>{" "}
+              {intl.formatMessage({
+                description: "Dropzone - or drag and drop label",
+                defaultMessage: "or drag and drop",
+                id: "dropzone.dragAndDrop",
+              })}
             </p>
           </div>
         </label>

@@ -1,8 +1,18 @@
 import { withThemeByClassName } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/react-vite";
+import type { Preview, StoryContext } from "@storybook/react-vite";
+import type { ReactElement } from "react";
 import { IntlProvider } from "react-intl";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import "../src/main.css";
+
+function withDaisyUiTheme(Story: () => ReactElement, context: StoryContext): ReactElement {
+  const theme = (context.globals.theme as string) || "light";
+  return (
+    <div data-theme={theme} className="contents">
+      <Story />
+    </div>
+  );
+}
 
 const preview: Preview = {
   decorators: [
@@ -11,6 +21,7 @@ const preview: Preview = {
         <Story {...context} />
       </IntlProvider>
     ),
+    withDaisyUiTheme,
     withThemeByClassName({
       themes: {
         light: "light",

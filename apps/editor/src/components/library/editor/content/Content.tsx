@@ -5,9 +5,9 @@ import { FilterDrawer } from "../drawer/FilterDrawer";
 import { useAppDrawer } from "../drawer/UseAppDrawer";
 import { useFilterDrawer } from "../drawer/UseFilterDrawer";
 import { StageComponent } from "../stage/StageComponent";
-import { ToolbarMenu } from "../toolbar/ToolbarMenu";
-import { ToolbarTools } from "../toolbar/ToolbarTools";
-import { ToolbarZoom } from "../toolbar/ToolbarZoom";
+import { ToolbarMenuController } from "../toolbar/ToolbarMenuController";
+import { ToolbarToolsController } from "../toolbar/ToolbarToolsController";
+import { ToolbarZoomController } from "../toolbar/ToolbarZoomController";
 
 export interface ContentProps {
   appdrawerProps: Omit<AppDrawerProps, "open" | "onClose">;
@@ -21,9 +21,9 @@ export function Content({ appdrawerProps }: ContentProps): ReactElement {
     <div className="relative flex h-full w-full flex-col">
       <AppDrawer {...appdrawerProps} {...appDrawerInternalProps} />
       <FilterDrawer {...filterDrawerInternalProps} />
-      <ToolbarMenu />
-      <ToolbarTools />
-      <ToolbarZoom />
+      <ToolbarMenuController />
+      <ToolbarToolsController />
+      <ToolbarZoomController />
       <StageComponent />
     </div>
   );

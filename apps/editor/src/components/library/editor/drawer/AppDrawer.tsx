@@ -1,6 +1,7 @@
 import { useRef, type ReactElement } from "react";
 import { FolderPlusIcon, ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import { useClickOutside } from "@package/react";
+import { useIntl } from "react-intl";
 import type { ThemeSwitchProps } from "../../theme/ThemeSwitch";
 import { ThemeSwitch } from "../../theme/ThemeSwitch";
 import LogoImageSrc from "~/assets/images/logo/Logo320.png";
@@ -14,6 +15,7 @@ export interface AppDrawerProps {
 }
 
 export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveImage }: AppDrawerProps): ReactElement {
+  const intl = useIntl();
   const menuRef = useRef<HTMLUListElement>(null);
   useClickOutside(menuRef, onClose);
 
@@ -28,18 +30,32 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
         >
           <div className="flex items-center">
             <img className="h-10 w-10" src={LogoImageSrc} alt="Pixi Image Editor Logo" />
-            <span className="flex flex-1 p-4 text-xl font-bold">Pixi Image Editor</span>
+            <span className="flex flex-1 p-4 text-xl font-bold">
+              {intl.formatMessage({
+                description: "AppDrawer - app name",
+                defaultMessage: "Pixi Image Editor",
+                id: "appDrawer.appName",
+              })}
+            </span>
           </div>
           <li className="mt-4" onClick={onNewImage}>
             <a>
               <FolderPlusIcon className="h-6 w-6" />
-              New Image
+              {intl.formatMessage({
+                description: "AppDrawer - new image menu item",
+                defaultMessage: "New Image",
+                id: "appDrawer.newImage",
+              })}
             </a>
           </li>
           <li className="mt-4" onClick={onSaveImage}>
             <a>
               <ArrowDownTrayIcon className="h-6 w-6" />
-              Save Image
+              {intl.formatMessage({
+                description: "AppDrawer - save image menu item",
+                defaultMessage: "Save Image",
+                id: "appDrawer.saveImage",
+              })}
             </a>
           </li>
           <div className="flex flex-1" />

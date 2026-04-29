@@ -424,6 +424,9 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@app/editor':
+        specifier: workspace:*
+        version: link:../editor
       '@config/tailwind':
         specifier: workspace:*
         version: link:../../configs/tailwind

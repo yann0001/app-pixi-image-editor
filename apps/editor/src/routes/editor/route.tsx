@@ -15,7 +15,5 @@ function EditorRoute(): ReactElement {
     return <ErrorView {...errorViewProps} message="File somehow went missing 🤔" />;
   }
 
-  console.info("EditorRoute: Rendering EditorView with fileUrl:", fileUrl);
-
   return <EditorView url={fileUrl} appdrawerProps={appDrawerProps} />;
 }

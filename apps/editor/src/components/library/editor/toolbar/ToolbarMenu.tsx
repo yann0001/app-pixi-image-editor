@@ -1,14 +1,15 @@
 import { type ReactElement } from "react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
-import { useToolbarMenu } from "./UseToolbarMenu";
 
-export function ToolbarMenu(): ReactElement {
-  const { toggleDrawer } = useToolbarMenu();
+export interface ToolbarMenuProps {
+  onToggle: () => void;
+}
 
+export function ToolbarMenu({ onToggle }: ToolbarMenuProps): ReactElement {
   return (
     <div className="absolute z-20 flex justify-center p-4 max-md:top-4 max-md:left-0 md:top-0 md:left-0">
       <div className="glass navbar rounded-box bg-base-300 bg-opacity-80 dark:bg-opacity-80 flex h-10 min-h-0 shadow-xl md:h-12 dark:bg-none">
-        <button className="btn btn-square btn-ghost btn-sm" onClick={toggleDrawer}>
+        <button className="btn btn-square btn-ghost btn-sm" onClick={onToggle}>
           <Bars3Icon className="h-4 w-4 md:h-6 md:w-6" />
         </button>
       </div>
