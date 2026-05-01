@@ -149,7 +149,7 @@ Set up automatic deployment:
 
 ### Architecture
 
-`apps/web` uses a **four-layer architecture** — `core/` (domain + app shell), `components/` (reusable UI), `views/` (page compositions), `routes/` (TanStack file-based routes). For the full picture, see:
+`apps/editor` uses a **four-layer architecture** — `core/` (domain + app shell), `components/` (reusable UI), `views/` (page compositions), `routes/` (TanStack file-based routes). For the full picture, see:
 
 - [`docs/architecture.md`](./docs/architecture.md) — layers, provider hierarchy, data flow
 - [`docs/structure.md`](./docs/structure.md) — full directory tree with per-folder responsibilities

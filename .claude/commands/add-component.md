@@ -22,20 +22,20 @@ You MUST use HeroUI v3 components as the foundation for all UI elements. Before 
 
 ### Decide Where the Component Belongs
 
-`apps/web` has a four-layer structure (`core/` / `components/` / `views/` / `routes/`). Reference: [`docs/structure.md`](../../docs/structure.md) and [`docs/architecture.md`](../../docs/architecture.md).
+`apps/editor` has a four-layer structure (`core/` / `components/` / `views/` / `routes/`). Reference: [`docs/structure.md`](../../docs/structure.md) and [`docs/architecture.md`](../../docs/architecture.md).
 
 Pick the right home:
 
 - **Shared across apps → `packages/ui/src/<Category>/<ComponentName>/`**
   - Folder category is PascalCase. Examples: `Branding/`, `Icons/`, `Layout/`, `Navigation/`, `Display/`, `Feedback/`.
   - Story title: `Shared/<Category>/<ComponentName>`.
-- **Reusable UI specific to `apps/web` → `apps/web/src/components/<category>/<component-name>/`**
+- **Reusable UI specific to `apps/editor` → `apps/editor/src/components/<category>/<component-name>/`**
   - Category is kebab-case. Pick from: `actions/`, `display/`, `feedback/`, `forms/`, `input/`, `navigation/`.
   - Story title: `<Category>/<Component Name>` (Title Case — see [`docs/naming.md`](../../docs/naming.md#story-titles)).
-- **Page-level composition for a specific route → `apps/web/src/views/<name>/<Name>View.tsx`**
+- **Page-level composition for a specific route → `apps/editor/src/views/<name>/<Name>View.tsx`**
   - Views are pure presentational; they never call hooks from `core/`. All data and callbacks come from the route hook.
   - Story title: `Views/<Name>`.
-- **Domain module (atoms, hooks, initializers) → `apps/web/src/core/<feature>/`**
+- **Domain module (atoms, hooks, initializers) → `apps/editor/src/core/<feature>/`**
   - Not a rendered UI component in most cases — put atoms, hooks, and types here. Only keep domain-inseparable components here (e.g. `AuthInitializer`, `PwaLifecycle`).
 
 ### Controller Pattern (When the Component Needs `core/` State)
@@ -53,10 +53,10 @@ The **wrapper** (`<ComponentName>Controller`) is the only symbol routes import. 
 
 Skip the controller pattern if the component only needs props from its parent — write just the component file.
 
-### File Layout (`apps/web` component folder)
+### File Layout (`apps/editor` component folder)
 
 ```
-apps/web/src/components/<category>/<component-name>/
+apps/editor/src/components/<category>/<component-name>/
 ├── <ComponentName>.tsx              # Required
 ├── <ComponentName>.stories.tsx      # Required
 ├── Use<ComponentName>Controller.ts  # Only if using Controller pattern
@@ -209,6 +209,6 @@ export const WithInteraction: Story = {
 - [ ] Added stories for all meaningful component states/variants
 - [ ] Added play functions for interactive components
 - [ ] Used `~/` alias for cross-layer imports (not `../../`)
-- [ ] Updated the package's `src/index.ts` barrel (packages only — `apps/web` has no barrel)
+- [ ] Updated the package's `src/index.ts` barrel (packages only — `apps/editor` has no barrel)
 - [ ] Ran `pnpm lint:fix`
 - [ ] Verified story renders in Storybook

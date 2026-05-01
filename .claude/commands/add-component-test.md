@@ -17,9 +17,9 @@ Component tests in this project are written as Storybook **play functions** — 
 Stories are co-located with their components as `<ComponentName>.stories.tsx`. The component's layer determines the path:
 
 - Shared UI: `packages/ui/src/<Category>/<ComponentName>/<ComponentName>.stories.tsx`
-- Reusable web-app UI: `apps/web/src/components/<category>/<component-name>/<ComponentName>.stories.tsx`
-- Page view: `apps/web/src/views/<name>/<Name>View.stories.tsx`
-- Core/router-level UI: `apps/web/src/core/routes/logic/<Name>.stories.tsx` (rare)
+- Reusable web-app UI: `apps/editor/src/components/<category>/<component-name>/<ComponentName>.stories.tsx`
+- Page view: `apps/editor/src/views/<name>/<Name>View.stories.tsx`
+- Core/router-level UI: `apps/editor/src/core/routes/logic/<Name>.stories.tsx` (rare)
 
 Story titles follow the `Top-Level / Category / Component Name` convention — see [`docs/naming.md#story-titles`](../../docs/naming.md#story-titles).
 
