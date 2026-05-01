@@ -1,196 +1,102 @@
-# React Web Enterprise Application Template
+# Pixi Image Editor
 
-[![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/Pettor/template-web-app-react-enterprise/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/Pettor/app-pixi-image-editor/blob/main/LICENSE)
 [![Actions Main](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/main.yml)
-[![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://pettor.github.io/template-web-app-react-enterprise/storybook/)
+[![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://pettor.github.io/app-pixi-image-editor/storybook/)
 
-A modern, production-ready React web application template designed to jumpstart your next enterprise project with industry best practices, comprehensive tooling, and a robust development workflow.
+A browser-based image editor built with [PixiJS](https://pixijs.com/) and React. Upload an image and apply filters, transform it, and interact with it in real time via a GPU-accelerated canvas.
 
-## 🚀 Demo
+## Live Demo
 
-Experience the template in action:
+**[Live Application](https://pettor.github.io/app-pixi-image-editor/app/)** — upload an image and start editing immediately, no installation required.
 
-- **[Live Application Demo](https://pettor.github.io/template-web-app-react-enterprise/app/)** - See the main application
-- **[Storybook Component Library](https://pettor.github.io/template-web-app-react-enterprise/storybook/)** - Explore the component documentation
+## Features
 
-## ✨ Key Features
+- **GPU-accelerated rendering** via PixiJS WebGL canvas
+- **Image filters** — blur, brightness, contrast, saturation, pixelate, and more via `pixi-filters`
+- **Transform tools** — rotate (CW/CCW), flip horizontal/vertical, fit-to-view, fullscreen
+- **Zoom controls** — pan and zoom via `pixi-viewport`
+- **Drag-and-drop upload** — drop an image file directly onto the home screen
+- **Dark/light theme** toggle
+- **PWA** — installable and works offline
+- **Internationalization** — all UI strings managed via React Intl
 
-This template provides a complete modern web development stack with everything you need to build scalable applications:
+## Tech Stack
 
-### 🏗️ **Core Technologies**
+| Category | Technology |
+|---|---|
+| Rendering | [PixiJS 8](https://pixijs.com/), [@pixi/react](https://pixijs.io/pixi-react/), [pixi-viewport](https://github.com/davidfig/pixi-viewport), [pixi-filters](https://github.com/pixijs/filters) |
+| UI framework | [React 19](https://react.dev/), [HeroUI v3](https://heroui.com/), [Tailwind CSS 4](https://tailwindcss.com/) |
+| Routing | [TanStack Router v1](https://tanstack.com/router) |
+| State | [Jotai 2](https://jotai.org/) |
+| Build | [Vite 8](https://vite.dev/), [Turborepo](https://turbo.build/repo/) |
+| Testing | [Vitest](https://vitest.dev/) + [Playwright](https://playwright.dev/), [Storybook 10](https://storybook.js.org/) |
 
-- **[React 19](https://reactjs.org/)** - Latest React with concurrent features and improved performance
-- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript for better developer experience and fewer runtime errors
-- **[Vite](https://vitejs.dev/)** - Lightning-fast development server and optimized production builds
-- **[Turborepo](https://turbo.build/repo/)** - High-performance monorepo build system for scalable development
-
-### 🎨 **Styling & UI**
-
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework for rapid UI development
-- **[HeroUI](https://www.heroui.com/)** - Beautiful, semantic component library built on Tailwind
-- **Responsive Design** - Mobile-first approach with modern CSS Grid and Flexbox layouts
-
-### 🧪 **Testing & Quality Assurance**
-
-- **[Vitest](https://vitest.dev/)** - Fast unit and integration testing with hot reload
-- **[Playwright](https://playwright.dev/)** - Reliable end-to-end testing across all browsers
-- **[Storybook Component Testing](https://storybook.js.org/docs/writing-tests/component-testing)** - Visual component testing and documentation
-- **Code Coverage Reports** - Comprehensive coverage tracking with detailed reporting
-
-### 🔧 **Development Tools**
-
-- **[Storybook](https://storybook.js.org/)** - Component development environment and documentation
-- **[ESLint](https://eslint.org/)** - Advanced linting with React and TypeScript rules
-- **[Prettier](https://prettier.io/)** - Consistent code formatting across the entire codebase
-- **Hot Module Replacement** - Instant feedback during development
-
-### 🚀 **DevOps & Deployment**
-
-- **[GitHub Actions](https://docs.github.com/en/actions)** - Automated CI/CD pipeline with comprehensive testing
-- **[GitHub Pages](https://pages.github.com/)** - Seamless deployment and hosting
-- **Automated Quality Gates** - Build, lint, and test validation on every pull request
-- **Branch Protection Rules** - Enforce code quality standards before merging
-
-### 🌐 **Additional Integrations**
-
-- **Mock API Server** - [Mocks Server](https://mocks-server.org/) integration for frontend development
-- **Internationalization Ready** - Built-in i18n support with React Intl
-- **Environment Configuration** - Multi-environment setup with proper variable management
-- **Performance Monitoring** - Build-time performance analysis and optimization
-
-## 🏃‍♂️ Quick Start
-
-Get up and running in minutes:
+## Quick Start
 
 ### Prerequisites
 
-- Node.js 22 or higher
-- pnpm (recommended package manager)
+- Node.js 21–24
+- pnpm 10 (`corepack enable`)
 
 ### Installation
 
-1. **Clone the repository**
+```bash
+git clone https://github.com/Pettor/app-pixi-image-editor.git
+cd app-pixi-image-editor
+corepack enable
+pnpm install
+pnpm dev
+```
 
-   ```bash
-   git clone https://github.com/Pettor/template-web-app-react.git
-   cd template-web-app-react
-   ```
-
-2. **Enable corepack for package manager**
-
-   ```bash
-   corepack enable
-   ```
-
-3. **Install dependencies**
-
-   ```bash
-   pnpm install
-   ```
-
-4. **Start development server**
-   ```bash
-   pnpm dev
-   ```
-
-Your application will be available at `http://localhost:5173` with hot reload enabled.
+The app is available at `https://localhost:5173` (HTTPS — your browser will show a self-signed cert warning on first visit).
 
 ### Available Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm test` - Run unit tests
-- `pnpm test:e2e` - Run end-to-end tests
-- `pnpm lint` - Run ESLint
-- `pnpm storybook` - Start Storybook development server
-- `pnpm deploy` - Build and prepare for deployment
+| Script | Description |
+|---|---|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Production build |
+| `pnpm deploy` | Build and prepare deployment artifacts |
+| `pnpm test` | Run unit/component tests (Vitest + Playwright) |
+| `pnpm test:e2e` | Run Playwright E2E tests |
+| `pnpm lint` | Run ESLint |
+| `pnpm storybook` | Start Storybook on localhost:9050 |
 
-## ⚙️ Configuration
-
-### GitHub Actions Setup
-
-Enable continuous integration and deployment:
-
-1. Navigate to repository **Settings** → **Actions**
-2. Enable **"Allow all actions"**
-3. Go to **Settings** → **Rules** and create a branch protection rule:
-   - **Name**: Main
-   - **Target**: Include default branch
-   - **Required status checks**: `Lint`, `Build`, `Test Components`, `Test E2E`
-
-### GitHub Pages Deployment
-
-Set up automatic deployment:
-
-1. Go to **Settings** → **Pages**
-2. Select **Source**: Deploy from a branch
-3. Choose **Branch**: `deploy/main`
-4. Update README links to match your repository URL
-
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 ├── apps/
-│   ├── web/                # Main React application (React 19 + Vite 8 + HeroUI v3)
-│   ├── storybook/          # Storybook configuration and stories
-│   ├── e2e/                # Playwright end-to-end tests
-│   └── mock/               # Mocks Server for API mocking
+│   ├── editor/       # Main React + PixiJS application
+│   ├── storybook/    # Storybook configuration and stories
+│   └── e2e/          # Playwright end-to-end tests
 ├── packages/
-│   ├── api/                # (@package/api) API client, auth, Web Worker
-│   ├── ui/                 # (@package/ui) Cross-app UI (logos, layouts, icons)
-│   ├── mocks/              # (@package/mocks) Mocks Server admin client
-│   └── storybook/          # (@package/storybook) Storybook decorators
-├── configs/                # Shared ESLint, Tailwind, TypeScript, Vite configs
-├── design/tokens/          # (@design/tokens) Style Dictionary design tokens
-├── docs/                   # Architectural reference — start here for deeper detail
-├── .github/workflows/      # CI/CD pipeline definitions
-└── output/                 # Build artifacts
+│   ├── ui/           # (@package/ui) Shared UI components
+│   └── react/        # (@package/react) Reusable React hooks
+├── configs/          # Shared ESLint, Tailwind, TypeScript, Vite configs
+├── design/tokens/    # (@design/tokens) Style Dictionary design tokens
+├── .github/workflows # CI/CD pipeline
+└── output/           # Build artifacts (gitignored)
 ```
 
-### Architecture
+## GitHub Actions Setup
 
-`apps/editor` uses a **four-layer architecture** — `core/` (domain + app shell), `components/` (reusable UI), `views/` (page compositions), `routes/` (TanStack file-based routes). For the full picture, see:
+### CI
 
-- [`docs/architecture.md`](./docs/architecture.md) — layers, provider hierarchy, data flow
-- [`docs/structure.md`](./docs/structure.md) — full directory tree with per-folder responsibilities
-- [`docs/patterns.md`](./docs/patterns.md) — Controller pattern, route hooks, atom co-location
-- [`docs/packages.md`](./docs/packages.md) — workspace package tour
+On every pull request, the `main` workflow runs lint, build, component tests, and E2E tests.
 
-## 🔗 Related Templates
+To enforce these as required checks:
 
-Expand your development stack:
+1. **Settings** → **Actions** → enable "Allow all actions"
+2. **Settings** → **Rules** → create a branch protection rule targeting the default branch with required status checks: `Lint`, `Build`, `Test Components`, `Test E2E`
 
-- **[.NET 9 Backend Template](https://github.com/Pettor/template-web-api-dotnet)** - Fully integrated C# backend template designed to work seamlessly with this React frontend
+### GitHub Pages Deployment
 
-## 🤝 Contributing
+Merging to `main` triggers the `deploy` workflow, which builds the app and publishes to the `deploy/main` branch.
 
-We welcome contributions! Here's how to get involved:
+Setup:
+1. **Settings** → **Pages** → Source: Deploy from a branch → Branch: `deploy/main`
 
-1. **Fork the repository**
-2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
-3. **Make your changes** and add tests
-4. **Run the test suite**: `pnpm test && pnpm test:e2e`
-5. **Submit a pull request** with a clear description
+## License
 
-### Contribution Guidelines
-
-- Follow existing code style and conventions
-- Add tests for new features
-- Update documentation as needed
-- Ensure all CI checks pass
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-- **Issues**: [GitHub Issues](https://github.com/Pettor/template-web-app-react/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/Pettor/template-web-app-react/discussions)
-- **Documentation**: [Storybook Documentation](https://pettor.github.io/template-web-app-react/storybook/)
-
----
-
-**Ready to build something amazing?** 🚀 Star this repository if you find it helpful and share it with your team!
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT — see the [LICENSE](LICENSE) file for details.
