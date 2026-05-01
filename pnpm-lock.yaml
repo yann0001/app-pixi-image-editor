@@ -89,13 +89,6 @@ catalogs:
     typescript-eslint:
       specifier: 8.58.2
       version: 8.58.2
-  mocks:
-    '@mocks-server/admin-api-client':
-      specifier: 7.0.1
-      version: 7.0.1
-    '@mocks-server/admin-api-paths':
-      specifier: 5.0.0
-      version: 5.0.0
   pixi:
     '@pixi/react':
       specifier: 8.0.5
@@ -178,10 +171,6 @@ catalogs:
     typescript:
       specifier: 6.0.3
       version: 6.0.3
-  validation:
-    zod:
-      specifier: 4.3.6
-      version: 4.3.6
   vite:
     '@rolldown/plugin-babel':
       specifier: 0.2.3
@@ -612,52 +601,6 @@ importers:
       '@config/typescript':
         specifier: workspace:*
         version: link:../../configs/typescript
-
-  packages/api:
-    dependencies:
-      '@tanstack/react-query':
-        specifier: 5.99.2
-        version: 5.99.2(react@19.2.5)
-      immer:
-        specifier: catalog:common
-        version: 11.1.4
-      react:
-        specifier: 19.2.5
-        version: 19.2.5
-    devDependencies:
-      '@config/eslint':
-        specifier: workspace:*
-        version: link:../../configs/eslint
-      '@config/typescript':
-        specifier: workspace:*
-        version: link:../../configs/typescript
-      '@vitest/coverage-v8':
-        specifier: catalog:vitest
-        version: 4.1.4(@vitest/browser@4.1.4)(vitest@4.1.4)
-      vite:
-        specifier: catalog:vite
-        version: 8.0.8(@types/node@24.12.2)(esbuild@0.27.0)(jiti@2.6.1)(terser@5.46.2)(tsx@4.21.0)(yaml@2.8.3)
-      vitest:
-        specifier: catalog:vitest
-        version: 4.1.4(@types/node@24.12.2)(@vitest/browser-playwright@4.1.4)(@vitest/coverage-v8@4.1.4)(vite@8.0.8(@types/node@24.12.2)(esbuild@0.27.0)(jiti@2.6.1)(terser@5.46.2)(tsx@4.21.0)(yaml@2.8.3))
-      zod:
-        specifier: catalog:validation
-        version: 4.3.6
-
-  packages/mocks:
-    devDependencies:
-      '@config/eslint':
-        specifier: workspace:*
-        version: link:../../configs/eslint
-      '@config/typescript':
-        specifier: workspace:*
-        version: link:../../configs/typescript
-      '@mocks-server/admin-api-client':
-        specifier: catalog:mocks
-        version: 7.0.1
-      '@mocks-server/admin-api-paths':
-        specifier: catalog:mocks
-        version: 5.0.0
 
   packages/react:
     dependencies:
@@ -1791,14 +1734,6 @@ packages:
       '@types/react': '>=16'
       react: 19.2.5
 
-  '@mocks-server/admin-api-client@7.0.1':
-    resolution: {integrity: sha512-UFM5xWM3WRCJJYO4tsolxy+tfhEMJRA92rkW3gFnum4pQ6cyzhhUmwNGBBP645cWNUUcRzyQxsqVJh7BdTDk5Q==}
-    engines: {node: '>=14.0.0'}
-
-  '@mocks-server/admin-api-paths@5.0.0':
-    resolution: {integrity: sha512-HlFhNnHtvY9ZZGthaatAFvGFofTCs1Yj3kxeb5EmvdHBgNC+dZxfMjXWCvuIhp7qFNaTFarPgGJ3Zsm7+o/siw==}
-    engines: {node: '>=14.x'}
-
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
@@ -2374,14 +2309,6 @@ packages:
   '@tanstack/history@1.161.6':
     resolution: {integrity: sha512-NaOGLRrddszbQj9upGat6HG/4TKvXLvu+osAIgfxPYA+eIvYKv8GKDJOrY2D3/U9MRnKfMWD7bU4jeD4xmqyIg==}
     engines: {node: '>=20.19'}
-
-  '@tanstack/query-core@5.99.2':
-    resolution: {integrity: sha512-1HunU0bXVsR1ZJMZbcOPE6VtaBJxsW809RE9xPe4Gz7MlB0GWwQvuTPhMoEmQ/hIzFKJ/DWAuttIe7BOaWx0tA==}
-
-  '@tanstack/react-query@5.99.2':
-    resolution: {integrity: sha512-vM91UEe45QUS9ED6OklsVL15i8qKcRqNwpWzPTVWvRPRSEgDudDgHpvyTjcdlwHcrKNa80T+xXYcchT2noPnZA==}
-    peerDependencies:
-      react: 19.2.5
 
   '@tanstack/react-router@1.168.23':
     resolution: {integrity: sha512-+GblieDnutG6oipJJPNtRJjrWF8QTZEG/l0532+BngFkVK48oHNOcvIkSoAFYftK1egAwM7KBxXsb0Ou+X6/MQ==}
@@ -3291,9 +3218,6 @@ packages:
     resolution: {integrity: sha512-GsYosgnACZTADcmEyJctkJIoqAhHjttw7RsFrVoJNXbsWWqaq6Ym+7kZjq6mS45O0jij6vtiReppKQEtqWy6Dw==}
     engines: {node: '>=20'}
     hasBin: true
-
-  cross-fetch@3.1.6:
-    resolution: {integrity: sha512-riRvo06crlE8HiqOwIpQhxwdOk4fOeR7FVM/wXoxchFEqMNUjvbs3bfo4OTgMEMHzppd4DxFBDbyySj8Cv781g==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -4510,15 +4434,6 @@ packages:
     resolution: {integrity: sha512-zIdGUrPRFTUELUvr3Gmc7KZ2Sw/h1PiVM0Af/oHB6zgnV1ikqSfRk+TOufi79aHYCW3NiOXmr1BP5nWbzojLaA==}
     hasBin: true
 
-  node-fetch@2.7.0:
-    resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
-    engines: {node: 4.x || >=6.0.0}
-    peerDependencies:
-      encoding: ^0.1.0
-    peerDependenciesMeta:
-      encoding:
-        optional: true
-
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
 
@@ -5377,9 +5292,6 @@ packages:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
     engines: {node: '>=6'}
 
-  tr46@0.0.3:
-    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
-
   tr46@1.0.1:
     resolution: {integrity: sha512-dTpowEjclQ7Kgx5SdBkqRzVhERQXov8/l9Ft9dVM9fmg0W0KQSVaXX9T4i6twCPNtYiZM53lpSSUAwJbFPOHxA==}
 
@@ -5686,17 +5598,11 @@ packages:
       jsdom:
         optional: true
 
-  webidl-conversions@3.0.1:
-    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-
   webidl-conversions@4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
 
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
-
-  whatwg-url@5.0.0:
-    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
 
   whatwg-url@7.1.0:
     resolution: {integrity: sha512-WUu7Rg1DroM7oQvGWfOiAK21n74Gg+T4elXEQYkOhtyLeWiJFoOGLXPKI/9gzIie9CtwVLm8wtw6YJdKyxSjeg==}
@@ -7072,15 +6978,6 @@ snapshots:
       '@types/react': 19.2.14
       react: 19.2.5
 
-  '@mocks-server/admin-api-client@7.0.1':
-    dependencies:
-      '@mocks-server/admin-api-paths': 5.0.0
-      cross-fetch: 3.1.6
-    transitivePeerDependencies:
-      - encoding
-
-  '@mocks-server/admin-api-paths@5.0.0': {}
-
   '@napi-rs/wasm-runtime@0.2.12':
     dependencies:
       '@emnapi/core': 1.9.0
@@ -7542,13 +7439,6 @@ snapshots:
       vite: 8.0.8(@types/node@24.12.2)(esbuild@0.27.0)(jiti@2.6.1)(terser@5.46.2)(tsx@4.21.0)(yaml@2.8.3)
 
   '@tanstack/history@1.161.6': {}
-
-  '@tanstack/query-core@5.99.2': {}
-
-  '@tanstack/react-query@5.99.2(react@19.2.5)':
-    dependencies:
-      '@tanstack/query-core': 5.99.2
-      react: 19.2.5
 
   '@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
@@ -8523,12 +8413,6 @@ snapshots:
     dependencies:
       '@epic-web/invariant': 1.0.0
       cross-spawn: 7.0.6
-
-  cross-fetch@3.1.6:
-    dependencies:
-      node-fetch: 2.7.0
-    transitivePeerDependencies:
-      - encoding
 
   cross-spawn@7.0.6:
     dependencies:
@@ -9782,10 +9666,6 @@ snapshots:
 
   ncp@2.0.0: {}
 
-  node-fetch@2.7.0:
-    dependencies:
-      whatwg-url: 5.0.0
-
   node-releases@2.0.19: {}
 
   node-releases@2.0.38: {}
@@ -10686,8 +10566,6 @@ snapshots:
 
   totalist@3.0.1: {}
 
-  tr46@0.0.3: {}
-
   tr46@1.0.1:
     dependencies:
       punycode: 2.3.1
@@ -10990,16 +10868,9 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  webidl-conversions@3.0.1: {}
-
   webidl-conversions@4.0.2: {}
 
   webpack-virtual-modules@0.6.2: {}
-
-  whatwg-url@5.0.0:
-    dependencies:
-      tr46: 0.0.3
-      webidl-conversions: 3.0.1
 
   whatwg-url@7.1.0:
     dependencies:

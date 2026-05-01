@@ -13,7 +13,6 @@
     "lint": "eslint ./src",
     "lint:fix": "pnpm lint --fix",
     "build": "tsc && vite build",
-    "build:demo": "tsc && vite build --mode demo",
     "deploy": "pnpm deploy:build && pnpm deploy:move",
     "deploy:build": "pnpm build",
     "deploy:move": "move-cli dist \"../../output/deployment/app\" --mkdirp",
