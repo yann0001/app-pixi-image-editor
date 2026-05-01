@@ -1,3 +1,4 @@
+import basicSsl from "@vitejs/plugin-basic-ssl";
 import { createBaseConfig, createPWAConfig, createReactConfig, mergeConfigs } from "@config/vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import { defineConfig, mergeConfig } from "vite";
@@ -30,7 +31,9 @@ export default defineConfig(({ command }) => {
       });
     case "serve":
       return mergeConfig(config, {
+        plugins: [basicSsl()],
         server: {
+          strictPort: true,
           hmr: {
             overlay: false,
           },
