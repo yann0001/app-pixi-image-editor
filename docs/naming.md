@@ -101,4 +101,4 @@ Within each group, type-only imports use `import type` and sort together with ru
 
 Every workspace package (`packages/*`, `design/tokens`) exports its public surface from a hand-maintained `src/index.ts`. When you add a new public file, add an `export * from "./Path/To/File"` entry. Consumers can also skip the barrel entirely via the subpath export pattern (`import { Foo } from "@package/<name>/<Path/To/File>"`).
 
-**`apps/web` has no barrel** — it is a leaf application, not a library. Use the `~/` alias for cross-layer imports.
+**`apps/editor` has no barrel** — it is a leaf application, not a library. Use the `~/` alias for cross-layer imports.

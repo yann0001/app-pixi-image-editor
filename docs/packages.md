@@ -5,7 +5,7 @@ This document tours the workspace packages. Packages differ from apps in two way
 - They export a public API through a hand-maintained `src/index.ts` barrel.
 - They use `PascalCase` folder names internally (historical — kept consistent across packages).
 
-For the `apps/web` layered structure, see [structure.md](./structure.md).
+For the `apps/editor` layered structure, see [structure.md](./structure.md).
 
 ## Workspace layout
 
@@ -136,7 +136,7 @@ packages/react/src/
 
 ## `@package/ui`
 
-Cross-app shared UI. Components here must be consumable by **any** app (not just `apps/web`).
+Cross-app shared UI. Components here must be consumable by **any** app (not just `apps/editor`).
 
 ```
 packages/ui/src/
@@ -174,7 +174,7 @@ E2E tests use `mocksClient.useRouteVariant("<OperationId>:<variant-name>")` to s
 
 ## `@package/storybook`
 
-Storybook decorators consumed by stories in both `apps/web` and `packages/ui`.
+Storybook decorators consumed by stories in both `apps/editor` and `packages/ui`.
 
 Notable export:
 
@@ -186,7 +186,7 @@ Design tokens built with **Style Dictionary 5** in W3C token format.
 
 Exports:
 
-- `@design/tokens/css` → `variables.css` (CSS custom properties — imported in `apps/web/src/main.css`).
+- `@design/tokens/css` → `variables.css` (CSS custom properties — imported in `apps/editor/src/main.css`).
 - `@design/tokens/tailwind` → `theme.js` (Tailwind colour palette consumed by `@config/tailwind`).
 
 ## Configs
@@ -204,7 +204,7 @@ Each `configs/*` package is a small shared config used by apps and other package
 
 | App | Stack | Entry | Port |
 | --- | --- | --- | --- |
-| `apps/web` | React 19, Vite 8, Tailwind 4, HeroUI v3, TanStack Router | `src/main.tsx` | 5173 (HTTPS) |
+| `apps/editor` | React 19, Vite 8, Tailwind 4, HeroUI v3, TanStack Router | `src/main.tsx` | 5173 (HTTPS) |
 | `apps/storybook` | Storybook 10 + Vite builder | `main.ts` | 9050 |
 | `apps/e2e` | Playwright 1.58, Chromium | `src/specs/*.spec.ts` | — (runs against 5173) |
 | `apps/mock` | Mocks Server 4.1 | `mocks.config.js` | 3100 |
