@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { HomeView as Component } from "./HomeView";
-import type { HomeViewProps as Props } from "./HomeView";
+import { EditorView as Component } from "./EditorView";
+import type { EditorViewProps as Props } from "./EditorView";
+import CardImageSrc from "~/assets/images/card-image.jpg";
 
 const meta: Meta<typeof Component> = {
   component: Component,
-  title: "Views/Home",
+  title: "Views/Editor",
   parameters: {
     layout: "fullscreen",
   },
@@ -14,9 +15,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const defaultArgs = {
-  themeSwitchProps: { mode: "light", onSwitch: () => {} },
-  socialLinkProps: { onGithubClick: () => {}, onLinkedInClick: () => {} },
-  onDrop: () => {},
+  url: CardImageSrc,
+  appdrawerProps: {
+    themeSwitchProps: { mode: "light", onSwitch: () => {} },
+    onNewImage: () => {},
+    onSaveImage: () => {},
+  },
+  onBack: () => {},
 } satisfies Props;
 
 export const Fullscreen: Story = {

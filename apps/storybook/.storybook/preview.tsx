@@ -1,6 +1,6 @@
+import { useEffect, type ReactElement } from "react";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import type { Preview, StoryContext } from "@storybook/react-vite";
-import { useEffect, type ReactElement } from "react";
 import { IntlProvider } from "react-intl";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import "../src/main.css";
@@ -54,6 +54,7 @@ const preview: Preview = {
           "Actions",
           "Core",
           "Display",
+          "Editor",
           "Feedback",
           "Forms",
           "Input",

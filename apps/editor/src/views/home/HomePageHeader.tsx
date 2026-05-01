@@ -2,8 +2,8 @@ import type { ReactElement } from "react";
 import LogoImageSrc from "~/assets/images/logo/Logo320.png";
 import { GithubIcon } from "~/components/icons/social/GithubIcon";
 import { LinkedInIcon } from "~/components/icons/social/LinkedInIcon";
-import type { ThemeSwitchProps } from "~/components/library/theme/ThemeSwitch";
-import { ThemeSwitch } from "~/components/library/theme/ThemeSwitch";
+import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
+import { ThemeSwitch } from "~/components/actions/theme-switch/ThemeSwitch";
 
 export interface HomePageHeaderProps {
   themeSwitchProps: ThemeSwitchProps;
@@ -19,7 +19,21 @@ export function HomePageHeader({
   return (
     <div className="mt-2 flex h-20 w-full items-center justify-center px-4 lg:mt-8 lg:px-0">
       <div className="flex flex-1">
-        <img className="h-10 w-10 lg:h-16 lg:w-16" src={LogoImageSrc} alt="Pixi Image Editor Logo" />
+        <div className="hover-3d">
+          {/* content */}
+          <figure className="max-w-100 rounded-2xl">
+            <img className="h-20 w-20 lg:h-16 lg:w-16" src={LogoImageSrc} alt="Pixi Image Editor Logo" />
+          </figure>
+          {/* 8 empty divs needed for the 3D effect */}
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
       <div className="flex h-8 flex-row items-center">
         <div className="z-20">

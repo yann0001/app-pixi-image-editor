@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from "react";
 import { AppLocales } from "./AppLocales";
-import { PwaProvider } from "~/components/library/pwa/PwaProvider";
+import { PwaLifecycle } from "~/core/pwa/PwaLifecycle";
 
 export interface AppProvidersProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ export interface AppProvidersProps {
 export function AppProviders({ children }: AppProvidersProps): ReactElement {
   return (
     <AppLocales>
-      <PwaProvider>{children as ReactElement}</PwaProvider>
+      <PwaLifecycle>{children as ReactElement}</PwaLifecycle>
     </AppLocales>
   );
 }
