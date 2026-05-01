@@ -55,13 +55,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
 
-      - name: Add buildnumber to version
-        run: |
-          cd $GITHUB_WORKSPACE/apps/editor
-          echo "VITE_APP_VERSION=\${npm_package_version}-build.${{github.run_number}}" > .env.demo.local
-
-      - name: Build demo deployment and move files
-        run: pnpm --filter=@app/editor run deploy:demo
+      - name: Build and move files
+        run: pnpm --filter=@app/editor run deploy
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
