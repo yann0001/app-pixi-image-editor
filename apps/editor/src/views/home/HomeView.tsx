@@ -3,8 +3,8 @@ import type { SocialLinkProps } from "@package/ui";
 import { FullscreenLayout } from "@package/ui";
 import { useIntl } from "react-intl";
 import { HomePageHeader } from "./HomePageHeader";
-import { Dropzone } from "~/components/input/dropzone/Dropzone";
 import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
+import { Dropzone } from "~/components/input/dropzone/Dropzone";
 
 export interface HomeViewProps {
   themeSwitchProps: ThemeSwitchProps;

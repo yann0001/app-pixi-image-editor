@@ -1,9 +1,9 @@
 import type { ReactElement } from "react";
 import LogoImageSrc from "~/assets/images/logo/Logo320.png";
-import { GithubIcon } from "~/components/icons/social/GithubIcon";
-import { LinkedInIcon } from "~/components/icons/social/LinkedInIcon";
 import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
 import { ThemeSwitch } from "~/components/actions/theme-switch/ThemeSwitch";
+import { GithubIcon } from "~/components/icons/social/GithubIcon";
+import { LinkedInIcon } from "~/components/icons/social/LinkedInIcon";
 
 export interface HomePageHeaderProps {
   themeSwitchProps: ThemeSwitchProps;

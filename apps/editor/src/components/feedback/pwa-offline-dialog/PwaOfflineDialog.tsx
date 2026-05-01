@@ -19,7 +19,7 @@ export function PwaOfflineDialog({ open, onClose }: PwaOfflineDialogProps): Reac
               {intl.formatMessage({
                 description: "PwaOfflineDialog - ready to work offline message",
                 defaultMessage: "Ready to work offline",
-                id: "PwaOfflineDialog.ready",
+                id: "LqVGkH",
               })}
             </span>
             <button
@@ -28,7 +28,7 @@ export function PwaOfflineDialog({ open, onClose }: PwaOfflineDialogProps): Reac
               aria-label={intl.formatMessage({
                 description: "PwaOfflineDialog - close button label",
                 defaultMessage: "Close notification",
-                id: "PwaOfflineDialog.close",
+                id: "la8uS2",
               })}
             >
               <XMarkIcon />
