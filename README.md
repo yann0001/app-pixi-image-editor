@@ -8,8 +8,8 @@ A browser-based image editor built with [PixiJS](https://pixijs.com/) and React.
 
 ## Live Demo
 
-**[Live Application](https://pettor.github.io/app-pixi-image-editor/app/)** — upload an image and start editing immediately, no installation required.
-**[Storybook Component Library](https://pettor.github.io/app-pixi-image-editor/storybook/)** - Explore the component documentation
+- **[Live Application Demo](https://pettor.github.io/app-pixi-image-editor/app/)** - See the main application
+- **[Storybook Component Library](https://pettor.github.io/app-pixi-image-editor/storybook/)** - Explore the component documentation
 
 ## Features
 
