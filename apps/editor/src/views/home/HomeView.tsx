@@ -3,8 +3,8 @@ import type { SocialLinkProps } from "@package/ui";
 import { FullscreenLayout } from "@package/ui";
 import { useIntl } from "react-intl";
 import { HomePageHeader } from "./HomePageHeader";
-import { Dropzone } from "~/components/library/dropzone/Dropzone";
-import type { ThemeSwitchProps } from "~/components/library/theme/ThemeSwitch";
+import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
+import { Dropzone } from "~/components/input/dropzone/Dropzone";
 
 export interface HomeViewProps {
   themeSwitchProps: ThemeSwitchProps;
@@ -27,7 +27,7 @@ export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: Hom
         <div className="hero-content text-center">
           <div className="max-w-xl">
             <div className="flex flex-1 flex-row items-center justify-center">
-              <h1 className="from-primary to-secondary inline-block bg-gradient-to-r bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:p-2 lg:text-7xl">
+              <h1 className="from-primary to-secondary inline-block bg-linear-to-r bg-clip-text text-4xl font-bold text-transparent md:text-5xl lg:p-2 lg:text-7xl">
                 {intl.formatMessage({
                   description: "HomeView - main heading",
                   defaultMessage: "Pixi Image Editor",

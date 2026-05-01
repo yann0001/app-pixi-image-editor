@@ -1,19 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ErrorView } from "./ErrorView";
+import { ErrorView as Component } from "./ErrorView";
+import type { ErrorViewProps as Props } from "./ErrorView";
 
-const meta: Meta<typeof ErrorView> = {
-  component: ErrorView,
+const meta: Meta<typeof Component> = {
+  component: Component,
   title: "Views/Error",
-  tags: ["autodocs"],
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: { onBack: () => {} },
+const defaultArgs = {
+  onBack: () => {},
+} satisfies Props;
+
+export const Fullscreen: Story = {
+  args: defaultArgs,
+  parameters: { viewport: { value: "full" } },
 };
 
-export const WithMessage: Story = {
-  args: { onBack: () => {}, message: "File somehow went missing 🤔" },
+export const Phone: Story = {
+  args: defaultArgs,
+  globals: { viewport: { value: "iphonex" } },
 };

@@ -1,13 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { LoadingView } from "./LoadingView";
+import { LoadingView as Component } from "./LoadingView";
 
-const meta: Meta<typeof LoadingView> = {
-  component: LoadingView,
+const meta: Meta<typeof Component> = {
+  component: Component,
   title: "Views/Loading",
-  tags: ["autodocs"],
+  parameters: {
+    layout: "fullscreen",
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Fullscreen: Story = {
+  parameters: { viewport: { value: "full" } },
+};
+
+export const Phone: Story = {
+  globals: { viewport: { value: "iphonex" } },
+};

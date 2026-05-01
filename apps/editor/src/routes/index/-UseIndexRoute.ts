@@ -1,6 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useSetAtom } from "jotai";
-import { useThemeSwitcher } from "~/components/library/theme/UseThemeSwitcher";
+import { useThemeSwitcher } from "~/components/actions/theme-switch/UseThemeSwitcher";
 import { droppedFileAtom } from "~/core/DroppedFileAtoms";
 import type { HomeViewProps } from "~/views/home/HomeView";
 

@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactElement } from "react";
 import { FullscreenLayout } from "@package/ui";
-import { ImageEditor } from "~/components/library/editor/Editor";
+import { ImageEditor } from "~/components/editor/Editor";
 import { ErrorView } from "~/views/error/ErrorView";
 import { LoadingView } from "~/views/loading/LoadingView";
 

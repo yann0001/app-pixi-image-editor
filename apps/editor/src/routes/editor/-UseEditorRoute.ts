@@ -1,10 +1,10 @@
 import { useNavigate } from "@tanstack/react-router";
 import { useAtomValue } from "jotai";
-import { viewportAtom } from "~/components/library/editor/atoms/viewport/ViewportAtoms";
-import type { AppDrawerProps } from "~/components/library/editor/drawer/AppDrawer";
-import { useThemeSwitcher } from "~/components/library/theme/UseThemeSwitcher";
+import { useThemeSwitcher } from "~/components/actions/theme-switch/UseThemeSwitcher";
+import { viewportAtom } from "~/components/editor/atoms/viewport/ViewportAtoms";
+import type { AppDrawerProps } from "~/components/editor/drawer/app-drawer/AppDrawer";
 import { getDownloadUrlAtom } from "~/core/DroppedFileAtoms";
-import { createImage } from "~/libs/functions/CreateImage";
+import { createImage } from "~/core/image/CreateImage";
 import type { ErrorViewProps } from "~/views/error/ErrorView";
 
 export function useEditorRoute(): {
