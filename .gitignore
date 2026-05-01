@@ -7,16 +7,28 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Common
 node_modules
-dev-dist
-dist
-dist-ssr
-deployment
 *.local
+
+# Build files
+.nyc_output
+.junit
+.test-results
+.turbo
+build/
+coverage/
+dev-dist/
+dist/
+test-results/
+out/
+output/
+storybook-static/
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo
@@ -25,5 +37,5 @@ deployment
 *.sln
 *.sw?
 
-# Build files
-storybook-static
+# Ai
+.claude/settings.local.json

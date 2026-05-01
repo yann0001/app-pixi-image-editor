@@ -1,0 +1,20 @@
+{
+  "name": "@config/tailwind",
+  "version": "0.7.0",
+  "description": "Tailwind CSS configuration for the web application",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "files": [
+    "*.css"
+  ],
+  "devDependencies": {
+    "@config/typescript": "workspace:*",
+    "@design/tokens": "workspace:*",
+    "@package/storybook": "workspace:*",
+    "@tailwindcss/aspect-ratio": "catalog:tailwind",
+    "@tailwindcss/typography": "catalog:tailwind",
+    "daisyui": "^5.0.0",
+    "tailwindcss": "catalog:tailwind"
+  }
+}

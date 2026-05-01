@@ -5,24 +5,35 @@ on:
     types:
       - closed
 
+permissions:
+  contents: write
+
 jobs:
-  deploy-storybook:
+  deploy-gh-pages:
     name: Deploy
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 2
 
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - name: Cache turbo build setup
+        uses: actions/cache@v5
         with:
-          node-version: "18"
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.4.0
+        uses: pnpm/action-setup@v6.0.1
         id: pnpm-install
         with:
           run_install: false
@@ -33,8 +44,8 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
+      - name: Setup pnpm cache
+        uses: actions/cache@v5
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -42,22 +53,27 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
-      - name: Build deployment
-        run: pnpm build:deployment --quiet
+      - name: Add buildnumber to version
+        run: |
+          cd $GITHUB_WORKSPACE/apps/editor
+          echo "VITE_APP_VERSION=\${npm_package_version}-build.${{github.run_number}}" > .env.demo.local
+
+      - name: Build demo deployment and move files
+        run: pnpm --filter=@app/editor run deploy:demo
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
-      - name: Move files to deployment folder
-        run: pnpm build:move --quiet
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+      - name: Check GitHub Pages status
+        uses: crazy-max/ghaction-github-status@v5
+        with:
+          pages_threshold: major_outage
 
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: crazy-max/ghaction-github-pages@v5
         with:
-          build_dir: deployment
+          build_dir: output/deployment
           commit_message: "chore(deploy): deploy to github pages"
           jekyll: false
           keep_history: false
