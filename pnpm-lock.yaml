@@ -50,8 +50,8 @@ catalogs:
       specifier: 2.2.0
       version: 2.2.0
     daisyui:
-      specifier: 5.0.0
-      version: 5.0.0
+      specifier: 5.5.19
+      version: 5.5.19
     style-dictionary:
       specifier: 5.4.0
       version: 5.4.0
@@ -412,7 +412,7 @@ importers:
         version: 2.1.1
       daisyui:
         specifier: catalog:design
-        version: 5.0.0
+        version: 5.5.19
       immer:
         specifier: catalog:common
         version: 11.1.4
@@ -3237,9 +3237,6 @@ packages:
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
-
-  daisyui@5.0.0:
-    resolution: {integrity: sha512-U0K9Bac3Bi3zZGm6ojrw12F0vBHTpEgf46zv/BYxLe07hF0Xnx7emIQliwaRBgJuYhY0BhwQ6wSnq5cJXHA2yA==}
 
   daisyui@5.5.19:
     resolution: {integrity: sha512-pbFAkl1VCEh/MPCeclKL61I/MqRIFFhNU7yiXoDDRapXN4/qNCoMxeCCswyxEEhqL5eiTTfwHvucFtOE71C9sA==}
@@ -8428,8 +8425,6 @@ snapshots:
   cssesc@3.0.0: {}
 
   csstype@3.2.3: {}
-
-  daisyui@5.0.0: {}
 
   daisyui@5.5.19: {}
 
