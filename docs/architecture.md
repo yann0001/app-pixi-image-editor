@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes the high-level architecture of `apps/editor`, the main React application. It focuses on how code is organised, how responsibility is split between layers, and how data flows at runtime.
+This document describes the high-level architecture of `apps/web`, the main React application. It focuses on how code is organised, how responsibility is split between layers, and how data flows at runtime.
 
 For the detailed directory layout, see [structure.md](./structure.md). For the repeatable code patterns, see [patterns.md](./patterns.md).
 
@@ -14,7 +14,7 @@ For the detailed directory layout, see [structure.md](./structure.md). For the r
 ## The four layers
 
 ```
-apps/editor/src/
+apps/web/src/
 ├── core/         # Domain modules + app shell (auth, theme, settings, pwa, session, routes, config, social-links)
 ├── components/   # Reusable UI — categorised by intent (actions, display, feedback, forms, input, navigation)
 ├── views/        # Page-level compositions consumed only by routes

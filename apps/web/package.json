@@ -1,5 +1,5 @@
 {
-  "name": "@app/editor",
+  "name": "@app/web",
   "version": "0.1.0",
   "description": "Pixi Image Editor built with React, TypeScript, and Vite",
   "license": "MIT",
