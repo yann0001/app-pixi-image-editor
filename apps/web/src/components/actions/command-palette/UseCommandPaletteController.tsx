@@ -1,5 +1,19 @@
 import { useMemo } from "react";
-import { ArrowDownTrayIcon, DocumentPlusIcon, MoonIcon, SunIcon } from "@heroicons/react/20/solid";
+import {
+  ArrowDownTrayIcon,
+  ArrowUturnLeftIcon,
+  ArrowUturnRightIcon,
+  ArrowsPointingOutIcon,
+  ArrowsRightLeftIcon,
+  ArrowsUpDownIcon,
+  DocumentPlusIcon,
+  LockClosedIcon,
+  MagnifyingGlassIcon,
+  MagnifyingGlassMinusIcon,
+  MagnifyingGlassPlusIcon,
+  MoonIcon,
+  SunIcon,
+} from "@heroicons/react/20/solid";
 import { useNavigate } from "@tanstack/react-router";
 import { useAtomValue, useSetAtom } from "jotai";
 import { useIntl } from "react-intl";
@@ -8,7 +22,12 @@ import type { CommandPaletteProps } from "./CommandPalette";
 import { useCommandPalette } from "./UseCommandPalette";
 import { useCommandPaletteShortcut } from "./UseCommandPaletteShortcut";
 import { useCommandShortcuts } from "./UseCommandShortcuts";
+import { rotationControlAtom } from "~/components/editor/atoms/transform/RotationAtoms";
+import { scaleControlAtom } from "~/components/editor/atoms/transform/ScaleAtoms";
+import { fitScreenAtom } from "~/components/editor/atoms/viewport/FitScreenAtoms";
+import { lockControlAtom } from "~/components/editor/atoms/viewport/LockAtoms";
 import { viewportAtom } from "~/components/editor/atoms/viewport/ViewportAtoms";
+import { zoomControlAtom } from "~/components/editor/atoms/viewport/ZoomAtoms";
 import { createImage } from "~/core/image/CreateImage";
 import { themeLocalStorageAtom } from "~/core/theme/ThemeAtoms";
 
@@ -16,6 +35,11 @@ export function useCommandPaletteController(): CommandPaletteProps {
   const intl = useIntl();
   const navigate = useNavigate();
   const setThemeMode = useSetAtom(themeLocalStorageAtom);
+  const zoomControl = useSetAtom(zoomControlAtom);
+  const fitScreen = useSetAtom(fitScreenAtom);
+  const rotationControl = useSetAtom(rotationControlAtom);
+  const scaleControl = useSetAtom(scaleControlAtom);
+  const toggleLock = useSetAtom(lockControlAtom);
   const { isOpen, close } = useCommandPalette();
   const viewport = useAtomValue(viewportAtom);
 
@@ -23,6 +47,16 @@ export function useCommandPaletteController(): CommandPaletteProps {
     description: "CommandPaletteController: label - file group",
     defaultMessage: "File",
     id: "file-group",
+  });
+  const viewGroup = intl.formatMessage({
+    description: "CommandPaletteController: label - view group",
+    defaultMessage: "View",
+    id: "view-group",
+  });
+  const transformGroup = intl.formatMessage({
+    description: "CommandPaletteController: label - transform group",
+    defaultMessage: "Transform",
+    id: "transform-group",
   });
   const appearanceGroup = intl.formatMessage({
     description: "CommandPaletteController: label - appearance group",
@@ -80,6 +114,155 @@ export function useCommandPaletteController(): CommandPaletteProps {
         },
       },
       {
+        id: "zoom-in",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - zoom in command",
+          defaultMessage: "Zoom In",
+          id: "zoom-in-cmd",
+        }),
+        group: viewGroup,
+        keywords: ["zoom", "in", "bigger", "enlarge"],
+        icon: <MagnifyingGlassPlusIcon className="h-4 w-4" />,
+        shortcut: { mod: true, key: "=" },
+        perform: () => zoomControl("increase"),
+      },
+      {
+        id: "zoom-out",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - zoom out command",
+          defaultMessage: "Zoom Out",
+          id: "zoom-out-cmd",
+        }),
+        group: viewGroup,
+        keywords: ["zoom", "out", "smaller"],
+        icon: <MagnifyingGlassMinusIcon className="h-4 w-4" />,
+        shortcut: { mod: true, key: "-" },
+        perform: () => zoomControl("decrease"),
+      },
+      {
+        id: "fit-to-window",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - fit to window command",
+          defaultMessage: "Fit to Window",
+          id: "fit-window-cmd",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - fit to window command",
+          defaultMessage: "Scale the image to fit the viewport",
+          id: "fit-window-desc",
+        }),
+        group: viewGroup,
+        keywords: ["fit", "window", "screen", "zoom", "auto"],
+        icon: <ArrowsPointingOutIcon className="h-4 w-4" />,
+        perform: () => {
+          if (!viewport) return;
+          fitScreen();
+        },
+      },
+      {
+        id: "actual-size",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - actual size command",
+          defaultMessage: "Actual Size",
+          id: "actual-size-cmd",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - actual size command",
+          defaultMessage: "Reset zoom to 100%",
+          id: "actual-size-desc",
+        }),
+        group: viewGroup,
+        keywords: ["actual", "size", "100", "reset", "zoom", "original"],
+        icon: <MagnifyingGlassIcon className="h-4 w-4" />,
+        shortcut: { mod: true, key: "0" },
+        perform: () => zoomControl("reset"),
+      },
+      {
+        id: "lock",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - lock command",
+          defaultMessage: "Toggle Lock",
+          id: "lock-cmd",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - lock command",
+          defaultMessage: "Lock or unlock viewport panning and zooming",
+          id: "lock-desc",
+        }),
+        group: viewGroup,
+        keywords: ["lock", "unlock", "pan", "zoom", "restrict"],
+        icon: <LockClosedIcon className="h-4 w-4" />,
+        perform: () => toggleLock(),
+      },
+      {
+        id: "rotate-left",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - rotate left command",
+          defaultMessage: "Rotate Left",
+          id: "rotate-left-cmd",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - rotate left command",
+          defaultMessage: "Rotate the image 90° counter-clockwise",
+          id: "rotate-left-desc",
+        }),
+        group: transformGroup,
+        keywords: ["rotate", "left", "counter-clockwise", "ccw", "90"],
+        icon: <ArrowUturnLeftIcon className="h-4 w-4" />,
+        perform: () => rotationControl("rotate-left"),
+      },
+      {
+        id: "rotate-right",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - rotate right command",
+          defaultMessage: "Rotate Right",
+          id: "rotate-right-cmd",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - rotate right command",
+          defaultMessage: "Rotate the image 90° clockwise",
+          id: "rotate-right-desc",
+        }),
+        group: transformGroup,
+        keywords: ["rotate", "right", "clockwise", "cw", "90"],
+        icon: <ArrowUturnRightIcon className="h-4 w-4" />,
+        perform: () => rotationControl("rotate-right"),
+      },
+      {
+        id: "flip-horizontal",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - flip horizontal command",
+          defaultMessage: "Flip Horizontal",
+          id: "flip-horizontal-cmd",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - flip horizontal command",
+          defaultMessage: "Mirror the image along the vertical axis",
+          id: "flip-horizontal-desc",
+        }),
+        group: transformGroup,
+        keywords: ["flip", "horizontal", "mirror"],
+        icon: <ArrowsRightLeftIcon className="h-4 w-4" />,
+        perform: () => scaleControl("flip-horizontal"),
+      },
+      {
+        id: "flip-vertical",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - flip vertical command",
+          defaultMessage: "Flip Vertical",
+          id: "flip-vertical-cmd",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - flip vertical command",
+          defaultMessage: "Mirror the image along the horizontal axis",
+          id: "flip-vertical-desc",
+        }),
+        group: transformGroup,
+        keywords: ["flip", "vertical", "mirror", "upside"],
+        icon: <ArrowsUpDownIcon className="h-4 w-4" />,
+        perform: () => scaleControl("flip-vertical"),
+      },
+      {
         id: "theme-light",
         label: intl.formatMessage({
           description: "CommandPaletteController: label - theme light command",
@@ -106,7 +289,21 @@ export function useCommandPaletteController(): CommandPaletteProps {
         perform: () => setThemeMode("dark"),
       },
     ];
-  }, [intl, navigate, setThemeMode, viewport, fileGroup, appearanceGroup]);
+  }, [
+    intl,
+    navigate,
+    setThemeMode,
+    zoomControl,
+    fitScreen,
+    rotationControl,
+    scaleControl,
+    toggleLock,
+    viewport,
+    fileGroup,
+    viewGroup,
+    transformGroup,
+    appearanceGroup,
+  ]);
 
   useCommandPaletteShortcut();
   useCommandShortcuts(commands);
