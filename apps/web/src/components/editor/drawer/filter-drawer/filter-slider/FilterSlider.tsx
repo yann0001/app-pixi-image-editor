@@ -27,7 +27,7 @@ export function FilterSlider({
 }: FilterSliderProps): ReactElement {
   return (
     <>
-      <button className="my-2 text-base font-bold" onClick={onReset}>
+      <button className="my-2 text-base font-bold" data-testid="filter-slider__reset" onClick={onReset}>
         {icon}
         {label}
       </button>

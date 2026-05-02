@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, fn } from "storybook/test";
 import { FilterSlider as Component } from "./FilterSlider";
 
 const meta: Meta<typeof Component> = {
@@ -10,24 +11,30 @@ const meta: Meta<typeof Component> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    label: "Brightness",
-    value: 1,
-    min: 0,
-    max: 2,
-    step: 0.1,
-    rangeClassName: "range-primary",
-    ariaLabel: "Brightness",
-    onReset: () => {},
-    onChange: () => {},
-  },
+const defaultArgs = {
+  label: "Brightness",
+  value: 1,
+  min: 0,
+  max: 2,
+  step: 0.1,
+  rangeClassName: "range-primary",
+  ariaLabel: "Brightness",
+  onReset: fn(),
+  onChange: fn(),
 };
 
+export const Default: Story = {
+  args: defaultArgs,
+  play: async ({ canvas, userEvent }) => {
+    await userEvent.click(canvas.getByTestId("filter-slider__reset"));
+    await expect(defaultArgs.onReset).toHaveBeenCalled();
+  },
+} satisfies Story;
+
 export const AtMinimum: Story = {
-  args: { ...Default.args, value: 0 },
+  args: { ...defaultArgs, value: 0 },
 };
 
 export const AtMaximum: Story = {
-  args: { ...Default.args, value: 2 },
+  args: { ...defaultArgs, value: 2 },
 };
