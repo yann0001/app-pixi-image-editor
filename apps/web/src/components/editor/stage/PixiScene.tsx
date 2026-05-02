@@ -20,6 +20,15 @@ export function PixiScene(): null {
   const { registerViewport } = useStageSetup();
   const { blur, brightness, contrast, saturation, pixelate, red, green, blue } = useStageFilters();
 
+  // Refs to let Effect 1 read the latest values without depending on them.
+  // This prevents full scene re-initialization on every filter/scale/rotation change.
+  const scaleRef = useRef(scale);
+  const rotationRef = useRef(rotation);
+  const filterParamsRef = useRef({ blur, brightness, contrast, saturation, pixelate, red, green, blue });
+  scaleRef.current = scale;
+  rotationRef.current = rotation;
+  filterParamsRef.current = { blur, brightness, contrast, saturation, pixelate, red, green, blue };
+
   // Initialize scene when app is ready and image dimensions are known
   useEffect(() => {
     if (!isInitialised || !imageUrl || !imageWidth || !imageHeight) return;
@@ -46,6 +55,9 @@ export function PixiScene(): null {
     viewport.addChild(container);
 
     viewport.filterContainer = container;
+    // Seed rawFilterParams immediately so createImage works even if the filter
+    // effect hasn't re-run yet (e.g. when the scene is rebuilt on rotation).
+    viewport.rawFilterParams = filterParamsRef.current;
     app.stage.addChild(viewport);
     viewportRef.current = viewport;
     filterContainerRef.current = container;
@@ -58,8 +70,10 @@ export function PixiScene(): null {
       const texture = Texture.from(img);
       const sprite = new Sprite(texture);
       sprite.anchor.set(0.5);
-      sprite.scale.set(scale.x, scale.y);
-      sprite.rotation = rotation;
+      // Read from refs so this effect doesn't depend on scale/rotation directly.
+      // Scale and rotation updates are handled by their own dedicated effect below.
+      sprite.scale.set(scaleRef.current.x, scaleRef.current.y);
+      sprite.rotation = rotationRef.current;
       sprite.position.set(imageWidth / 2, imageHeight / 2);
       container.addChild(sprite);
       spriteRef.current = sprite;
@@ -75,20 +89,9 @@ export function PixiScene(): null {
       filterContainerRef.current = null;
       spriteRef.current = null;
     };
-  }, [
-    isInitialised,
-    imageUrl,
-    imageWidth,
-    imageHeight,
-    app,
-    maxZoom,
-    minZoom,
-    registerViewport,
-    setZoom,
-    scale.x,
-    scale.y,
-    rotation,
-  ]);
+    // scale, rotation, and filter values are intentionally excluded — they are handled by
+    // dedicated effects below and accessed via refs to avoid unnecessary scene re-initialization.
+  }, [isInitialised, imageUrl, imageWidth, imageHeight, app, maxZoom, minZoom, registerViewport, setZoom]);
 
   // Update Pixi filters whenever filter values or zoom changes.
   // Blur and pixelate are scaled by zoom so they appear zoom-independent

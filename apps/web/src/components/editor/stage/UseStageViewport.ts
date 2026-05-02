@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 import type { ApplicationOptions, PointData } from "pixi.js";
 import { isRotatedAtom, rotationAtom } from "../atoms/transform/RotationAtoms";
@@ -27,9 +28,13 @@ export function useStageViewport(): {
   const rotation = useAtomValue(rotationAtom);
   const isRotated = useAtomValue(isRotatedAtom);
 
-  function setZoom(value: number): void {
-    zoomControl(value * 100);
-  }
+  // Stable reference — zoomControl from useSetAtom is guaranteed stable by Jotai
+  const setZoom = useCallback(
+    (value: number): void => {
+      zoomControl(value * 100);
+    },
+    [zoomControl]
+  );
 
   return {
     stageOptions,
