@@ -137,7 +137,7 @@ export function CommandPalette({ isOpen, commands, onClose }: CommandPaletteProp
             className="bg-base-100 text-base-content placeholder:text-base-content/40 flex-1 text-sm outline-none"
           />
         </div>
-        <div className="min-h-0 flex-1 overflow-y-auto p-2">
+        <div className="min-h-0 flex-1 overflow-y-auto p-2" tabIndex={0}>
           <div ref={listRef} className="h-full">
             {filtered.length === 0 ? (
               <div className="text-base-content/50 flex h-full items-center justify-center p-6 text-sm">
