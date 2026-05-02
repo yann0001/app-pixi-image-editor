@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useAtom, useSetAtom } from "jotai";
 import { viewportAtom } from "../atoms/viewport/ViewportAtoms";
 import { viewportChangeAtomEffect } from "../atoms/viewport/ViewportChangeAtoms";
@@ -12,9 +13,13 @@ export function useStageSetup(): {
 
   const setViewport = useSetAtom(viewportAtom);
 
-  function registerViewport(viewport: ViewportExtended): void {
-    setViewport(viewport);
-  }
+  // Stable reference — setViewport from useSetAtom is guaranteed stable by Jotai
+  const registerViewport = useCallback(
+    (viewport: ViewportExtended): void => {
+      setViewport(viewport);
+    },
+    [setViewport]
+  );
 
   return {
     registerViewport,

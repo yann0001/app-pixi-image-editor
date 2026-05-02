@@ -8,80 +8,80 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root/route";
-import { Route as EditorRouteRouteImport } from "./routes/editor/route";
-import { Route as SplatRouteRouteImport } from "./routes/$/route";
-import { Route as IndexRouteRouteImport } from "./routes/index/route";
+import { Route as rootRouteImport } from './routes/__root/route'
+import { Route as EditorRouteRouteImport } from './routes/editor/route'
+import { Route as SplatRouteRouteImport } from './routes/$/route'
+import { Route as IndexRouteRouteImport } from './routes/index/route'
 
 const EditorRouteRoute = EditorRouteRouteImport.update({
-  id: "/editor",
-  path: "/editor",
+  id: '/editor',
+  path: '/editor',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const SplatRouteRoute = SplatRouteRouteImport.update({
-  id: "/$",
-  path: "/$",
+  id: '/$',
+  path: '/$',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 const IndexRouteRoute = IndexRouteRouteImport.update({
-  id: "/",
-  path: "",
+  id: '/',
+  path: '',
   getParentRoute: () => rootRouteImport,
-} as any);
+} as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRouteRoute;
-  "/$": typeof SplatRouteRoute;
-  "/editor": typeof EditorRouteRoute;
+  '/': typeof IndexRouteRoute
+  '/$': typeof SplatRouteRoute
+  '/editor': typeof EditorRouteRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRouteRoute;
-  "/$": typeof SplatRouteRoute;
-  "/editor": typeof EditorRouteRoute;
+  '/': typeof IndexRouteRoute
+  '/$': typeof SplatRouteRoute
+  '/editor': typeof EditorRouteRoute
 }
 export interface FileRoutesById {
-  __root__: typeof rootRouteImport;
-  "/": typeof IndexRouteRoute;
-  "/$": typeof SplatRouteRoute;
-  "/editor": typeof EditorRouteRoute;
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRouteRoute
+  '/$': typeof SplatRouteRoute
+  '/editor': typeof EditorRouteRoute
 }
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/" | "/$" | "/editor";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/$" | "/editor";
-  id: "__root__" | "/" | "/$" | "/editor";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '/' | '/$' | '/editor'
+  fileRoutesByTo: FileRoutesByTo
+  to: '/' | '/$' | '/editor'
+  id: '__root__' | '/' | '/$' | '/editor'
+  fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRouteRoute: typeof IndexRouteRoute;
-  SplatRouteRoute: typeof SplatRouteRoute;
-  EditorRouteRoute: typeof EditorRouteRoute;
+  IndexRouteRoute: typeof IndexRouteRoute
+  SplatRouteRoute: typeof SplatRouteRoute
+  EditorRouteRoute: typeof EditorRouteRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/editor": {
-      id: "/editor";
-      path: "/editor";
-      fullPath: "/editor";
-      preLoaderRoute: typeof EditorRouteRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/$": {
-      id: "/$";
-      path: "/$";
-      fullPath: "/$";
-      preLoaderRoute: typeof SplatRouteRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
-    "/": {
-      id: "/";
-      path: "";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexRouteRouteImport;
-      parentRoute: typeof rootRouteImport;
-    };
+    '/editor': {
+      id: '/editor'
+      path: '/editor'
+      fullPath: '/editor'
+      preLoaderRoute: typeof EditorRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,5 +89,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRouteRoute: IndexRouteRoute,
   SplatRouteRoute: SplatRouteRoute,
   EditorRouteRoute: EditorRouteRoute,
-};
-export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)._addFileTypes<FileRouteTypes>();
+}
+export const routeTree = rootRouteImport
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
