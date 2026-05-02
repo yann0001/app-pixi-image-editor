@@ -18,7 +18,7 @@ function HydrateAtomsWrapper({ initialValue }: { initialValue: number }): ReactE
   return (
     <Provider>
       <HydrateAtoms atomValues={[[testValueAtom, initialValue]]}>
-        <HydrateAtomsHarness initialValue={initialValue} />
+        <HydrateAtomsHarness />
       </HydrateAtoms>
     </Provider>
   );
