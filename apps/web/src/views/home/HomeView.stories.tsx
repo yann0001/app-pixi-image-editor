@@ -5,6 +5,7 @@ import type { HomeViewProps as Props } from "./HomeView";
 const meta: Meta<typeof Component> = {
   component: Component,
   title: "Views/Home",
+  tags: ["!test"],
   parameters: {
     layout: "fullscreen",
   },

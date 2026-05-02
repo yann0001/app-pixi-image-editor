@@ -120,7 +120,7 @@ export function CommandPalette({ isOpen, commands, onClose }: CommandPaletteProp
         onClose();
       }}
     >
-      <div className="modal-box flex h-[480px] max-h-[calc(100dvh-4rem)] w-full max-w-lg flex-col overflow-hidden p-0 shadow-2xl">
+      <div className="modal-box flex h-120 max-h-[calc(100dvh-4rem)] w-full max-w-lg flex-col overflow-hidden p-0 shadow-2xl">
         <div className="border-base-300 flex shrink-0 items-center gap-3 border-b px-4 py-3">
           <MagnifyingGlassIcon className="text-base-content/50 h-5 w-5 shrink-0" />
           <input

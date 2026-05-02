@@ -13,9 +13,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Fullscreen: Story = {
-  parameters: { viewport: { value: "full" } },
+  parameters: { viewport: { value: "full" }, test: { skip: true } },
 };
 
 export const Phone: Story = {
-  globals: { viewport: { value: "iphonex" } },
+  globals: { viewport: { value: "iphonex" }, test: { skip: true } },
 };

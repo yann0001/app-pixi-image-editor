@@ -23,7 +23,6 @@ import type { CommandPaletteProps as Props } from "./CommandPalette";
 const meta: Meta<typeof Component> = {
   component: Component,
   title: "Actions/Command Palette",
-  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },
