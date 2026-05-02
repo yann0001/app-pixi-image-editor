@@ -1,6 +1,5 @@
-import { useRef, type ReactElement } from "react";
+import { type ReactElement } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useClickOutside } from "@package/react";
 import { useIntl } from "react-intl";
 import type { StagedFilter } from "../../stage/StagedFilters";
 import { FilterSlider } from "./filter-slider/FilterSlider";
@@ -38,16 +37,14 @@ export function FilterDrawer({
   onFilterChange,
 }: FilterDrawerProps): ReactElement {
   const intl = useIntl();
-  const menuRef = useRef<HTMLElement>(null);
-  useClickOutside(menuRef, onClose);
 
   return (
     <div className="drawer drawer-end z-30">
       <input
         id="filter-drawer"
-        readOnly
         type="checkbox"
         checked={open}
+        onChange={() => {}}
         className="drawer-toggle"
         aria-label={intl.formatMessage({
           description: "FilterDrawer - drawer toggle label",
@@ -55,35 +52,32 @@ export function FilterDrawer({
           id: "4kBXHm",
         })}
       />
-      <div className="drawer-side overflow-hidden">
-        <label htmlFor="filter-drawer" aria-label="close sidebar" />
-        <ul className="menu bg-neutral-content text-base-content dark:bg-neutral flex min-h-full w-60 flex-col flex-wrap p-4 text-base shadow-xl md:w-96">
-          <li className="p-0">
-            <div className="flex flex-row">
-              <span className="flex flex-1 p-4 text-2xl font-bold">
-                {intl.formatMessage({
-                  description: "FilterDrawer - heading",
-                  defaultMessage: "Filters",
-                  id: "/KooDq",
-                })}
-              </span>
-              <div className="flex flex-row items-center">
-                <button
-                  className="btn btn-circle btn-ghost btn-sm"
-                  onClick={onClose}
-                  aria-label={intl.formatMessage({
-                    description: "FilterDrawer - close button label",
-                    defaultMessage: "Close filters",
-                    id: "fmaprX",
-                  })}
-                >
-                  <XMarkIcon />
-                </button>
-              </div>
-            </div>
-          </li>
-          <li className="divider divider-vertical h-1/2 p-0" />
-          <li className="flex gap-2">
+      <div className="drawer-content" />
+      <div className="drawer-side">
+        <label htmlFor="filter-drawer" aria-label="close sidebar" className="drawer-overlay" onClick={onClose} />
+        <div className="bg-neutral-content dark:bg-neutral text-base-content flex min-h-full w-60 flex-col overflow-y-auto p-4 shadow-xl md:w-96">
+          <div className="flex items-center justify-between px-2 py-3">
+            <h2 className="text-2xl font-bold">
+              {intl.formatMessage({
+                description: "FilterDrawer - heading",
+                defaultMessage: "Filters",
+                id: "/KooDq",
+              })}
+            </h2>
+            <button
+              className="btn btn-circle btn-ghost btn-sm"
+              onClick={onClose}
+              aria-label={intl.formatMessage({
+                description: "FilterDrawer - close button label",
+                defaultMessage: "Close filters",
+                id: "fmaprX",
+              })}
+            >
+              <XMarkIcon className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="divider my-1" />
+          <div className="flex flex-col gap-2 py-2">
             <FilterSlider
               label={intl.formatMessage({
                 description: "FilterDrawer - brightness label",
@@ -144,12 +138,21 @@ export function FilterDrawer({
               onReset={() => onFilterChange({ saturation: 1 })}
               onChange={(v) => onFilterChange({ saturation: v })}
             />
-          </li>
-          <li className="divider divider-vertical mt-8 h-1/2" />
-          <li className="flex gap-4">
-            <button className="text-base font-bold" onClick={() => onFilterChange({ red: 1, green: 1, blue: 1 })}>
-              {intl.formatMessage({ description: "FilterDrawer - RGB label", defaultMessage: "RGB", id: "Z5FJ/V" })}
-            </button>
+          </div>
+          <div className="divider my-1" />
+          <div className="flex flex-col gap-3 py-2">
+            <div className="flex items-center justify-between px-2">
+              <span className="text-base font-bold">
+                {intl.formatMessage({ description: "FilterDrawer - RGB label", defaultMessage: "RGB", id: "Z5FJ/V" })}
+              </span>
+              <button className="btn btn-ghost btn-xs" onClick={() => onFilterChange({ red: 1, green: 1, blue: 1 })}>
+                {intl.formatMessage({
+                  description: "FilterDrawer - RGB reset button",
+                  defaultMessage: "Reset",
+                  id: "gMQ/y6",
+                })}
+              </button>
+            </div>
             <input
               type="range"
               min="0"
@@ -192,9 +195,9 @@ export function FilterDrawer({
                 id: "XW3FAa",
               })}
             />
-          </li>
-          <li className="divider divider-vertical mt-8 h-1/2" />
-          <li className="flex gap-2">
+          </div>
+          <div className="divider my-1" />
+          <div className="flex flex-col gap-2 py-2">
             <FilterSlider
               label={intl.formatMessage({
                 description: "FilterDrawer - blur label",
@@ -235,8 +238,8 @@ export function FilterDrawer({
               onReset={() => onFilterChange({ pixelate: 0 })}
               onChange={(v) => onFilterChange({ pixelate: v })}
             />
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
