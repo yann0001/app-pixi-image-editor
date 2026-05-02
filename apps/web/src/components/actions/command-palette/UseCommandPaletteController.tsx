@@ -46,17 +46,17 @@ export function useCommandPaletteController(): CommandPaletteProps {
   const fileGroup = intl.formatMessage({
     description: "CommandPaletteController: label - file group",
     defaultMessage: "File",
-    id: "file-group",
+    id: "g2BfXO",
   });
   const viewGroup = intl.formatMessage({
     description: "CommandPaletteController: label - view group",
     defaultMessage: "View",
-    id: "view-group",
+    id: "zIo0cK",
   });
   const transformGroup = intl.formatMessage({
     description: "CommandPaletteController: label - transform group",
     defaultMessage: "Transform",
-    id: "transform-group",
+    id: "hPR+Fi",
   });
   const appearanceGroup = intl.formatMessage({
     description: "CommandPaletteController: label - appearance group",
@@ -71,12 +71,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - new image command",
           defaultMessage: "New Image",
-          id: "new-image-cmd",
+          id: "twOz5i",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - new image command",
           defaultMessage: "Open a new image in the editor",
-          id: "new-image-desc",
+          id: "NxGJPx",
         }),
         group: fileGroup,
         keywords: ["new", "open", "create"],
@@ -91,12 +91,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - save image command",
           defaultMessage: "Save Image",
-          id: "save-image-cmd",
+          id: "/sMkPM",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - save image command",
           defaultMessage: "Download the current image as PNG",
-          id: "save-image-desc",
+          id: "jOo7vI",
         }),
         group: fileGroup,
         keywords: ["save", "download", "export"],
@@ -118,7 +118,7 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - zoom in command",
           defaultMessage: "Zoom In",
-          id: "zoom-in-cmd",
+          id: "JV6l/U",
         }),
         group: viewGroup,
         keywords: ["zoom", "in", "bigger", "enlarge"],
@@ -131,7 +131,7 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - zoom out command",
           defaultMessage: "Zoom Out",
-          id: "zoom-out-cmd",
+          id: "ENU/kw",
         }),
         group: viewGroup,
         keywords: ["zoom", "out", "smaller"],
@@ -144,12 +144,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - fit to window command",
           defaultMessage: "Fit to Window",
-          id: "fit-window-cmd",
+          id: "S/fzmA",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - fit to window command",
           defaultMessage: "Scale the image to fit the viewport",
-          id: "fit-window-desc",
+          id: "L+SpbB",
         }),
         group: viewGroup,
         keywords: ["fit", "window", "screen", "zoom", "auto"],
@@ -164,12 +164,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - actual size command",
           defaultMessage: "Actual Size",
-          id: "actual-size-cmd",
+          id: "Gc5erm",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - actual size command",
           defaultMessage: "Reset zoom to 100%",
-          id: "actual-size-desc",
+          id: "dvy2wk",
         }),
         group: viewGroup,
         keywords: ["actual", "size", "100", "reset", "zoom", "original"],
@@ -182,12 +182,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - lock command",
           defaultMessage: "Toggle Lock",
-          id: "lock-cmd",
+          id: "s747BT",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - lock command",
           defaultMessage: "Lock or unlock viewport panning and zooming",
-          id: "lock-desc",
+          id: "7V2yGp",
         }),
         group: viewGroup,
         keywords: ["lock", "unlock", "pan", "zoom", "restrict"],
@@ -199,12 +199,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - rotate left command",
           defaultMessage: "Rotate Left",
-          id: "rotate-left-cmd",
+          id: "+3FE8Y",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - rotate left command",
           defaultMessage: "Rotate the image 90° counter-clockwise",
-          id: "rotate-left-desc",
+          id: "qA9JXS",
         }),
         group: transformGroup,
         keywords: ["rotate", "left", "counter-clockwise", "ccw", "90"],
@@ -216,12 +216,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - rotate right command",
           defaultMessage: "Rotate Right",
-          id: "rotate-right-cmd",
+          id: "BPkpxr",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - rotate right command",
           defaultMessage: "Rotate the image 90° clockwise",
-          id: "rotate-right-desc",
+          id: "1OYY5K",
         }),
         group: transformGroup,
         keywords: ["rotate", "right", "clockwise", "cw", "90"],
@@ -233,12 +233,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - flip horizontal command",
           defaultMessage: "Flip Horizontal",
-          id: "flip-horizontal-cmd",
+          id: "2vLOdr",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - flip horizontal command",
           defaultMessage: "Mirror the image along the vertical axis",
-          id: "flip-horizontal-desc",
+          id: "fRS5Td",
         }),
         group: transformGroup,
         keywords: ["flip", "horizontal", "mirror"],
@@ -250,12 +250,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - flip vertical command",
           defaultMessage: "Flip Vertical",
-          id: "flip-vertical-cmd",
+          id: "s0Z6jW",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - flip vertical command",
           defaultMessage: "Mirror the image along the horizontal axis",
-          id: "flip-vertical-desc",
+          id: "32R4U6",
         }),
         group: transformGroup,
         keywords: ["flip", "vertical", "mirror", "upside"],

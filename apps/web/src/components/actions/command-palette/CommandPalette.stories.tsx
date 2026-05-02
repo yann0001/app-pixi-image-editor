@@ -15,6 +15,7 @@ import {
   SunIcon,
 } from "@heroicons/react/20/solid";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, fn, userEvent, within } from "storybook/test";
 import type { Command } from "./Command";
 import { CommandPalette as Component } from "./CommandPalette";
 import type { CommandPaletteProps as Props } from "./CommandPalette";
@@ -162,8 +163,22 @@ const defaultArgs: Props = {
   onClose: () => console.log("onClose"),
 };
 
+// Verifies initial render: search input present, all groups visible, first item active.
 export const Default: Story = {
   args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = await canvas.findByTestId("command-palette__search");
+    expect(input).toBeTruthy();
+
+    expect(canvas.getByText("File")).toBeTruthy();
+    expect(canvas.getByText("View")).toBeTruthy();
+    expect(canvas.getByText("Transform")).toBeTruthy();
+    expect(canvas.getByText("Appearance")).toBeTruthy();
+
+    expect(canvas.getByTestId("command-palette__item-new-image").getAttribute("aria-selected")).toBe("true");
+  },
 };
 
 export const Empty: Story = {
@@ -176,4 +191,72 @@ export const Empty: Story = {
 export const Phone: Story = {
   args: defaultArgs,
   globals: { viewport: { value: "iphonex" } },
+};
+
+// Types "zoom" and checks that only zoom-related commands remain visible.
+export const SearchFilters: Story = {
+  args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = await canvas.findByTestId("command-palette__search");
+    await userEvent.type(input, "zoom");
+
+    expect(canvas.getByTestId("command-palette__item-zoom-in")).toBeTruthy();
+    expect(canvas.getByTestId("command-palette__item-zoom-out")).toBeTruthy();
+    expect(canvas.getByTestId("command-palette__item-actual-size")).toBeTruthy();
+
+    expect(canvas.queryByTestId("command-palette__item-rotate-left")).toBeNull();
+    expect(canvas.queryByTestId("command-palette__item-flip-horizontal")).toBeNull();
+    expect(canvas.queryByTestId("command-palette__item-theme-light")).toBeNull();
+  },
+};
+
+// Types a query that matches nothing and verifies the empty-state message.
+export const SearchNoResults: Story = {
+  args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = await canvas.findByTestId("command-palette__search");
+    await userEvent.type(input, "xyznotfound");
+
+    expect(canvas.getByText("No commands found")).toBeTruthy();
+    expect(canvas.queryByTestId("command-palette__item-new-image")).toBeNull();
+  },
+};
+
+// Uses ArrowDown / ArrowUp to move through the list and checks aria-selected.
+export const KeyboardNavigation: Story = {
+  args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = await canvas.findByTestId("command-palette__search");
+    expect(canvas.getByTestId("command-palette__item-new-image").getAttribute("aria-selected")).toBe("true");
+
+    await userEvent.click(input);
+    await userEvent.keyboard("{ArrowDown}");
+    expect(canvas.getByTestId("command-palette__item-save-image").getAttribute("aria-selected")).toBe("true");
+    expect(canvas.getByTestId("command-palette__item-new-image").getAttribute("aria-selected")).not.toBe("true");
+
+    await userEvent.keyboard("{ArrowUp}");
+    expect(canvas.getByTestId("command-palette__item-new-image").getAttribute("aria-selected")).toBe("true");
+  },
+};
+
+// Clicks a command item and checks that onClose is called.
+export const CommandExecution: Story = {
+  args: {
+    ...defaultArgs,
+    onClose: fn(),
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+
+    const item = await canvas.findByTestId("command-palette__item-new-image");
+    await userEvent.click(item);
+
+    expect(args.onClose).toHaveBeenCalledOnce();
+  },
 };
