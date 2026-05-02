@@ -22,7 +22,7 @@
     "storybook:nopen": "pnpm storybook --no-open"
   },
   "dependencies": {
-    "@app/editor": "workspace:*",
+    "@app/web": "workspace:*",
     "@config/tailwind": "workspace:*",
     "@fontsource/rubik": "catalog:common",
     "@package/ui": "workspace:*",

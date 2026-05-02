@@ -1,6 +1,6 @@
 # Patterns
 
-This document describes the repeatable code patterns used across `apps/editor`. Follow these when adding new features so the layers from [architecture.md](./architecture.md) stay intact.
+This document describes the repeatable code patterns used across `apps/web`. Follow these when adding new features so the layers from [architecture.md](./architecture.md) stay intact.
 
 ## Controller pattern
 
