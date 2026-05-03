@@ -2,6 +2,7 @@ import type { ReactElement, ReactNode } from "react";
 
 export interface FilterSliderProps {
   label: string;
+  resetLabel: string;
   icon?: ReactNode;
   value: number;
   min: number;
@@ -15,6 +16,7 @@ export interface FilterSliderProps {
 
 export function FilterSlider({
   label,
+  resetLabel,
   icon,
   value,
   min,
@@ -27,10 +29,13 @@ export function FilterSlider({
 }: FilterSliderProps): ReactElement {
   return (
     <>
-      <button className="my-2 text-base font-bold" data-testid="filter-slider__reset" onClick={onReset}>
+      <div className="flex items-center gap-2 px-2">
         {icon}
-        {label}
-      </button>
+        <span className="flex-1 text-center text-base font-bold">{label}</span>
+        <button className="btn btn-ghost btn-xs" data-testid="filter-slider__reset" onClick={onReset}>
+          {resetLabel}
+        </button>
+      </div>
       <input
         type="range"
         min={min}

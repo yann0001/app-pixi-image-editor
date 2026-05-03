@@ -14,7 +14,7 @@ export function PwaOfflineDialog({ open, onClose }: PwaOfflineDialogProps): Reac
     <>
       {open && (
         <div className="toast z-50">
-          <div className="alert alert-info shadow-lg">
+          <div className="alert shadow-lg">
             <span>
               {intl.formatMessage({
                 description: "PwaOfflineDialog - ready to work offline message",
@@ -23,7 +23,7 @@ export function PwaOfflineDialog({ open, onClose }: PwaOfflineDialogProps): Reac
               })}
             </span>
             <button
-              className="btn btn-square btn-ghost btn-sm"
+              className="btn btn-circle btn-sm"
               onClick={onClose}
               aria-label={intl.formatMessage({
                 description: "PwaOfflineDialog - close button label",
