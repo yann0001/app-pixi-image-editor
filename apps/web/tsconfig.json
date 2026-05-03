@@ -1,5 +1,5 @@
 {
-  "exclude": ["dist"],
+  "exclude": ["dist", "**/*.test.ts", "**/*.test.tsx"],
   "extends": "@config/typescript/vite.json",
   "compilerOptions": {
     "paths": {
