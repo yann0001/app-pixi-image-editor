@@ -52,6 +52,7 @@
     "babel-plugin-react-compiler": "catalog:react19",
     "move-cli": "catalog:common",
     "rimraf": "catalog:common",
+    "storybook": "catalog:storybook",
     "tailwindcss": "catalog:tailwind",
     "typescript": "catalog:typescript",
     "vite": "catalog:vite",

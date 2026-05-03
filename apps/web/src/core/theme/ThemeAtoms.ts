@@ -2,7 +2,7 @@ import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import type { ThemeMode } from "./ThemeMode";
 
-const themeLocalStorageAtom = atomWithStorage<ThemeMode>("theme", "light");
+export const themeLocalStorageAtom = atomWithStorage<ThemeMode>("theme", "light");
 const themeMediaQueryAtom = atom(() => window.matchMedia("(prefers-color-scheme: dark)"));
 
 export const themeModeAtom = atom(

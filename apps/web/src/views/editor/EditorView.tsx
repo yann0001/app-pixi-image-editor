@@ -1,5 +1,6 @@
 import type { ComponentProps, ReactElement } from "react";
 import { FullscreenLayout } from "@package/ui";
+import { CommandPaletteController } from "~/components/actions/command-palette/CommandPaletteController";
 import { ImageEditor } from "~/components/editor/Editor";
 import { ErrorView } from "~/views/error/ErrorView";
 import { LoadingView } from "~/views/loading/LoadingView";
@@ -21,12 +22,15 @@ export function EditorView({ onBack, ...props }: EditorViewProps): ReactElement 
   }
 
   return (
-    <FullscreenLayout>
-      <ImageEditor
-        {...props}
-        LoaderComponent={() => <LoadingView />}
-        ErrorComponent={() => <ErrorView onBack={handleBack} />}
-      />
-    </FullscreenLayout>
+    <>
+      <FullscreenLayout>
+        <ImageEditor
+          {...props}
+          LoaderComponent={() => <LoadingView />}
+          ErrorComponent={() => <ErrorView onBack={handleBack} />}
+        />
+      </FullscreenLayout>
+      <CommandPaletteController />
+    </>
   );
 }

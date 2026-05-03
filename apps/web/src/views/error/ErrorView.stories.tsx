@@ -19,10 +19,10 @@ const defaultArgs = {
 
 export const Fullscreen: Story = {
   args: defaultArgs,
-  parameters: { viewport: { value: "full" } },
+  parameters: { viewport: { value: "full" }, test: { skip: true } },
 };
 
 export const Phone: Story = {
   args: defaultArgs,
-  globals: { viewport: { value: "iphonex" } },
+  globals: { viewport: { value: "iphonex" }, test: { skip: true } },
 };

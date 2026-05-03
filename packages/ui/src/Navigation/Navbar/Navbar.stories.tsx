@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect } from "storybook/test";
 import { StorybookNavbarContentComponent } from "../../Storybook/Components/StorybookNavbarContentComponent";
 import { Navbar as Component } from "./Navbar";
 import type { NavbarProps as Props } from "./Navbar";
@@ -47,3 +48,15 @@ export const WithComponents: Story = {
   },
   parameters: { viewport: { value: "full" } },
 };
+
+export const WithScrollInteraction: Story = {
+  args: defaultArgs,
+  play: async ({ canvas }) => {
+    await expect(canvas.getByRole("banner")).toBeInTheDocument();
+    // Simulate scroll down then up to exercise the scroll handler branches
+    window.scrollY = 100;
+    window.dispatchEvent(new Event("scroll"));
+    window.scrollY = 0;
+    window.dispatchEvent(new Event("scroll"));
+  },
+} satisfies Story;

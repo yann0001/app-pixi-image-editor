@@ -27,7 +27,7 @@ export function ToolbarZoom({ zoom, onZoomIn, onZoomOut, onResetZoom }: ToolbarZ
           <PlusIcon />
         </button>
         <div className="md:tooltip md:tooltip-top" data-tip="Reset zoom">
-          <button className="w-8 md:w-10" onClick={onResetZoom}>
+          <button className="w-8 md:w-10" data-testid="toolbar-zoom__reset" onClick={onResetZoom}>
             <span className="text-sm">{zoom}%</span>
           </button>
         </div>

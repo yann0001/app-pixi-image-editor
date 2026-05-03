@@ -10,6 +10,13 @@ const meta: Meta<typeof Component> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const FullSmall: Story = {
+  args: {
+    appName: "My App",
+    size: "small",
+  },
+};
+
 export const FullMedium: Story = {
   args: {
     appName: "My App",

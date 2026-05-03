@@ -68,7 +68,11 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
                 id: "UNiGdv",
               })}
             </button>
-            <button className="btn btn-ghost justify-start gap-3" onClick={handleSaveImage}>
+            <button
+              className="btn btn-ghost justify-start gap-3"
+              data-testid="editor__drawer-save-image"
+              onClick={handleSaveImage}
+            >
               <ArrowDownTrayIcon className="h-5 w-5" />
               {intl.formatMessage({
                 description: "AppDrawer - save image menu item",

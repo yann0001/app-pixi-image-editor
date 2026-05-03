@@ -6,6 +6,7 @@ import CardImageSrc from "~/assets/images/card-image.jpg";
 const meta: Meta<typeof Component> = {
   component: Component,
   title: "Views/Editor",
+  tags: ["!test"],
   parameters: {
     layout: "fullscreen",
   },

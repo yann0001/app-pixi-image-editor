@@ -4,6 +4,7 @@ import { ThemeSwitch as Component } from "./ThemeSwitch";
 const meta: Meta<typeof Component> = {
   component: Component,
   title: "Actions/Theme Switch",
+  tags: ["autodocs"],
 };
 
 export default meta;
