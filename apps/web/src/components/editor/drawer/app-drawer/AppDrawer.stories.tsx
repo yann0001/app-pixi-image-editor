@@ -11,7 +11,6 @@ import { HydrateAtoms } from "~/core/utils/HydrateAtoms";
 const meta: Meta<typeof Component> = {
   component: Component,
   title: "Editor/App Drawer",
-  tags: ["autodocs"],
 };
 
 export default meta;
