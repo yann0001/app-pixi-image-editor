@@ -91,7 +91,7 @@ export default defineConfig({
           tsconfigPaths: true,
         },
         optimizeDeps: {
-          include: ["react/jsx-dev-runtime", "jotai", "jotai/utils", "@testing-library/react"],
+          include: ["react/jsx-dev-runtime", "jotai", "jotai/utils"],
         },
         plugins: [react(), tailwindcss()],
         test: {

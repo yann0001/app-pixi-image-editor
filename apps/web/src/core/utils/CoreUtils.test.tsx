@@ -1,10 +1,28 @@
 import type { ReactElement } from "react";
-import { render, screen } from "@testing-library/react";
+import { act } from "react";
+import { createRoot } from "react-dom/client";
+import { describe, it, expect, afterEach } from "vitest";
 import { atom, Provider, useAtom } from "jotai";
-import { describe, it, expect } from "vitest";
 import ErrorBoundary from "./ErrorBoundary";
 import { HydrateAtoms } from "./HydrateAtoms";
 import { throwExpression } from "./ThrowExpression";
+
+let container: HTMLDivElement;
+
+afterEach(() => {
+  if (container && container.parentNode) {
+    document.body.removeChild(container);
+  }
+});
+
+function renderInto(ui: ReactElement): HTMLDivElement {
+  container = document.createElement("div");
+  document.body.appendChild(container);
+  act(() => {
+    createRoot(container).render(ui);
+  });
+  return container;
+}
 
 describe("throwExpression", () => {
   it("throws an Error with the given message", () => {
@@ -25,7 +43,7 @@ describe("HydrateAtoms", () => {
       return <span data-testid="hydrated-value">{value}</span>;
     }
 
-    render(
+    const el = renderInto(
       <Provider>
         <HydrateAtoms atomValues={[[testAtom, 42]]}>
           <TestConsumer />
@@ -33,7 +51,7 @@ describe("HydrateAtoms", () => {
       </Provider>
     );
 
-    expect(screen.getByTestId("hydrated-value").textContent).toBe("42");
+    expect(el.querySelector('[data-testid="hydrated-value"]')?.textContent).toBe("42");
   });
 });
 
@@ -43,14 +61,14 @@ describe("ErrorBoundary", () => {
       throw new Error("Test render error");
     }
 
-    render(
+    const el = renderInto(
       <ErrorBoundary fallback={<span data-testid="error-fallback">Error caught</span>}>
         <ThrowingChild />
       </ErrorBoundary>
     );
 
-    const fallback = screen.getByTestId("error-fallback");
+    const fallback = el.querySelector('[data-testid="error-fallback"]');
     expect(fallback).toBeTruthy();
-    expect(fallback.textContent).toBe("Error caught");
+    expect(fallback?.textContent).toBe("Error caught");
   });
 });

@@ -44,7 +44,6 @@
     "@storybook/react": "catalog:storybook",
     "@storybook/react-vite": "catalog:storybook",
     "@tailwindcss/vite": "catalog:tailwind",
-    "@testing-library/react": "catalog:testing",
     "@vitejs/plugin-react": "catalog:vite",
     "@vitest/browser": "catalog:vitest",
     "@vitest/browser-playwright": "catalog:vitest",
