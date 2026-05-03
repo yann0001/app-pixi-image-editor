@@ -7,6 +7,7 @@ import { BlurIcon } from "~/components/icons/filters/BlurIcon";
 import { ContrastIcon } from "~/components/icons/filters/ContrastIcon";
 import { DropletIcon } from "~/components/icons/filters/DropletIcon";
 import { PixelateIcon } from "~/components/icons/filters/PixelateIcon";
+import { RgbIcon } from "~/components/icons/filters/RgbIcon";
 import { SunHighIcon } from "~/components/icons/filters/SunHighIcon";
 
 export interface FilterDrawerProps {
@@ -84,6 +85,11 @@ export function FilterDrawer({
                 defaultMessage: "Brightness",
                 id: "vLbpzr",
               })}
+              resetLabel={intl.formatMessage({
+                description: "FilterDrawer - brightness reset button",
+                defaultMessage: "Reset",
+                id: "FA4gJk",
+              })}
               icon={<SunHighIcon />}
               value={brightness}
               min={0}
@@ -103,6 +109,11 @@ export function FilterDrawer({
                 description: "FilterDrawer - contrast label",
                 defaultMessage: "Contrast",
                 id: "ezGDmB",
+              })}
+              resetLabel={intl.formatMessage({
+                description: "FilterDrawer - contrast reset button",
+                defaultMessage: "Reset",
+                id: "wKTL6l",
               })}
               icon={<ContrastIcon />}
               value={contrast}
@@ -124,6 +135,11 @@ export function FilterDrawer({
                 defaultMessage: "Saturation",
                 id: "ePAnyC",
               })}
+              resetLabel={intl.formatMessage({
+                description: "FilterDrawer - saturation reset button",
+                defaultMessage: "Reset",
+                id: "IzopCO",
+              })}
               icon={<DropletIcon />}
               value={saturation}
               min={0}
@@ -141,11 +157,16 @@ export function FilterDrawer({
           </div>
           <div className="divider my-1" />
           <div className="flex flex-col gap-3 py-2">
-            <div className="flex items-center justify-between px-2">
-              <span className="text-base font-bold">
+            <div className="flex items-center gap-2 px-2">
+              <RgbIcon />
+              <span className="flex-1 text-center text-base font-bold">
                 {intl.formatMessage({ description: "FilterDrawer - RGB label", defaultMessage: "RGB", id: "Z5FJ/V" })}
               </span>
-              <button className="btn btn-ghost btn-xs" onClick={() => onFilterChange({ red: 1, green: 1, blue: 1 })}>
+              <button
+                className="btn btn-ghost btn-xs"
+                data-testid="filter-drawer__rgb-reset"
+                onClick={() => onFilterChange({ red: 1, green: 1, blue: 1 })}
+              >
                 {intl.formatMessage({
                   description: "FilterDrawer - RGB reset button",
                   defaultMessage: "Reset",
@@ -204,6 +225,11 @@ export function FilterDrawer({
                 defaultMessage: "Blur",
                 id: "74q6H9",
               })}
+              resetLabel={intl.formatMessage({
+                description: "FilterDrawer - blur reset button",
+                defaultMessage: "Reset",
+                id: "UPuHPc",
+              })}
               icon={<BlurIcon />}
               value={blur}
               min={0}
@@ -223,6 +249,11 @@ export function FilterDrawer({
                 description: "FilterDrawer - pixelate label",
                 defaultMessage: "Pixelate",
                 id: "/gpQ2N",
+              })}
+              resetLabel={intl.formatMessage({
+                description: "FilterDrawer - pixelate reset button",
+                defaultMessage: "Reset",
+                id: "KSlneJ",
               })}
               icon={<PixelateIcon />}
               value={pixelate}

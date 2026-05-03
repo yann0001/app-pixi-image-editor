@@ -57,6 +57,7 @@ const preview: Preview = {
           "Editor",
           "Feedback",
           "Forms",
+          "Icons",
           "Input",
           "Layout",
           "Navigation",

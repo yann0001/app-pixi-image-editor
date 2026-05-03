@@ -13,6 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 const defaultArgs = {
   label: "Brightness",
+  resetLabel: "Reset",
   value: 1,
   min: 0,
   max: 2,
