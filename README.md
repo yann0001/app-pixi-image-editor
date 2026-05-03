@@ -69,7 +69,7 @@ The app is available at `https://localhost:5173` (HTTPS — your browser will sh
 
 ```
 ├── apps/
-│   ├── editor/       # Main React + PixiJS application
+│   ├── web/       # Main React + PixiJS application
 │   ├── storybook/    # Storybook configuration and stories
 │   └── e2e/          # Playwright end-to-end tests
 ├── packages/
