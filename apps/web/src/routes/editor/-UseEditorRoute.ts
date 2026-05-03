@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useNavigate } from "@tanstack/react-router";
-import { useAtomValue } from "jotai";
+import { useAtomValue, useSetAtom } from "jotai";
 import { useThemeSwitcher } from "~/components/actions/theme-switch/UseThemeSwitcher";
+import { resetEditorAtom } from "~/components/editor/atoms/ResetEditorAtoms";
 import { viewportAtom } from "~/components/editor/atoms/viewport/ViewportAtoms";
 import type { AppDrawerProps } from "~/components/editor/drawer/app-drawer/AppDrawer";
 import { getDownloadUrlAtom } from "~/core/DroppedFileAtoms";
@@ -16,6 +18,13 @@ export function useEditorRoute(): {
   const fileUrl = useAtomValue(getDownloadUrlAtom);
   const themeSwitchProps = useThemeSwitcher();
   const viewport = useAtomValue(viewportAtom);
+  const resetEditor = useSetAtom(resetEditorAtom);
+
+  useEffect(() => {
+    return () => {
+      resetEditor();
+    };
+  }, [resetEditor]);
 
   function handleOnNewImage(): void {
     navigate({ to: "/" });
