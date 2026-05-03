@@ -37,6 +37,12 @@ export default defineConfig({
         "**/apps/web/src/components/editor/atoms/**",
       ],
       reporter: ["cobertura"],
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
     },
     projects: [
       {
@@ -55,19 +61,6 @@ export default defineConfig({
             "storybook/viewport",
             "@storybook/addon-themes",
             "react-intl",
-            "@heroicons/react/24/solid",
-            "@heroicons/react/20/solid",
-            "clsx",
-            "jotai",
-            "jotai/utils",
-            "@faker-js/faker",
-            "react-dropzone",
-            "@pixi/react",
-            "@tanstack/react-router",
-            "jotai-effect",
-            "pixi-filters",
-            "pixi-viewport",
-            "pixi.js",
           ],
         },
         plugins: [react(), tailwindcss(), storybookTest({ configDir: path.join(__dirname, ".storybook") })],
@@ -91,7 +84,7 @@ export default defineConfig({
           tsconfigPaths: true,
         },
         optimizeDeps: {
-          include: ["react/jsx-dev-runtime", "jotai", "jotai/utils"],
+          include: ["react/jsx-dev-runtime"],
         },
         plugins: [react(), tailwindcss()],
         test: {
