@@ -3,7 +3,7 @@
 [![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/Pettor/app-pixi-image-editor/blob/main/LICENSE)
 [![Actions Main](../../actions/workflows/main.yml/badge.svg)](../../actions/workflows/main.yml)
 [![Storybook](https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg)](https://pettor.github.io/app-pixi-image-editor/storybook/)
-[![Coverage](https://img.shields.io/badge/coverage-%E2%89%A585%25-brightgreen)](../../actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-%E2%89%A580%25-brightgreen)](../../actions/workflows/ci.yml)
 
 A browser-based image editor built with [PixiJS](https://pixijs.com/) and React. Upload an image and apply filters, transform it, and interact with it in real time via a GPU-accelerated canvas.
 
