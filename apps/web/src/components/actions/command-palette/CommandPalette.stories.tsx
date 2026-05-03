@@ -323,3 +323,40 @@ export const MouseHoverActivates: Story = {
     expect(canvas.getByTestId("command-palette__item-zoom-in").getAttribute("aria-selected")).toBe("true");
   },
 };
+
+// Types a no-results query then presses keyboard keys — covers the list.length === 0
+// early-return branches in each switch case of UseCommandPaletteKeyboard, plus the
+// if (!id) return branch in the Enter case (activeId is undefined after empty filter).
+export const KeyboardOnEmptyResults: Story = {
+  args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = await canvas.findByTestId("command-palette__search");
+    await userEvent.type(input, "xyznotfound");
+    await userEvent.keyboard("{ArrowDown}");
+    await userEvent.keyboard("{ArrowUp}");
+    await userEvent.keyboard("{Home}");
+    await userEvent.keyboard("{End}");
+    await userEvent.keyboard("{Enter}");
+  },
+};
+
+// A command without an icon covers the falsy path of `command.icon && (...)`.
+export const WithCommandWithoutIcon: Story = {
+  args: {
+    ...defaultArgs,
+    commands: [
+      ...commands,
+      { id: "no-icon", label: "No Icon Command", group: "Test", keywords: [], perform: () => {} },
+    ],
+  },
+};
+
+// A command with no group goes to DEFAULT_GROUP, covering the
+// `group.name !== DEFAULT_GROUP` false branch (group header is not rendered).
+export const WithDefaultGroup: Story = {
+  args: {
+    ...defaultArgs,
+    commands: [{ id: "ungrouped", label: "Ungrouped Command", keywords: [], perform: () => {} }],
+  },
+};
