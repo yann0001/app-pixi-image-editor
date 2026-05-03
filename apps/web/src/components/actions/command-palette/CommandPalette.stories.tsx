@@ -259,3 +259,67 @@ export const CommandExecution: Story = {
     expect(args.onClose).toHaveBeenCalledOnce();
   },
 };
+
+// Escape key — keyboard handler intercepts it and calls onClose.
+export const EscapeClose: Story = {
+  args: {
+    ...defaultArgs,
+    onClose: fn(),
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    await canvas.findByTestId("command-palette__search");
+    await userEvent.keyboard("{Escape}");
+    expect(args.onClose).toHaveBeenCalled();
+  },
+};
+
+// Enter key — activates the focused command and calls onClose.
+export const EnterExecute: Story = {
+  args: {
+    ...defaultArgs,
+    onClose: fn(),
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const input = await canvas.findByTestId("command-palette__search");
+    await userEvent.click(input);
+    await userEvent.keyboard("{Enter}");
+    expect(args.onClose).toHaveBeenCalledOnce();
+  },
+};
+
+// Home key — after navigating down, Home jumps back to the first item.
+export const HomeKey: Story = {
+  args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = await canvas.findByTestId("command-palette__search");
+    await userEvent.click(input);
+    await userEvent.keyboard("{ArrowDown}{ArrowDown}{Home}");
+    expect(canvas.getByTestId("command-palette__item-new-image").getAttribute("aria-selected")).toBe("true");
+  },
+};
+
+// End key — jumps to the last command in the list.
+export const EndKey: Story = {
+  args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = await canvas.findByTestId("command-palette__search");
+    await userEvent.click(input);
+    await userEvent.keyboard("{End}");
+    expect(canvas.getByTestId("command-palette__item-theme-dark").getAttribute("aria-selected")).toBe("true");
+  },
+};
+
+// Hovering an item sets it as the active command.
+export const MouseHoverActivates: Story = {
+  args: defaultArgs,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await canvas.findByTestId("command-palette__search");
+    await userEvent.hover(canvas.getByTestId("command-palette__item-zoom-in"));
+    expect(canvas.getByTestId("command-palette__item-zoom-in").getAttribute("aria-selected")).toBe("true");
+  },
+};
