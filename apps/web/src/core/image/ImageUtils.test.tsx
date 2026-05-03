@@ -41,7 +41,7 @@ afterEach(() => {
 function waitFor(fn: () => boolean, timeout = 3000): Promise<void> {
   return new Promise((resolve, reject) => {
     const start = Date.now();
-    const check = (): void => {
+    function check(): void {
       if (fn()) {
         resolve();
       } else if (Date.now() - start > timeout) {
@@ -49,7 +49,7 @@ function waitFor(fn: () => boolean, timeout = 3000): Promise<void> {
       } else {
         setTimeout(check, 50);
       }
-    };
+    }
     check();
   });
 }

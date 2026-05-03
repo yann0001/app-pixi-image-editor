@@ -1,8 +1,8 @@
 import type { ReactElement } from "react";
 import { act } from "react";
+import { atom, Provider, useAtom } from "jotai";
 import { createRoot } from "react-dom/client";
 import { describe, it, expect, afterEach } from "vitest";
-import { atom, Provider, useAtom } from "jotai";
 import ErrorBoundary from "./ErrorBoundary";
 import { HydrateAtoms } from "./HydrateAtoms";
 import { throwExpression } from "./ThrowExpression";
