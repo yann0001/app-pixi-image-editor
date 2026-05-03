@@ -691,6 +691,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: catalog:vitest
         version: 4.1.4(@vitest/browser@4.1.4)(vitest@4.1.4)
+      storybook:
+        specifier: catalog:storybook
+        version: 10.3.5(@testing-library/dom@10.4.0)(prettier@3.8.2)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       tailwindcss:
         specifier: catalog:tailwind
         version: 4.2.2
