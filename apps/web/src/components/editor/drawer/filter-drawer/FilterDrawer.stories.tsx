@@ -52,7 +52,7 @@ export const WithInteractions: Story = {
 export const WithRgbReset: Story = {
   args: defaultArgs,
   play: async ({ canvas, userEvent }) => {
-    await userEvent.click(canvas.getByRole("button", { name: /reset/i }));
+    await userEvent.click(canvas.getByTestId("filter-drawer__rgb-reset"));
     await expect(defaultArgs.onFilterChange).toHaveBeenCalledWith({ red: 1, green: 1, blue: 1 });
   },
 } satisfies Story;

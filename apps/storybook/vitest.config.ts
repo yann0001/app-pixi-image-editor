@@ -32,6 +32,9 @@ export default defineConfig({
         "**/apps/web/src/components/editor/atoms/viewport/ViewportChangeAtoms.ts",
         "**/apps/web/src/components/editor/atoms/viewport/ViewportSetupAtoms.ts",
         "**/apps/web/src/core/image/CreateImage.ts",
+        // Covered by web-unit vitest tests, not by Storybook stories
+        "**/apps/web/src/core/**",
+        "**/apps/web/src/components/editor/atoms/**",
       ],
       reporter: ["cobertura"],
     },
@@ -70,6 +73,34 @@ export default defineConfig({
         plugins: [react(), tailwindcss(), storybookTest({ configDir: path.join(__dirname, ".storybook") })],
         test: {
           name: "storybook",
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright(),
+            instances: [{ browser: "chromium" }],
+          },
+        },
+      },
+      {
+        extends: true,
+        resolve: {
+          alias: {
+            "~": webAppSrc,
+          },
+          dedupe: ["react", "react-dom"],
+          tsconfigPaths: true,
+        },
+        optimizeDeps: {
+          include: ["react/jsx-dev-runtime", "jotai", "jotai/utils", "@testing-library/react"],
+        },
+        plugins: [react(), tailwindcss()],
+        test: {
+          name: "web-unit",
+          include: [`${webAppSrc}/core/**/*.test.{ts,tsx}`, `${webAppSrc}/components/editor/atoms/**/*.test.{ts,tsx}`],
+          coverage: {
+            exclude: [],
+            include: ["**/apps/web/src/core/**/*.{ts,tsx}", "**/apps/web/src/components/editor/atoms/**/*.{ts,tsx}"],
+          },
           browser: {
             enabled: true,
             headless: true,

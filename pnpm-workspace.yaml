@@ -118,6 +118,8 @@ catalogs:
     '@tanstack/react-query': 5.99.2
     '@tanstack/react-router': 1.168.23
     '@tanstack/router-plugin': 1.167.22
+  testing:
+    '@testing-library/react': ^16.3.0
   vitest:
     vitest: 4.1.4
     '@vitest/browser': 4.1.4

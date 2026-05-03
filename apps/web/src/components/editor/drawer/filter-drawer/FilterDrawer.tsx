@@ -162,7 +162,11 @@ export function FilterDrawer({
               <span className="flex-1 text-center text-base font-bold">
                 {intl.formatMessage({ description: "FilterDrawer - RGB label", defaultMessage: "RGB", id: "Z5FJ/V" })}
               </span>
-              <button className="btn btn-ghost btn-xs" onClick={() => onFilterChange({ red: 1, green: 1, blue: 1 })}>
+              <button
+                className="btn btn-ghost btn-xs"
+                data-testid="filter-drawer__rgb-reset"
+                onClick={() => onFilterChange({ red: 1, green: 1, blue: 1 })}
+              >
                 {intl.formatMessage({
                   description: "FilterDrawer - RGB reset button",
                   defaultMessage: "Reset",
