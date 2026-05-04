@@ -32,18 +32,19 @@ export function FullscreenLayout({
         {children}
       </main>
       {footer && (
-        <footer className="border-base-300 bg-base-200 border-t px-4 py-5">
+        <footer className="bg-base-200 px-4 pt-0 pb-5">
+          <div className="from-primary/40 via-secondary/40 to-accent/40 mb-4 h-px bg-linear-to-r" />
           <div className="flex flex-col items-center gap-3">
-            <nav className="flex gap-1">
+            <nav className="flex gap-2">
               <button
-                className="btn btn-square btn-ghost fill-base-content/60 hover:fill-base-content p-2"
+                className="btn btn-circle btn-outline btn-xs btn-neutral fill-neutral hover:fill-neutral-content"
                 onClick={onGithubClick}
                 aria-label="GitHub"
               >
                 <GithubIcon />
               </button>
               <button
-                className="btn btn-square btn-ghost fill-base-content/60 hover:fill-base-content p-2"
+                className="btn btn-circle btn-outline btn-xs btn-info fill-info hover:fill-info-content"
                 onClick={onLinkedInClick}
                 aria-label="LinkedIn"
               >

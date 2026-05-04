@@ -16,15 +16,10 @@ export interface HomeViewProps {
 
 export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: HomeViewProps): ReactElement {
   const intl = useIntl();
-  const { onGithubClick, onLinkedInClick } = socialLinkProps;
 
   return (
     <FullscreenLayout footer {...socialLinkProps}>
-      <HomePageHeader
-        themeSwitchProps={themeSwitchProps}
-        onGithubClick={onGithubClick}
-        onLinkedInClick={onLinkedInClick}
-      />
+      <HomePageHeader themeSwitchProps={themeSwitchProps} />
       <div className="hero flex-1">
         <div className="hero-content flex-col gap-6 py-10 text-center">
           <figure className="hover-3d">
