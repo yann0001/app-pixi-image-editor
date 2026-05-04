@@ -13,9 +13,9 @@ export function ToolbarZoom({ zoom, onZoomIn, onZoomOut, onResetZoom }: ToolbarZ
   const intl = useIntl();
 
   return (
-    <div className="glass navbar rounded-box border-neutral-content bg-base-100 bg-opacity-60 dark:bg-neutral dark:bg-opacity-80 h-10 min-h-0 w-auto gap-1 border shadow-xl md:h-12 md:gap-4 dark:bg-none">
+    <div className="glass rounded-box bg-base-100/70 flex h-10 min-h-0 w-auto items-center gap-1 px-1 shadow-xl md:h-12 md:gap-2">
       <button
-        className="btn btn-square btn-ghost btn-xs md:btn-sm"
+        className="btn btn-square btn-ghost btn-sm md:btn-md"
         onClick={onZoomIn}
         aria-label={intl.formatMessage({
           description: "ToolbarZoom - zoom in button label",
@@ -23,15 +23,24 @@ export function ToolbarZoom({ zoom, onZoomIn, onZoomOut, onResetZoom }: ToolbarZ
           id: "T7uZ6T",
         })}
       >
-        <PlusIcon />
+        <PlusIcon className="h-4 w-4 md:h-5 md:w-5" />
       </button>
-      <div className="md:tooltip md:tooltip-top" data-tip="Reset zoom">
-        <button className="w-8 md:w-10" data-testid="toolbar-zoom__reset" onClick={onResetZoom}>
-          <span className="text-sm">{zoom}%</span>
+      <div className="tooltip tooltip-top" data-tip="Reset zoom">
+        <button
+          className="btn btn-ghost btn-xs md:btn-sm w-12 font-mono tabular-nums md:w-14"
+          data-testid="toolbar-zoom__reset"
+          onClick={onResetZoom}
+          aria-label={intl.formatMessage({
+            description: "ToolbarZoom - reset zoom button label",
+            defaultMessage: "Reset zoom",
+            id: "QltJXH",
+          })}
+        >
+          {zoom}%
         </button>
       </div>
       <button
-        className="btn btn-square btn-ghost btn-xs md:btn-sm"
+        className="btn btn-square btn-ghost btn-sm md:btn-md"
         onClick={onZoomOut}
         aria-label={intl.formatMessage({
           description: "ToolbarZoom - zoom out button label",
@@ -39,7 +48,7 @@ export function ToolbarZoom({ zoom, onZoomIn, onZoomOut, onResetZoom }: ToolbarZ
           id: "XwtBZp",
         })}
       >
-        <MinusIcon />
+        <MinusIcon className="h-4 w-4 md:h-5 md:w-5" />
       </button>
     </div>
   );

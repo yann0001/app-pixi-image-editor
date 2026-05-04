@@ -32,10 +32,10 @@ export function ToolbarTools({
   const intl = useIntl();
 
   return (
-    <div className="glass navbar rounded-box border-neutral bg-base-300 bg-opacity-80 dark:bg-opacity-80 h-10 min-h-0 w-auto gap-1 border shadow-xl md:h-12 md:gap-2 dark:bg-none">
-      <div className="md:tooltip md:tooltip-bottom" data-tip={lock ? undefined : "Lock image to center"}>
+    <div className="glass rounded-box border-base-300/40 bg-base-100/70 flex h-10 min-h-0 w-auto items-center gap-1 border px-1 shadow-xl md:h-12 md:gap-2 md:px-2">
+      <div className="md:tooltip md:tooltip-bottom" data-tip={lock ? "Unlock image" : "Lock image to center"}>
         <button
-          className={clsx("btn btn-square btn-ghost btn-sm", lock && "btn-active")}
+          className={clsx("btn btn-square btn-ghost btn-sm md:btn-md", lock && "btn-active")}
           onClick={onSwapLock}
           aria-label={
             lock
@@ -51,13 +51,17 @@ export function ToolbarTools({
                 })
           }
         >
-          {lock ? <LockClosedIcon className="h-6 w-6" /> : <LockOpenIcon className="h-6 w-6" />}
+          {lock ? (
+            <LockClosedIcon className="h-5 w-5 md:h-6 md:w-6" />
+          ) : (
+            <LockOpenIcon className="h-5 w-5 md:h-6 md:w-6" />
+          )}
         </button>
       </div>
       <div className="divider divider-horizontal mx-0 w-0" />
-      <div className="md:tooltip md:tooltip-bottom mt-1" data-tip={showFitScreen ? "Actual size" : "Fit to window"}>
+      <div className="md:tooltip md:tooltip-bottom" data-tip={showFitScreen ? "Actual size" : "Fit to window"}>
         <button
-          className="btn btn-square btn-ghost swap btn-sm"
+          className="btn btn-square btn-ghost btn-sm md:btn-md"
           onClick={onAdjustZoom}
           aria-label={
             showFitScreen
@@ -78,9 +82,9 @@ export function ToolbarTools({
       </div>
       <div className="divider divider-horizontal mx-0 w-0" />
       <div className="flex gap-1">
-        <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Rotate 90° left">
+        <div className="md:tooltip md:tooltip-bottom" data-tip="Rotate 90° left">
           <button
-            className="btn btn-square btn-ghost swap btn-sm"
+            className="btn btn-square btn-ghost btn-sm md:btn-md"
             onClick={() => onRotate("rotate-left")}
             aria-label={intl.formatMessage({
               description: "ToolbarTools - rotate left button label",
@@ -91,9 +95,9 @@ export function ToolbarTools({
             <RotateCcwIcon />
           </button>
         </div>
-        <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Rotate 90° right">
+        <div className="md:tooltip md:tooltip-bottom" data-tip="Rotate 90° right">
           <button
-            className="btn btn-square btn-ghost swap btn-sm"
+            className="btn btn-square btn-ghost btn-sm md:btn-md"
             onClick={() => onRotate("rotate-right")}
             aria-label={intl.formatMessage({
               description: "ToolbarTools - rotate right button label",
@@ -104,9 +108,9 @@ export function ToolbarTools({
             <RotateCwIcon />
           </button>
         </div>
-        <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Flip vertical">
+        <div className="md:tooltip md:tooltip-bottom" data-tip="Flip vertical">
           <button
-            className="btn btn-square btn-ghost swap btn-sm"
+            className="btn btn-square btn-ghost btn-sm md:btn-md"
             onClick={() => onFlip("flip-vertical")}
             aria-label={intl.formatMessage({
               description: "ToolbarTools - flip vertical button label",
@@ -117,9 +121,9 @@ export function ToolbarTools({
             <FlipVerticalIcon />
           </button>
         </div>
-        <div className="md:tooltip md:tooltip-bottom mt-1" data-tip="Flip horizontal">
+        <div className="md:tooltip md:tooltip-bottom" data-tip="Flip horizontal">
           <button
-            className="btn btn-square btn-ghost swap btn-sm"
+            className="btn btn-square btn-ghost btn-sm md:btn-md"
             onClick={() => onFlip("flip-horizontal")}
             aria-label={intl.formatMessage({
               description: "ToolbarTools - flip horizontal button label",
@@ -133,7 +137,7 @@ export function ToolbarTools({
       </div>
       <div className="divider divider-horizontal mx-0 w-0" />
       <button
-        className="btn btn-ghost btn-sm max-sm:btn-square"
+        className="btn btn-ghost btn-sm md:btn-md max-sm:btn-square"
         onClick={onToggleFilterMenu}
         aria-label={intl.formatMessage({
           description: "ToolbarTools - filters button label",

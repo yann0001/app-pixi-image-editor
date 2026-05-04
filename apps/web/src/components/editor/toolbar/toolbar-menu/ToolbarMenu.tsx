@@ -10,9 +10,9 @@ export function ToolbarMenu({ onToggle }: ToolbarMenuProps): ReactElement {
   const intl = useIntl();
 
   return (
-    <div className="glass navbar rounded-box bg-base-300 bg-opacity-80 dark:bg-opacity-80 flex h-10 min-h-0 shadow-xl md:h-12 dark:bg-none">
+    <div className="glass rounded-box bg-base-100/70 flex h-10 min-h-0 items-center px-1 shadow-xl md:h-12">
       <button
-        className="btn btn-square btn-ghost btn-sm"
+        className="btn btn-square btn-ghost btn-sm md:btn-md"
         data-testid="editor__menu-button"
         onClick={onToggle}
         aria-label={intl.formatMessage({
@@ -21,7 +21,7 @@ export function ToolbarMenu({ onToggle }: ToolbarMenuProps): ReactElement {
           id: "jAA1n5",
         })}
       >
-        <Bars3Icon className="h-4 w-4 md:h-6 md:w-6" />
+        <Bars3Icon className="h-5 w-5 md:h-6 md:w-6" />
       </button>
     </div>
   );
