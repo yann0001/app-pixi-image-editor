@@ -32,25 +32,29 @@ export function FullscreenLayout({
         {children}
       </main>
       {footer && (
-        <footer className="footer footer-center bg-base-300 text-base-content gap-y-2 py-2 lg:p-4">
-          <div className="lg:mt-2">
-            <p className="text-base font-bold">Made with ☕ by Petter Hancock</p>
-            <p>Copyright © 2024 - All right reserved</p>
-          </div>
-          <nav>
-            <div className="grid grid-flow-col gap-2">
-              <button className="btn btn-square btn-ghost fill-primary p-2" onClick={onGithubClick} aria-label="GitHub">
+        <footer className="border-base-300 bg-base-200 border-t px-4 py-5">
+          <div className="flex flex-col items-center gap-3">
+            <nav className="flex gap-1">
+              <button
+                className="btn btn-square btn-ghost fill-base-content/60 hover:fill-base-content p-2"
+                onClick={onGithubClick}
+                aria-label="GitHub"
+              >
                 <GithubIcon />
               </button>
               <button
-                className="btn btn-square btn-ghost fill-primary p-2"
+                className="btn btn-square btn-ghost fill-base-content/60 hover:fill-base-content p-2"
                 onClick={onLinkedInClick}
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
               </button>
+            </nav>
+            <div className="text-center">
+              <p className="text-sm font-semibold">Made with ☕ by Petter Hancock</p>
+              <p className="text-base-content/50 text-xs">Copyright © 2024 — All rights reserved</p>
             </div>
-          </nav>
+          </div>
         </footer>
       )}
     </div>
