@@ -317,10 +317,28 @@ jobs:
         run: pnpm test:coverage:ci
         continue-on-error: false
 
+      - name: Run storybook coverage
+        run: pnpm --filter=@app/storybook test:coverage:storybook:ci
+        continue-on-error: true
+        timeout-minutes: 8
+
+      - name: Run E2E tests with coverage
+        run: pnpm --filter=@app/e2e test:e2e:coverage
+        continue-on-error: false
+
+      - name: Merge coverage reports
+        run: |
+          mkdir -p output/coverage
+          node tools/merge-coverage.js \
+            output/coverage/combined.xml \
+            output/coverage/web.xml \
+            output/coverage/web-storybook.xml \
+            output/coverage/e2e.xml
+
       - name: Code coverage report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
-          filename: "**/output/coverage/*.xml"
+          filename: "output/coverage/combined.xml"
           badge: true
           fail_below_min: true
           format: markdown

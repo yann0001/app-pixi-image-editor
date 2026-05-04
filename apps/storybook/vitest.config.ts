@@ -36,7 +36,7 @@ export default defineConfig({
         "**/apps/web/src/core/**",
         "**/apps/web/src/components/editor/atoms/**",
       ],
-      reporter: ["cobertura"],
+      reporter: ["cobertura", "json"],
       thresholds: {
         lines: 80,
         functions: 80,

@@ -1,7 +1,12 @@
+import path from "node:path";
 import basicSsl from "@vitejs/plugin-basic-ssl";
 import { createBaseConfig, createPWAConfig, createReactConfig, mergeConfigs } from "@config/vite";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import { defineConfig, mergeConfig } from "vite";
+import istanbul from "vite-plugin-istanbul";
+
+// Repo root — two levels up from apps/web
+const repoRoot = path.resolve(import.meta.dirname, "../..");
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => {
@@ -31,7 +36,21 @@ export default defineConfig(({ command }) => {
       });
     case "serve":
       return mergeConfig(config, {
-        plugins: [basicSsl()],
+        plugins: [
+          basicSsl(),
+          // Istanbul instrumentation is only active when VITE_COVERAGE is set (E2E coverage runs).
+          ...(process.env.VITE_COVERAGE
+            ? [
+                istanbul({
+                  cwd: repoRoot,
+                  include: ["apps/web/src/**/*.ts", "apps/web/src/**/*.tsx"],
+                  exclude: ["node_modules", "**/*.stories.*", "**/*.test.*", "**/*.spec.*", "**/index.ts"],
+                  extension: [".ts", ".tsx"],
+                  requireEnv: false,
+                }),
+              ]
+            : []),
+        ],
         server: {
           strictPort: true,
           hmr: {

@@ -118,6 +118,9 @@ catalogs:
     '@tanstack/react-query': 5.99.2
     '@tanstack/react-router': 1.168.23
     '@tanstack/router-plugin': 1.167.22
+  coverage:
+    nyc: 18.0.0
+    vite-plugin-istanbul: 8.0.0
   vitest:
     vitest: 4.1.4
     '@vitest/browser': 4.1.4
