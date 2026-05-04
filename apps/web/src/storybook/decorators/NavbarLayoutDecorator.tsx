@@ -7,7 +7,7 @@ export function NavbarLayoutDecorator(): Decorator {
       navbarElement={<StorybookNavbarContentComponent />}
       footer
       footerText="Made with ☕ by Petter Hancock"
-      footerCopyright="Copyright © 2024 - All rights reserved"
+      footerCopyright="Copyright © 2026 - All rights reserved"
     >
       <Story />
     </NavbarLayout>

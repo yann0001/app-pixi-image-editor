@@ -52,7 +52,7 @@ export function FullscreenLayout({
             </nav>
             <div className="text-center">
               <p className="text-sm font-semibold">Made with ☕ by Petter Hancock</p>
-              <p className="text-base-content/50 text-xs">Copyright © 2024 — All rights reserved</p>
+              <p className="text-base-content/50 text-xs">Copyright © 2026 — All rights reserved</p>
             </div>
           </div>
         </footer>
