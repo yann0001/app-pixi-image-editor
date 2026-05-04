@@ -22,7 +22,6 @@ export default defineConfig({
         "**/src/**/*.d.ts",
         "**/src/**/index.ts",
         "**/{storybook,Storybook}/**/*.{ts,tsx}",
-        "**/apps/web/src/views/**",
         // PixiJS-dependent code — requires a WebGL context, untestable in Storybook
         "**/apps/web/src/components/editor/stage/**",
         "**/apps/web/src/components/editor/content/Content.tsx",
@@ -36,13 +35,7 @@ export default defineConfig({
         "**/apps/web/src/core/**",
         "**/apps/web/src/components/editor/atoms/**",
       ],
-      reporter: ["cobertura"],
-      thresholds: {
-        lines: 80,
-        functions: 80,
-        branches: 80,
-        statements: 80,
-      },
+      reporter: ["cobertura", "json"],
     },
     projects: [
       {

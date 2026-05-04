@@ -16,7 +16,8 @@
     "deploy": "pnpm deploy:build && pnpm deploy:move",
     "deploy:build": "pnpm build",
     "deploy:move": "move-cli dist \"../../output/deployment/app\" --mkdirp",
-    "test:e2e:env": "pnpm dev:e2e"
+    "test:e2e:env": "pnpm dev:e2e",
+    "test:e2e:env:coverage": "cross-env VITE_COVERAGE=true vite --port 4173 --strictPort"
   },
   "dependencies": {
     "@fontsource/rubik": "catalog:design",
@@ -49,6 +50,8 @@
     "@types/react-dom": "catalog:react19",
     "@vitejs/plugin-basic-ssl": "catalog:vite",
     "@vitejs/plugin-react": "catalog:vite",
+    "cross-env": "catalog:common",
+    "vite-plugin-istanbul": "catalog:coverage",
     "babel-plugin-react-compiler": "catalog:react19",
     "move-cli": "catalog:common",
     "rimraf": "catalog:common",
