@@ -32,15 +32,16 @@ export function createPWAConfig(options: PWAViteConfigOptions = {}): UserConfig 
       "apple-touch-icon.png",
       "pwa-192x192.png",
       "pwa-512x512.png",
+      "maskable-icon-512x512.png",
       "screenshot-desktop.png",
-      "screenshot-phone.png",
+      "screenshot-mobile.png",
     ],
     injectRegister: "auto",
     manifest: {
-      background_color: manifest.backgroundColor || "#ffffff",
+      background_color: manifest.backgroundColor || "#1a1a2e",
       display: "standalone",
-      description: manifest.description || "React Enterprise Template using Turborepo, TailwindCSS, DaisyUI and Vite.",
-      name: manifest.name || "ReactEnterpriseTemplate",
+      description: manifest.description || "A web application for editing images.",
+      name: manifest.name || "App",
       icons: [
         {
           src: "pwa-192x192.png",
@@ -52,6 +53,12 @@ export function createPWAConfig(options: PWAViteConfigOptions = {}): UserConfig 
           sizes: "512x512",
           type: "image/png",
         },
+        {
+          src: "maskable-icon-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable",
+        },
       ],
       screenshots: [
         {
@@ -59,18 +66,18 @@ export function createPWAConfig(options: PWAViteConfigOptions = {}): UserConfig 
           sizes: "690x670",
           type: "image/png",
           form_factor: "wide",
-          label: "WebTemplate on Desktop",
+          label: "App on Desktop",
         },
         {
-          src: "screenshot-phone.png",
+          src: "screenshot-mobile.png",
           sizes: "435x608",
           type: "image/png",
           form_factor: "narrow",
-          label: "WebTemplate on Phone",
+          label: "App on Phone",
         },
       ],
-      short_name: manifest.shortName || "WebTemplate",
-      theme_color: manifest.themeColor || "#ffffff",
+      short_name: manifest.shortName || "App",
+      theme_color: manifest.themeColor || "#fe6c90",
     },
     registerType: "autoUpdate",
     workbox: {

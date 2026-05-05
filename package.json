@@ -55,7 +55,7 @@
     "turbo": "2.9.7"
   },
   "pnpm": {
-    "onlyBuiltDependencies": []
+    "onlyBuiltDependencies": ["sharp"]
   },
   "lint-staged": {
     "*.js": "prettier --write",

@@ -11,6 +11,14 @@ lerna-debug.log*
 node_modules
 *.local
 
+# Generated PWA assets (produced by generate:assets script)
+apps/web/src/assets/images/logo/favicon.ico
+apps/web/src/assets/images/logo/apple-touch-icon-180x180.png
+apps/web/src/assets/images/logo/pwa-64x64.png
+apps/web/src/assets/images/logo/pwa-192x192.png
+apps/web/src/assets/images/logo/pwa-512x512.png
+apps/web/src/assets/images/logo/maskable-icon-512x512.png
+
 # Build files
 .nyc_output
 .junit
