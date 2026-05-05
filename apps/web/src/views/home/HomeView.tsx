@@ -18,7 +18,7 @@ export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: Hom
   const intl = useIntl();
 
   return (
-    <FullscreenLayout footer {...socialLinkProps}>
+    <FullscreenLayout footer className="home-bg" {...socialLinkProps}>
       <HomePageHeader themeSwitchProps={themeSwitchProps} />
       <div className="hero flex-1">
         <div className="hero-content flex-col gap-6 py-10 text-center">

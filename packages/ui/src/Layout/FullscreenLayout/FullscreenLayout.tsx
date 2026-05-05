@@ -11,18 +11,20 @@ export interface SocialLinkProps {
 export interface FullscreenLayoutProps extends SocialLinkProps {
   container?: boolean;
   footer?: boolean;
+  className?: string;
   children: ReactNode;
 }
 
 export function FullscreenLayout({
   container,
   footer,
+  className,
   onGithubClick,
   onLinkedInClick,
   children,
 }: FullscreenLayoutProps): ReactElement {
   return (
-    <div className="grid h-dvh w-full grid-rows-[1fr_auto]">
+    <div className={clsx("grid h-dvh w-full grid-rows-[1fr_auto]", className)}>
       <main
         className={clsx(
           "flex min-h-0 flex-col items-center justify-center overflow-y-auto",

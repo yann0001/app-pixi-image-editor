@@ -80,12 +80,12 @@
         "accent": {
           "DEFAULT": {
             "$type": "color",
-            "$value": "oklch(0.6204 0.195 253.83)",
-            "$description": "Accent color for light theme"
+            "$value": "oklch(0.60 0.22 7.5)",
+            "$description": "Accent color for light theme — warm coral, midpoint of brand gradient"
           },
           "foreground": {
             "$type": "color",
-            "$value": "oklch(0.9911 0 0)",
+            "$value": "oklch(0.98 0 0)",
             "$description": "Accent foreground color for light theme"
           }
         },
@@ -127,8 +127,8 @@
         },
         "focus": {
           "$type": "color",
-          "$value": "oklch(0.6204 0.195 253.83)",
-          "$description": "Focus ring color for light theme"
+          "$value": "oklch(0.62 0.24 35)",
+          "$description": "Focus ring color for light theme — matches brand primary"
         },
         "border": {
           "$type": "color",
