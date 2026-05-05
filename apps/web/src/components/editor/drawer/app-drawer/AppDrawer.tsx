@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import { ArrowDownTrayIcon, FolderPlusIcon } from "@heroicons/react/24/solid";
 import { useIntl } from "react-intl";
-import LogoImageSrc from "~/assets/images/logo/Logo320.png";
+import LogoImageSrc from "~/assets/images/logo/Logo.svg";
 import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
 import { ThemeSwitch } from "~/components/actions/theme-switch/ThemeSwitch";
 
@@ -43,10 +43,18 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
       <div className="drawer-content" />
       <div className="drawer-side">
         <label htmlFor="app-drawer" aria-label="close sidebar" className="drawer-overlay" onClick={onClose} />
-        <div className="bg-base-100 text-base-content flex min-h-full w-60 flex-col p-4 shadow-xl md:w-80">
-          <div className="flex items-center gap-2 px-2 py-3">
-            <img className="h-10 w-10" src={LogoImageSrc} alt="Pixi Image Editor Logo" />
-            <span className="text-xl font-bold">
+        <div className="bg-base-100 text-base-content flex min-h-full w-64 flex-col shadow-2xl md:w-80">
+          <div className="border-base-200 flex items-center gap-3 border-b px-5 py-4">
+            <img
+              className="h-9 w-9"
+              src={LogoImageSrc}
+              alt={intl.formatMessage({
+                description: "AppDrawer - logo alt text",
+                defaultMessage: "Pixi Image Editor Logo",
+                id: "Lo90xi",
+              })}
+            />
+            <span className="text-lg font-bold">
               {intl.formatMessage({
                 description: "AppDrawer - app name",
                 defaultMessage: "Pixi Image Editor",
@@ -54,36 +62,51 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
               })}
             </span>
           </div>
-          <div className="divider my-1" />
-          <nav className="flex flex-col gap-1">
-            <button
-              className="btn btn-ghost justify-start gap-3"
-              data-testid="editor__drawer-new-image"
-              onClick={handleNewImage}
-            >
-              <FolderPlusIcon className="h-5 w-5" />
-              {intl.formatMessage({
-                description: "AppDrawer - new image menu item",
-                defaultMessage: "New Image",
-                id: "UNiGdv",
-              })}
-            </button>
-            <button
-              className="btn btn-ghost justify-start gap-3"
-              data-testid="editor__drawer-save-image"
-              onClick={handleSaveImage}
-            >
-              <ArrowDownTrayIcon className="h-5 w-5" />
-              {intl.formatMessage({
-                description: "AppDrawer - save image menu item",
-                defaultMessage: "Save Image",
-                id: "joP9M/",
-              })}
-            </button>
+
+          <nav className="flex-1 p-3">
+            <ul className="menu gap-1 p-0">
+              <li>
+                <button
+                  className="flex items-center gap-3 rounded-lg"
+                  data-testid="editor__drawer-new-image"
+                  onClick={handleNewImage}
+                >
+                  <FolderPlusIcon className="h-5 w-5 shrink-0" />
+                  {intl.formatMessage({
+                    description: "AppDrawer - new image menu item",
+                    defaultMessage: "New Image",
+                    id: "UNiGdv",
+                  })}
+                </button>
+              </li>
+              <li>
+                <button
+                  className="flex items-center gap-3 rounded-lg"
+                  data-testid="editor__drawer-save-image"
+                  onClick={handleSaveImage}
+                >
+                  <ArrowDownTrayIcon className="h-5 w-5 shrink-0" />
+                  {intl.formatMessage({
+                    description: "AppDrawer - save image menu item",
+                    defaultMessage: "Save Image",
+                    id: "joP9M/",
+                  })}
+                </button>
+              </li>
+            </ul>
           </nav>
-          <div className="flex-1" />
-          <div className="flex justify-end">
-            <ThemeSwitch {...themeSwitchProps} />
+
+          <div className="border-base-200 border-t px-5 py-4">
+            <div className="flex items-center justify-between">
+              <span className="text-base-content/60 text-sm">
+                {intl.formatMessage({
+                  description: "AppDrawer - theme label",
+                  defaultMessage: "Theme",
+                  id: "9JxsE/",
+                })}
+              </span>
+              <ThemeSwitch {...themeSwitchProps} />
+            </div>
           </div>
         </div>
       </div>

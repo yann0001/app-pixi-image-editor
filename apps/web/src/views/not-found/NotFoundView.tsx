@@ -11,23 +11,28 @@ export function NotFoundView({ onBack }: NotFoundViewProps): ReactElement {
 
   return (
     <FullscreenLayout container>
-      <div className="flex flex-col items-center gap-4">
-        <article className="prose lg:prose-xl max-w-64 p-4 text-pretty lg:max-w-full">
-          <strong>
+      <div className="hero flex-1">
+        <div className="hero-content flex-col gap-6 text-center">
+          <p className="from-primary to-secondary bg-linear-to-r bg-clip-text text-8xl font-black text-transparent md:text-9xl">
+            404
+          </p>
+          <div className="max-w-md">
+            <p className="text-base-content/60 text-base md:text-lg">
+              {intl.formatMessage({
+                description: "NotFoundView - not found message",
+                defaultMessage: "Could not find the page you were looking for! 🕵️",
+                id: "13DDXA",
+              })}
+            </p>
+          </div>
+          <button className="btn btn-primary btn-wide" onClick={onBack}>
             {intl.formatMessage({
-              description: "NotFoundView - not found message",
-              defaultMessage: "Could not find the page you were looking for! 🕵️",
-              id: "13DDXA",
+              description: "NotFoundView - start over button",
+              defaultMessage: "Start over",
+              id: "ui3yQz",
             })}
-          </strong>
-        </article>
-        <button className="btn btn-primary mt-4 w-48" onClick={onBack}>
-          {intl.formatMessage({
-            description: "NotFoundView - start over button",
-            defaultMessage: "Start over 🦖",
-            id: "QINl5/",
-          })}
-        </button>
+          </button>
+        </div>
       </div>
     </FullscreenLayout>
   );

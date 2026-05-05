@@ -30,7 +30,7 @@ export function NavbarLayout({
           <div className="grid place-items-center gap-0.5">
             <Logo size="large" />
             <p className="text-base font-bold">{footerText ?? "Made with ☕ by Petter Hancock"}</p>
-            <p>{footerCopyright ?? "Copyright © 2024 - All rights reserved"}</p>
+            <p>{footerCopyright ?? "Copyright © 2026 - All rights reserved"}</p>
             {footerContent && <div className="mt-4">{footerContent}</div>}
           </div>
         </footer>
