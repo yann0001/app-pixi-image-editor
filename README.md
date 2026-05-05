@@ -28,7 +28,7 @@ A browser-based image editor built with [PixiJS](https://pixijs.com/) and React.
 | Category | Technology |
 |---|---|
 | Rendering | [PixiJS 8](https://pixijs.com/), [@pixi/react](https://pixijs.io/pixi-react/), [pixi-viewport](https://github.com/davidfig/pixi-viewport), [pixi-filters](https://github.com/pixijs/filters) |
-| UI framework | [React 19](https://react.dev/), [HeroUI v3](https://heroui.com/), [Tailwind CSS 4](https://tailwindcss.com/) |
+| UI framework | [React 19](https://react.dev/), [DaisyUI 5](https://daisyui.com/), [Tailwind CSS 4](https://tailwindcss.com/) |
 | Routing | [TanStack Router v1](https://tanstack.com/router) |
 | State | [Jotai 2](https://jotai.org/) |
 | Build | [Vite 8](https://vite.dev/), [Turborepo](https://turbo.build/repo/) |
