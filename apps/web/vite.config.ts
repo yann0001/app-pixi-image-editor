@@ -19,8 +19,8 @@ export default defineConfig(({ command }) => {
         shortName: "Pixi Editor",
         description:
           "React web application using PixiJS to create a basic image editor. The editor can load an image and contains several different tools and mechanics to view and adjust the content.",
-        themeColor: "#ffffff",
-        backgroundColor: "#ffffff",
+        themeColor: "#fe6c90",
+        backgroundColor: "#1a1a2e",
       },
     }),
     {

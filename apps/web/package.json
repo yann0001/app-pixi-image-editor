@@ -12,7 +12,8 @@
     "dev:e2e": "vite --port 4173 --strictPort",
     "lint": "eslint ./src",
     "lint:fix": "pnpm lint --fix",
-    "build": "tsc && vite build",
+    "generate:assets": "node scripts/generate-assets.mjs",
+    "build": "pnpm generate:assets && tsc && vite build",
     "deploy": "pnpm deploy:build && pnpm deploy:move",
     "deploy:build": "pnpm build",
     "deploy:move": "move-cli dist \"../../output/deployment/app\" --mkdirp",
@@ -59,6 +60,7 @@
     "tailwindcss": "catalog:tailwind",
     "typescript": "catalog:typescript",
     "vite": "catalog:vite",
+    "@vite-pwa/assets-generator": "catalog:vite",
     "vite-plugin-pwa": "catalog:vite",
     "workbox-window": "catalog:common"
   }
