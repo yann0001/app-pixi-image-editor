@@ -1,23 +1,29 @@
-import { defineConfig, minimalPreset } from "@vite-pwa/assets-generator/config";
+import { createRequire } from "node:module";
+import { dirname, resolve } from "node:path";
+import { defineConfig } from "@vite-pwa/assets-generator/config";
+
+const require = createRequire(import.meta.url);
+// Resolve the package root of @package/ui (main entry is src/index.ts, one level up → package root)
+const uiRoot = resolve(dirname(require.resolve("@package/ui")), "..");
+const svgPath = resolve(uiRoot, "src/Branding/assets/template-512x512.svg");
 
 export default defineConfig({
   preset: {
-    ...minimalPreset,
+    transparent: {
+      sizes: [192, 512],
+      favicons: [
+        [16, "favicon-16x16.png"],
+        [32, "favicon-32x32.png"],
+        [48, "favicon.ico"],
+        [180, "apple-touch-icon.png"],
+      ],
+    },
     maskable: {
-      sizes: [512],
-      resizeOptions: {
-        background: "#c952a8",
-      },
-      padding: 0.1,
+      sizes: [],
     },
     apple: {
-      sizes: [180],
-      resizeOptions: {
-        background: "#c952a8",
-      },
-      padding: 0.1,
+      sizes: [],
     },
   },
-  images: ["public/logo.svg"],
-  overrideAssets: true,
+  images: [svgPath],
 });
