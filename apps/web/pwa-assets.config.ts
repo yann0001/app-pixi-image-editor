@@ -18,6 +18,6 @@ export default defineConfig({
       padding: 0.1,
     },
   },
-  images: ["src/assets/images/logo/Logo.svg"],
+  images: ["public/logo.svg"],
   overrideAssets: true,
 });
