@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import { ArrowDownTrayIcon, FolderPlusIcon } from "@heroicons/react/24/solid";
+import LogoImageSrc from "@package/ui/Branding/assets/template-512x512.svg";
 import { useIntl } from "react-intl";
-import LogoImageSrc from "~/assets/images/logo/logo.svg";
 import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
 import { ThemeSwitch } from "~/components/actions/theme-switch/ThemeSwitch";
 

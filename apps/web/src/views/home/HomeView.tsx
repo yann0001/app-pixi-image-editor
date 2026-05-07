@@ -2,9 +2,9 @@ import type { ReactElement } from "react";
 import { AdjustmentsHorizontalIcon, ArrowsPointingOutIcon, PhotoIcon } from "@heroicons/react/24/outline";
 import type { SocialLinkProps } from "@package/ui";
 import { FullscreenLayout } from "@package/ui";
+import LogoImageSrc from "@package/ui/Branding/assets/template-512x512.svg";
 import { useIntl } from "react-intl";
 import { HomePageHeader } from "./HomePageHeader";
-import LogoImageSrc from "~/assets/images/logo/logo.svg";
 import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
 import { Dropzone } from "~/components/input/dropzone/Dropzone";
 
