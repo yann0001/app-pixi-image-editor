@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { useApplication } from "@pixi/react";
-import { useAtomValue } from "jotai";
 import { AdjustmentFilter, PixelateFilter } from "pixi-filters";
 import { BlurFilter, Container, type Filter, Sprite, Texture, Ticker } from "pixi.js";
 import { ZOOM_BASE } from "../atoms/viewport/ZoomConstants";
@@ -9,7 +8,6 @@ import { useStageImage } from "./UseStageImage";
 import { useStageSetup } from "./UseStageSetup";
 import { useStageViewport } from "./UseStageViewport";
 import { ViewportExtended } from "./ViewportExtended";
-import { themeModeAtom } from "~/core/theme/ThemeAtoms";
 
 export function PixiScene(): null {
   const { app, isInitialised } = useApplication();
@@ -17,7 +15,6 @@ export function PixiScene(): null {
   const filterContainerRef = useRef<Container | null>(null);
   const spriteRef = useRef<Sprite | null>(null);
 
-  const theme = useAtomValue(themeModeAtom);
   const { lock, scale, rotation, isRotated, zoom, minZoom, maxZoom, setZoom } = useStageViewport();
   const { imageUrl, imageWidth, imageHeight } = useStageImage();
   const { registerViewport } = useStageSetup();
@@ -147,13 +144,6 @@ export function PixiScene(): null {
     if (!viewport) return;
     viewport.setZoom(zoom / 100, true);
   }, [zoom]);
-
-  // Update renderer background color for dark/light theme
-  useEffect(() => {
-    const isDark = theme === "dark";
-    app.renderer.background.color = isDark ? 0x15191e : 0xffffff;
-    app.renderer.background.alpha = isDark ? 1 : 0;
-  }, [app, theme]);
 
   // Re-center when image dimensions change due to rotation
   useEffect(() => {
