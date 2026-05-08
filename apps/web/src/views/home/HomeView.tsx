@@ -4,7 +4,7 @@ import type { SocialLinkProps } from "@package/ui";
 import { FullscreenLayout } from "@package/ui";
 import LogoImageSrc from "@package/ui/Branding/assets/template-512x512.svg";
 import { useIntl } from "react-intl";
-import { HomePageHeader } from "./HomePageHeader";
+import { UploadHeader } from "./UploadHeader";
 import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
 import { Dropzone } from "~/components/input/dropzone/Dropzone";
 
@@ -19,7 +19,7 @@ export function HomeView({ themeSwitchProps, socialLinkProps = {}, onDrop }: Hom
 
   return (
     <FullscreenLayout footer className="home-bg" {...socialLinkProps}>
-      <HomePageHeader themeSwitchProps={themeSwitchProps} />
+      <UploadHeader themeSwitchProps={themeSwitchProps} />
       <div className="hero flex-1">
         <div className="hero-content flex-col gap-6 py-10 text-center">
           <figure className="hover-3d">

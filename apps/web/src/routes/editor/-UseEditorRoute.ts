@@ -11,7 +11,7 @@ import type { ErrorViewProps } from "~/views/error/ErrorView";
 
 export function useEditorRoute(): {
   fileUrl: string | null;
-  appDrawerProps: Omit<AppDrawerProps, "open" | "onClose">;
+  appDrawerProps: Omit<AppDrawerProps, "open" | "onClose" | "onAbout">;
   errorViewProps: ErrorViewProps;
 } {
   const navigate = useNavigate();

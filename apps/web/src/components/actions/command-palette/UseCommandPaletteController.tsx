@@ -7,6 +7,7 @@ import {
   ArrowsRightLeftIcon,
   ArrowsUpDownIcon,
   DocumentPlusIcon,
+  InformationCircleIcon,
   LockClosedIcon,
   MagnifyingGlassIcon,
   MagnifyingGlassMinusIcon,
@@ -22,6 +23,7 @@ import type { CommandPaletteProps } from "./CommandPalette";
 import { useCommandPalette } from "./UseCommandPalette";
 import { useCommandPaletteShortcut } from "./UseCommandPaletteShortcut";
 import { useCommandShortcuts } from "./UseCommandShortcuts";
+import { aboutModalOpenAtom } from "~/components/actions/about-modal/AboutModalAtoms";
 import { rotationControlAtom } from "~/components/editor/atoms/transform/RotationAtoms";
 import { scaleControlAtom } from "~/components/editor/atoms/transform/ScaleAtoms";
 import { fitScreenAtom } from "~/components/editor/atoms/viewport/FitScreenAtoms";
@@ -42,6 +44,7 @@ export function useCommandPaletteController(): CommandPaletteProps {
   const toggleLock = useSetAtom(lockControlAtom);
   const { isOpen, close } = useCommandPalette();
   const viewport = useAtomValue(viewportAtom);
+  const openAbout = useSetAtom(aboutModalOpenAtom);
 
   const fileGroup = intl.formatMessage({
     description: "CommandPaletteController: label - file group",
@@ -114,6 +117,23 @@ export function useCommandPaletteController(): CommandPaletteProps {
         },
       },
       {
+        id: "about",
+        label: intl.formatMessage({
+          description: "CommandPaletteController: label - about command",
+          defaultMessage: "About",
+          id: "Yu1Od1",
+        }),
+        description: intl.formatMessage({
+          description: "CommandPaletteController: caption - about command",
+          defaultMessage: "Show application information and version",
+          id: "OLLL/i",
+        }),
+        group: fileGroup,
+        keywords: ["about", "info", "version", "help"],
+        icon: <InformationCircleIcon className="h-4 w-4" />,
+        perform: () => openAbout(true),
+      },
+      {
         id: "zoom-in",
         label: intl.formatMessage({
           description: "CommandPaletteController: label - zoom in command",
@@ -123,7 +143,7 @@ export function useCommandPaletteController(): CommandPaletteProps {
         group: viewGroup,
         keywords: ["zoom", "in", "bigger", "enlarge"],
         icon: <MagnifyingGlassPlusIcon className="h-4 w-4" />,
-        shortcut: { mod: true, key: "=" },
+        shortcut: { mod: true, key: "+" },
         perform: () => zoomControl("increase"),
       },
       {
@@ -299,6 +319,7 @@ export function useCommandPaletteController(): CommandPaletteProps {
     scaleControl,
     toggleLock,
     viewport,
+    openAbout,
     fileGroup,
     viewGroup,
     transformGroup,

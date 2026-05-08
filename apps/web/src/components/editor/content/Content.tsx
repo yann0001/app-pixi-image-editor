@@ -8,7 +8,7 @@ import { ToolbarToolsController } from "../toolbar/toolbar-tools/ToolbarToolsCon
 import { ToolbarZoomController } from "../toolbar/toolbar-zoom/ToolbarZoomController";
 
 export interface ContentProps {
-  appdrawerProps: Omit<AppDrawerProps, "open" | "onClose">;
+  appdrawerProps: Omit<AppDrawerProps, "open" | "onClose" | "onAbout">;
 }
 
 export function Content({ appdrawerProps }: ContentProps): ReactElement {
