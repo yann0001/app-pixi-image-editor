@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { useAtom, useSetAtom } from "jotai";
 import { viewportAtom } from "../atoms/viewport/ViewportAtoms";
 import { viewportChangeAtomEffect } from "../atoms/viewport/ViewportChangeAtoms";
+import { canvasResizeAtomEffect } from "../atoms/viewport/ViewportResizeAtoms";
 import { viewportSetupAtomEffect } from "../atoms/viewport/ViewportSetupAtoms";
 import type { ViewportExtended } from "./ViewportExtended";
 
@@ -10,6 +11,7 @@ export function useStageSetup(): {
 } {
   useAtom(viewportChangeAtomEffect);
   useAtom(viewportSetupAtomEffect);
+  useAtom(canvasResizeAtomEffect);
 
   const setViewport = useSetAtom(viewportAtom);
 
