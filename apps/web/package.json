@@ -1,6 +1,6 @@
 {
   "name": "@app/web",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "Pixi Image Editor built with React, TypeScript, and Vite",
   "license": "MIT",
   "private": true,
@@ -24,6 +24,7 @@
     "@fontsource/rubik": "catalog:design",
     "@heroicons/react": "catalog:design",
     "@package/react": "workspace:*",
+    "@package/storybook": "workspace:*",
     "@package/ui": "workspace:*",
     "@pixi/react": "catalog:pixi",
     "@tanstack/react-router": "catalog:tanstack",

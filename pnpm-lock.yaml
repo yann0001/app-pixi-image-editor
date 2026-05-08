@@ -417,6 +417,9 @@ importers:
       '@package/react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@package/storybook':
+        specifier: workspace:*
+        version: link:../../packages/storybook
       '@package/ui':
         specifier: workspace:*
         version: link:../../packages/ui
