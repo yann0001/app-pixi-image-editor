@@ -10,9 +10,13 @@ export const canvasResizeAtomEffect = atomEffect((get, set) => {
 
   const { app } = viewport;
 
-  const onResize = (): void => {
+  function onResize(): void {
     const newW = app.screen.width;
     const newH = app.screen.height;
+
+    if (viewport === null) {
+      return;
+    }
 
     // Capture the world point currently at the screen center before resize shifts it
     const oldCenter = viewport.center;
@@ -37,7 +41,7 @@ export const canvasResizeAtomEffect = atomEffect((get, set) => {
       // Unlocked (free pan) or custom zoom: preserve the world point that was centered
       viewport.moveCenter(oldCenter.x, oldCenter.y);
     }
-  };
+  }
 
   app.renderer.on("resize", onResize);
   return () => {

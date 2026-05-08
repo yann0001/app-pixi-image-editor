@@ -24,9 +24,11 @@ export function PixiScene(): null {
   // This prevents full scene re-initialization on every filter/scale/rotation change.
   const scaleRef = useRef(scale);
   const rotationRef = useRef(rotation);
+  const lockRef = useRef(lock);
   const filterParamsRef = useRef({ blur, brightness, contrast, saturation, pixelate, red, green, blue });
   scaleRef.current = scale;
   rotationRef.current = rotation;
+  lockRef.current = lock;
   filterParamsRef.current = { blur, brightness, contrast, saturation, pixelate, red, green, blue };
 
   // Initialize scene when app is ready and image dimensions are known
@@ -43,6 +45,9 @@ export function PixiScene(): null {
     });
 
     viewport.drag().pinch().wheel().decelerate();
+    if (lockRef.current) {
+      viewport.clamp({ direction: "all", underflow: "center" });
+    }
     viewport.fit();
     viewport.moveCenter(imageWidth / 2, imageHeight / 2);
     viewport.clampZoom({
