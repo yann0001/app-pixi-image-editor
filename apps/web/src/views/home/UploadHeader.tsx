@@ -24,7 +24,7 @@ export function UploadHeader({ themeSwitchProps }: UploadHeaderProps): ReactElem
             aria-label={intl.formatMessage({
               description: "UploadHeader - about button aria-label",
               defaultMessage: "About",
-              id: "lBOOtk",
+              id: "UlBRMm",
             })}
           >
             <InformationCircleIcon className="h-5 w-5" />

@@ -1,7 +1,7 @@
 import { useAtomValue, useSetAtom } from "jotai";
-import { aboutModalOpenAtom } from "~/components/actions/about-modal/AboutModalAtoms";
 import { appMenuStateAtom, toggleAppMenuState } from "../../atoms/menu/AppMenuAtoms";
 import type { AppDrawerProps } from "./AppDrawer";
+import { aboutModalOpenAtom } from "~/components/actions/about-modal/AboutModalAtoms";
 
 export function useAppDrawer(): Pick<AppDrawerProps, "open" | "onClose" | "onAbout"> {
   const drawerState = useAtomValue(appMenuStateAtom);

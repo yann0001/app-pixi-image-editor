@@ -105,7 +105,7 @@ export function AppDrawer({
                     {intl.formatMessage({
                       description: "AppDrawer - about menu item",
                       defaultMessage: "About",
-                      id: "lBOOtk",
+                      id: "0kMb+6",
                     })}
                   </button>
                 </li>

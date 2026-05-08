@@ -32,7 +32,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps): ReactElement {
       aria-label={intl.formatMessage({
         description: "AboutModal - dialog aria-label",
         defaultMessage: "About",
-        id: "fI+STE",
+        id: "U2CDtU",
       })}
       onCancel={(e) => {
         e.preventDefault();
@@ -46,7 +46,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps): ReactElement {
           aria-label={intl.formatMessage({
             description: "AboutModal - close button label",
             defaultMessage: "Close",
-            id: "rbrahO",
+            id: "cn4KkJ",
           })}
         >
           <XMarkIcon className="h-4 w-4" />
@@ -60,7 +60,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps): ReactElement {
               {intl.formatMessage({
                 description: "AboutModal - app name heading",
                 defaultMessage: "Pixi Image Editor",
-                id: "SXjMH5",
+                id: "cXPMD7",
               })}
             </h2>
             {version && (
@@ -69,7 +69,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps): ReactElement {
                   {
                     description: "AboutModal - version badge",
                     defaultMessage: "Version {version}",
-                    id: "f8CBGO",
+                    id: "S+UDGW",
                   },
                   { version }
                 )}
@@ -81,7 +81,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps): ReactElement {
             {intl.formatMessage({
               description: "AboutModal - app description",
               defaultMessage: "A browser-based image editor built with PixiJS and React.",
-              id: "dMBf3e",
+              id: "dMUeJN",
             })}
           </p>
         </div>

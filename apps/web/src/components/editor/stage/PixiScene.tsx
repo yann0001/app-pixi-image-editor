@@ -3,13 +3,13 @@ import { useApplication } from "@pixi/react";
 import { useAtomValue } from "jotai";
 import { AdjustmentFilter, PixelateFilter } from "pixi-filters";
 import { BlurFilter, Container, type Filter, Sprite, Texture, Ticker } from "pixi.js";
-import { themeModeAtom } from "~/core/theme/ThemeAtoms";
 import { ZOOM_BASE } from "../atoms/viewport/ZoomConstants";
 import { useStageFilters } from "./UseStageFilters";
 import { useStageImage } from "./UseStageImage";
 import { useStageSetup } from "./UseStageSetup";
 import { useStageViewport } from "./UseStageViewport";
 import { ViewportExtended } from "./ViewportExtended";
+import { themeModeAtom } from "~/core/theme/ThemeAtoms";
 
 export function PixiScene(): null {
   const { app, isInitialised } = useApplication();

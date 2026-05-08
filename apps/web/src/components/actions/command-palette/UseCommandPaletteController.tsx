@@ -121,12 +121,12 @@ export function useCommandPaletteController(): CommandPaletteProps {
         label: intl.formatMessage({
           description: "CommandPaletteController: label - about command",
           defaultMessage: "About",
-          id: "N4SEZQ",
+          id: "Yu1Od1",
         }),
         description: intl.formatMessage({
           description: "CommandPaletteController: caption - about command",
           defaultMessage: "Show application information and version",
-          id: "E8oSdV",
+          id: "OLLL/i",
         }),
         group: fileGroup,
         keywords: ["about", "info", "version", "help"],
