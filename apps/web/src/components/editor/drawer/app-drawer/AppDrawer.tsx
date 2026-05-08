@@ -1,8 +1,7 @@
-import { useState, type ReactElement } from "react";
+import { type ReactElement } from "react";
 import { ArrowDownTrayIcon, FolderPlusIcon, InformationCircleIcon } from "@heroicons/react/24/solid";
 import LogoImageSrc from "@package/ui/Branding/assets/template-512x512.svg";
 import { useIntl } from "react-intl";
-import { AboutModal } from "~/components/actions/about-modal/AboutModal";
 import type { ThemeSwitchProps } from "~/components/actions/theme-switch/ThemeSwitch";
 import { ThemeSwitch } from "~/components/actions/theme-switch/ThemeSwitch";
 
@@ -12,11 +11,18 @@ export interface AppDrawerProps {
   onClose: () => void;
   onNewImage: () => void;
   onSaveImage: () => void;
+  onAbout: () => void;
 }
 
-export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveImage }: AppDrawerProps): ReactElement {
+export function AppDrawer({
+  open,
+  themeSwitchProps,
+  onClose,
+  onNewImage,
+  onSaveImage,
+  onAbout,
+}: AppDrawerProps): ReactElement {
   const intl = useIntl();
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
 
   function handleNewImage(): void {
     onNewImage();
@@ -94,11 +100,7 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
             <div className="border-base-200 border-t px-5 py-4">
               <ul className="menu w-full gap-1 p-0 pb-3">
                 <li>
-                  <button
-                    className="drawer-button"
-                    data-testid="editor__drawer-about"
-                    onClick={() => setIsAboutOpen(true)}
-                  >
+                  <button className="drawer-button" data-testid="editor__drawer-about" onClick={onAbout}>
                     <InformationCircleIcon className="h-5 w-5 shrink-0" />
                     {intl.formatMessage({
                       description: "AppDrawer - about menu item",
@@ -124,7 +126,6 @@ export function AppDrawer({ open, themeSwitchProps, onClose, onNewImage, onSaveI
           </div>
         </div>
       </div>
-      <AboutModal isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
     </>
   );
 }

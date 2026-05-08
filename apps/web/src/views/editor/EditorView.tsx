@@ -1,5 +1,6 @@
 import type { ComponentProps, ReactElement } from "react";
 import { FullscreenLayout } from "@package/ui";
+import { AboutModalController } from "~/components/actions/about-modal/AboutModalController";
 import { CommandPaletteController } from "~/components/actions/command-palette/CommandPaletteController";
 import { ImageEditor } from "~/components/editor/Editor";
 import { ErrorView } from "~/views/error/ErrorView";
@@ -30,6 +31,7 @@ export function EditorView({ onBack, ...props }: EditorViewProps): ReactElement 
           ErrorComponent={() => <ErrorView onBack={handleBack} />}
         />
       </FullscreenLayout>
+      <AboutModalController />
       <CommandPaletteController />
     </>
   );
