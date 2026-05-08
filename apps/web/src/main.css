@@ -25,6 +25,15 @@ body {
   font-family: var(--font-sans);
 }
 
+/* ── Full-width drawer menu button ── */
+.drawer-button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+}
+
 /* ── Home page mesh-gradient background ── */
 .home-bg {
   background-image:
