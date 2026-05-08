@@ -143,7 +143,7 @@ export function useCommandPaletteController(): CommandPaletteProps {
         group: viewGroup,
         keywords: ["zoom", "in", "bigger", "enlarge"],
         icon: <MagnifyingGlassPlusIcon className="h-4 w-4" />,
-        shortcut: { mod: true, key: "=" },
+        shortcut: { mod: true, key: "+" },
         perform: () => zoomControl("increase"),
       },
       {
