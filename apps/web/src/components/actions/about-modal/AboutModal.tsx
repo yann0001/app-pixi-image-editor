@@ -23,7 +23,7 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps): ReactElement {
     }
   }, [isOpen]);
 
-  const version = import.meta.env.VITE_APP_VERSION as string | undefined;
+  const version = (import.meta.env.VITE_APP_VERSION as string | undefined) ?? "dev";
 
   return (
     <dialog
@@ -63,18 +63,16 @@ export function AboutModal({ isOpen, onClose }: AboutModalProps): ReactElement {
                 id: "cXPMD7",
               })}
             </h2>
-            {version && (
-              <span className="badge badge-soft badge-primary text-xs" data-testid="about-modal__version">
-                {intl.formatMessage(
-                  {
-                    description: "AboutModal - version badge",
-                    defaultMessage: "Version {version}",
-                    id: "S+UDGW",
-                  },
-                  { version }
-                )}
-              </span>
-            )}
+            <span className="badge badge-soft badge-primary text-xs" data-testid="about-modal__version">
+              {intl.formatMessage(
+                {
+                  description: "AboutModal - version badge",
+                  defaultMessage: "Version {version}",
+                  id: "S+UDGW",
+                },
+                { version }
+              )}
+            </span>
           </div>
 
           <p className="text-base-content/60 max-w-xs text-sm">
