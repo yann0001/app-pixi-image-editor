@@ -34,7 +34,7 @@ export function createPWAConfig(options: PWAViteConfigOptions = {}): UserConfig 
       "pwa-512x512.png",
       "maskable-icon-512x512.png",
       "screenshot-desktop.png",
-      "screenshot-mobile.png",
+      "screenshot-phone.png",
     ],
     injectRegister: "auto",
     manifest: {
@@ -69,7 +69,7 @@ export function createPWAConfig(options: PWAViteConfigOptions = {}): UserConfig 
           label: "App on Desktop",
         },
         {
-          src: "screenshot-mobile.png",
+          src: "screenshot-phone.png",
           sizes: "435x608",
           type: "image/png",
           form_factor: "narrow",
