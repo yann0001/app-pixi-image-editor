@@ -20,7 +20,7 @@ const config: StorybookConfig = {
     defaultName: "Docs",
   },
   framework: "@storybook/react-vite",
-  stories: ["../node_modules/@package/ui/src/**/*.stories.tsx", "../node_modules/@app/web/src/**/*.stories.tsx"],
+  stories: ["../../web/src/**/*.stories.@(ts|tsx)", "../../../packages/ui/src/**/*.stories.tsx"],
 };
 
 export default config;
