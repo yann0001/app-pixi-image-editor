@@ -78,14 +78,14 @@ catalogs:
     '@mocks-server/admin-api-paths': 5.0.0
     '@mocks-server/main': 4.1.0
   playwright:
-    '@playwright/test': 1.59.1
-    playwright: 1.59.1
+    '@playwright/test': 1.60.0
+    playwright: 1.60.0
   react19:
     '@types/react': 19.2.14
     '@types/react-dom': 19.2.3
     babel-plugin-react-compiler: 19.1.0-rc.3
-    react: 19.2.5
-    react-dom: 19.2.5
+    react: 19.2.6
+    react-dom: 19.2.6
   storybook:
     '@storybook/addon-a11y': 10.3.5
     '@storybook/addon-docs': 10.3.5
