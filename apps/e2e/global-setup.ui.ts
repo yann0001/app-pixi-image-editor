@@ -24,7 +24,7 @@ function waitForPort(port: number, host: string, timeout: number): Promise<void>
 
 async function globalSetup(): Promise<void> {
   const timeout = 60_000;
-  await waitForPort(4173, "localhost", timeout);
+  await waitForPort(4203, "localhost", timeout);
 }
 
 export default globalSetup;

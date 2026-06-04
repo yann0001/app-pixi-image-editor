@@ -8,8 +8,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "clean:all": "pnpm clean node_modules",
-    "dev": "vite --open",
-    "dev:e2e": "vite --port 4173 --strictPort",
+    "dev": "vite --port 5203 --open",
+    "dev:e2e": "vite --port 4203 --strictPort",
     "lint": "eslint ./src",
     "lint:fix": "pnpm lint --fix",
     "generate:assets": "generate-assets public",
@@ -18,7 +18,7 @@
     "deploy:build": "pnpm build",
     "deploy:move": "move-cli dist \"../../output/deployment/app\" --mkdirp",
     "test:e2e:env": "pnpm dev:e2e",
-    "test:e2e:env:coverage": "cross-env VITE_COVERAGE=true vite --port 4173 --strictPort"
+    "test:e2e:env:coverage": "cross-env VITE_COVERAGE=true vite --port 4203 --strictPort"
   },
   "dependencies": {
     "@fontsource/rubik": "catalog:design",

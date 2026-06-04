@@ -18,10 +18,10 @@ This file is the **rules** layer (what you must do); `docs/` is the **reference*
 
 ### Development
 
-- `pnpm dev` - Start development server (main app at https://localhost:5173)
+- `pnpm dev` - Start development server (main app at https://localhost:5203)
 - `pnpm dev:mocks` - Start development with mock server enabled (API on port 3100)
 - `pnpm dev:mocks:cli` - Start standalone mock server only
-- `pnpm storybook` - Start Storybook development server (localhost:9050)
+- `pnpm storybook` - Start Storybook development server (localhost:9080)
 
 ### Build & Deploy
 
@@ -83,21 +83,21 @@ root/
 
 ### `apps/web` — Main React Application
 
-- **URL**: https://localhost:5173 (HTTPS enabled via `vite-plugin-basic-ssl`)
+- **URL**: https://localhost:5203 (HTTPS enabled via `vite-plugin-basic-ssl`)
 - **Stack**: React 19, React Router v6, Vite 8, Tailwind CSS 4, HeroUI, React Query 5, Jotai 2, React Intl 10, Zod 4, TanStack Form
 - **Features**: PWA (workbox), offline support, dark/light theme, i18n, hash-based routing, lazy-loaded routes
 
 ### `apps/storybook` — Component Documentation
 
-- **URL**: localhost:9050
+- **URL**: localhost:9080
 - **Stack**: Storybook 10 with React/Vite builder, addon-vitest (Playwright/Chromium), addon-a11y, addon-docs, addon-mcp
-- **MCP Server**: Available at `http://localhost:9050/mcp` when Storybook dev server is running (enables AI agents to query component docs and run story tests)
+- **MCP Server**: Available at `http://localhost:9080/mcp` when Storybook dev server is running (enables AI agents to query component docs and run story tests)
 - **Stories**: Pulls from `@app/web` and `@package/ui` node_modules
 
 ### `apps/e2e` — End-to-End Tests
 
 - **Stack**: Playwright 1.58, Chromium, JUnit XML reporter
-- **Config**: `apps/e2e/playwright.config.ts`, base URL https://localhost:5173, 1 retry, screenshots/traces on failure
+- **Config**: `apps/e2e/playwright.config.ts`, base URL https://localhost:4203, 1 retry, screenshots/traces on failure
 
 ### `apps/mock` — API Mock Server
 
@@ -288,7 +288,7 @@ Files prefixed with `-` are ignored by TanStack Router. Detail: [`docs/patterns.
 
 - Located in `apps/e2e/src/**/*.spec.ts`
 - Dev server auto-starts on test run
-- Uses `https://localhost:5173` with HTTPS certificate bypass
+- Uses `https://localhost:4203` with HTTPS certificate bypass
 - Screenshots, videos, and traces captured on failure
 - Run: `pnpm test:e2e`
 

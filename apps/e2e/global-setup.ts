@@ -7,7 +7,7 @@ async function globalSetup() {
   const page = await browser.newPage();
 
   // Wait for the server to respond
-  await page.goto("https://localhost:4173", {
+  await page.goto("https://localhost:4203", {
     waitUntil: "domcontentloaded",
     timeout: 30000,
   });
