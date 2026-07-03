@@ -12,9 +12,9 @@
     "@config/typescript": "workspace:*",
     "@design/tokens": "workspace:*",
     "@package/storybook": "workspace:*",
-    "@tailwindcss/aspect-ratio": "catalog:tailwind",
-    "@tailwindcss/typography": "catalog:tailwind",
+    "@tailwindcss/aspect-ratio": "catalog:dev",
+    "@tailwindcss/typography": "catalog:dev",
     "daisyui": "^5.0.0",
-    "tailwindcss": "catalog:tailwind"
+    "tailwindcss": "catalog:dev"
   }
 }
