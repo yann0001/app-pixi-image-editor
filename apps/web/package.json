@@ -45,6 +45,8 @@
     "@config/eslint": "workspace:*",
     "@config/typescript": "workspace:*",
     "@config/vite": "workspace:*",
+    "@storybook/react-vite": "catalog:dev",
+    "eslint": "catalog:dev",
     "@tailwindcss/typography": "catalog:dev",
     "@tailwindcss/vite": "catalog:dev",
     "@tanstack/router-plugin": "catalog:tanstack",
