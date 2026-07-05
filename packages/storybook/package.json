@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "@config/eslint": "workspace:*",
-    "@config/typescript": "workspace:*"
+    "@config/typescript": "workspace:*",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react"
   }
 }
